@@ -1,0 +1,220 @@
+<!-- 
+  * Created in PhpStorm.
+  * Project Name: alpha
+  * User: woliul
+  * Date: 7/1/23
+  * Time: 4:28 AM
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Explorer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .navbar {
+      background-color: #4285f4;
+      color: #fff;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      margin-top: 20px;
+    }
+
+    .jumbotron {
+      background-image: url('https://source.unsplash.com/1600x900/?travel');
+      background-size: cover;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    .jumbotron h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .jumbotron p {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+
+    .card {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+
+
+
+
+
+    .footer {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#"><i class="fas fa-globe"></i> Travel Explorer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-search"></i> Explore</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-plane"></i> Flights</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-hotel"></i> Hotels</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-car"></i> Car Rentals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-map-marker-alt"></i> Destinations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-tag"></i> Deals</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome to Travel Explorer</h1>
+    <p>Discover new destinations, plan your trips, and explore the world with us.</p>
+    <form class="search-bar">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search for flights, hotels, or destinations">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button"><i class="fas fa-search"></i> Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Popular Destinations</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://source.unsplash.com/800x600/?paris" class="card-img-top" alt="Destination 1">
+        <div class="card-body">
+          <h5 class="card-title">Paris, France</h5>
+          <p class="card-text">Experience the romance and charm of the City of Light.</p>
+          <a href="#" class="btn btn-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://source.unsplash.com/800x600/?tokyo" class="card-img-top" alt="Destination 2">
+        <div class="card-body">
+          <h5 class="card-title">Tokyo, Japan</h5>
+          <p class="card-text">Discover the bustling streets and ancient traditions of Tokyo.</p>
+          <a href="#" class="btn btn-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://source.unsplash.com/800x600/?newyork" class="card-img-top" alt="Destination 3">
+        <div class="card-body">
+          <h5 class="card-title">New York City, USA</h5>
+          <p class="card-text">Immerse yourself in the vibrant energy of the Big Apple.</p>
+          <a href="#" class="btn btn-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Top Deals</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://source.unsplash.com/800x600/?bali" class="card-img-top" alt="Deal 1">
+        <div class="card-body">
+          <h5 class="card-title">Flight + Hotel to Bali</h5>
+          <p class="card-text">Experience the beauty and tranquility of Bali with our special package.</p>
+          <a href="#" class="btn btn-primary">View Deal</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://source.unsplash.com/800x600/?cancun" class="card-img-top" alt="Deal 2">
+        <div class="card-body">
+          <h5 class="card-title">All-Inclusive Resort in Cancun</h5>
+          <p class="card-text">Enjoy a luxurious and worry-free vacation in Cancun.</p>
+          <a href="#" class="btn btn-primary">View Deal</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://source.unsplash.com/800x600/?europe" class="card-img-top" alt="Deal 3">
+        <div class="card-body">
+          <h5 class="card-title">European Cruise Package</h5>
+          <p class="card-text">Embark on a breathtaking journey through Europe's iconic cities.</p>
+          <a href="#" class="btn btn-primary">View Deal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2023 Travel Explorer. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

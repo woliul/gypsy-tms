@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.54 27.9">
+    <defs>
+        <style>.cls-1{fill:#fff;}</style>
+    </defs>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <g id="hotel-icon">
+                <path id="Path_38" data-name="Path 38" class="cls-1"
+                      d="M8.32,0V27.9h3.89V23.18H11V21.44h9.64v1.74H19.05V27.9h4.17V0ZM20.61,17.55H11V15.8h9.63Zm0-5.14H11V10.67h9.63Zm0-5.13H11V5.54h9.63Z"/>
+                <path id="Path_39" data-name="Path 39" class="cls-1"
+                      d="M0,27.9V9.58H6.58V15.8H3.29v1.74H6.58v3.9H3.29v1.75H6.58V27.9Z"/>
+                <rect id="Rectangle_8" data-name="Rectangle 8" class="cls-1" x="13.95" y="23.18" width="3.36"
+                      height="4.72"/>
+                <path id="Path_40" data-name="Path 40" class="cls-1"
+                      d="M25,27.9V23.18h3.29V21.44H25v-3.9h3.29V15.8H25V9.58h6.58V27.9Z"/>
+            </g>
+        </g>
+    </g>
+</svg>

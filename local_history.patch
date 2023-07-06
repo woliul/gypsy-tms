@@ -1,0 +1,109 @@
+Index: gypsy/functions.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/functions.php b/gypsy/functions.php
+--- a/gypsy/functions.php	
++++ b/gypsy/functions.php	(date 1688639284282)
+@@ -1,41 +1,41 @@
+ <?php
+ 
+ include_once 'func.php';
+-?>
+-<?php
+ 
+ session_start(); // Start the session
+-    if (isset($_GET['destination'])) {
+-        $destination = $_GET['destination'];
++if (isset($_GET['destination'])) {
++    $destination = $_GET['destination'];
+ 
+-        // Run the SQL query using the destination value
+-        $avquery = "SELECT user_rating FROM review WHERE destination = '" . $destination . "'";
++    // Run the SQL query using the destination value
++    $avquery = "SELECT user_rating FROM review WHERE destination = '" . $destination . "'";
+ 
+-        // Execute the query
+-        $avresult = $conn->query($avquery);
++    // Execute the query
++    $avresult = $conn->query($avquery);
+ 
+-        // Check if the query was successful
+-        if ($avresult && $avresult->num_rows > 0) {
+-            $avratings = array();
+-            while ($row = $avresult->fetch_assoc()) {
+-                $avratings[] = $row['user_rating'];
+-            }
++    // Check if the query was successful
++    if ($avresult && $avresult->num_rows > 0) {
++        $avratings = array();
++        while ($row = $avresult->fetch_assoc()) {
++            $avratings[] = $row['user_rating'];
++        }
+ 
+-            $totalrating = count($avratings);
+-            $averageRating = $totalrating > 0 ? array_sum($avratings) / $totalrating : 0;
+-            $avgrating = number_format($averageRating, 1);
++        $totalrating = count($avratings);
++        $averageRating = $totalrating > 0 ? array_sum($avratings) / $totalrating : 0;
++        $avgrating = number_format($averageRating, 1);
+ 
+-            // Store the average rating count in session
+-            $_SESSION['averageRating'] = $avgrating;
++        // Store the average rating count in session
++        $_SESSION['averageRating'] = $avgrating;
+ 
+-            // Display the average rating count
+-//            echo "Average Rating: " . $formattedAverageRating;
+-//            echo "Average Rating: " . $avresult;
+-        } else {
+-            echo "No details found for the destination.";
+-        }
++        // Debug Display the average rating count
++        //echo "Average Rating: " . $formattedAverageRating;
++        //echo "Average Rating: " . $totalrating;
++
++
++    } else {
++        echo "No details found for the destination.";
++    }
+ 
+-    }
++}
+ 
+ // Display the Total rating with percentage count
+ $totratingCounts = array(1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0);
+@@ -70,7 +70,7 @@
+     echo "Error executing query: " . $conn->error;
+ }
+ 
+-// Output the counts and percentages
++// Debug Output the counts and percentages
+ /*
+     for ($i = 1; $i <= 5; $i++) {
+         echo "Count of " . $i . "-star: " . $totratingCounts[$i] . "<br>";
+@@ -80,23 +80,5 @@
+ // Close the connection
+ mysqli_close($conn);
+ 
+-// debug test data
+-/*
+-// Fetch all the ratings
+-$avquery = "SELECT user_rating FROM review";
+-$avresult = mysqli_query($conn, $avquery);
+-$ratings = array();
+-if (mysqli_num_rows($avresult) > 0) {
+-    while ($row = mysqli_fetch_assoc($avresult)) {
+-        $ratings[] = $row['user_rating'];
+-    }
+-}
+-$totalrating = count($ratings);
+-// Calculate the average rating count
+-$countRating = count($ratings) > 0 ? array_sum($ratings) / count($ratings) : 0;
+-$avgrating = number_format($countRating, 1);
+-
+-// Display the average rating count
+-//echo "Average Rating: " . $avgrating;*/
+ ?>
+ 

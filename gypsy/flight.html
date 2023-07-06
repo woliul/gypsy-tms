@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Travel Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Flights</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hotels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Car Rentals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Vacation Packages</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Welcome to our Travel Website!</h1>
+                <p>Find the best flight deals, book hotels, rent cars, and explore amazing vacation packages.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Search for Flights</h2>
+                <p>Start planning your trip by searching for the best flight options.</p>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputFrom">From</label>
+                            <input type="text" class="form-control" id="inputFrom" placeholder="Departure City">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputTo">To</label>
+                            <input type="text" class="form-control" id="inputTo" placeholder="Destination City">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputDeparture">Departure</label>
+                            <input type="date" class="form-control" id="inputDeparture">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputReturn">Return</label>
+                            <input type="date" class="form-control" id="inputReturn">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search Flights</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Featured Destinations</h2>
+                <p>Explore some of the most popular travel destinations.</p>
+                <div class="card-deck">
+                    <div class="card">
+                        <img src="destination1.jpg" class="card-img-top" alt="Destination 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Destination 1</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="destination2.jpg" class="card-img-top" alt="Destination 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Destination 2</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="destination3.jpg" class="card-img-top" alt="Destination 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Destination 3</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>&copy; 2023 Travel Website. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

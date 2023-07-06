@@ -1,0 +1,2508 @@
+Index: gypsy/assets/css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/assets/css/style.css b/gypsy/assets/css/style.css
+--- a/gypsy/assets/css/style.css	
++++ b/gypsy/assets/css/style.css	(date 1688684333705)
+@@ -125,4 +125,14 @@
+     text-align: center;
+     font-size: 14px;
+     color: #666;
+-}
+\ No newline at end of file
++}
++
++/*Update*/
++.colp {
++    padding-right: 0px;
++    padding-left: 0px;
++}
++
++.colm {
++    margin-bottom: 0px;
++}
+Index: gypsy/nav.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/nav.php b/gypsy/nav.php
+--- a/gypsy/nav.php	
++++ b/gypsy/nav.php	(date 1688683861490)
+@@ -13,7 +13,8 @@
+ <nav class="navbar navbar-expand-lg navbar-dark">
+     <div class="container">
+         <a class="navbar-brand" href="index.php">
+-            <img src="assets/img/logo/gypsy-white.svg" alt="Travel Explorer Logo" class="logo-img" style="width: 125px;">
++            <img src="assets/img/logo/gypsy-white.svg" alt="Travel Explorer Logo" class="logo-img"
++                 style="width: 125px;">
+         </a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+@@ -22,19 +23,135 @@
+         <div class="collapse navbar-collapse" id="navbarNav">
+             <ul class="navbar-nav ml-auto">
+                 <li class="nav-item">
+-                    <a class="nav-link" href="index.php" style="color: white"><i class="fas fa-search"></i> Explore</a>
++                    <a class="nav-link" href="index.php" style="color: white"><i class="fas fa-search"></i> Home</a>
+                 </li>
+-                <li class="nav-item">
+-                    <a class="nav-link" href="flights.php" style="color: white"><i class="fas fa-plane"></i> Flights</a>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="exploreDropdown" role="button"
++                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-globe"></i> Explore
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="exploreDropdown">
++                        <a class="dropdown-item" href="destinations.php">Destinations</a>
++                        <div class="dropdown-submenu">
++                            <a class="dropdown-item dropdown-toggle" href="#">Continent</a>
++                            <div class="dropdown-menu">
++                                <a class="dropdown-item" href="country.php">Country</a>
++                                <div class="dropdown-submenu">
++                                    <a class="dropdown-item dropdown-toggle" href="#">City</a>
++                                    <div class="dropdown-menu">
++                                        <a class="dropdown-item" href="city.php">City</a>
++                                    </div>
++                                </div>
++                            </div>
++                        </div>
++                        <a class="dropdown-item" href="top-attractions.php">Top attractions</a>
++                        <a class="dropdown-item" href="beach-destinations.php">Beach destinations</a>
++                        <a class="dropdown-item" href="mountain-destinations.php">Mountain destinations</a>
++                        <a class="dropdown-item" href="cultural-experiences.php">Cultural experiences</a>
++                        <a class="dropdown-item" href="adventure-travel.php">Adventure travel</a>
++                        <a class="dropdown-item" href="food-and-drink.php">Food and drink</a>
++                        <a class="dropdown-item" href="events-and-festivals.php">Events and festivals</a>
++                    </div>
+                 </li>
+-                <li class="nav-item">
+-                    <a class="nav-link" href="hotels.php" style="color: white"><i class="fas fa-hotel"></i> Hotels</a>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="planDropdown" role="button" data-toggle="dropdown"
++                       aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-map"></i> Plan
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="planDropdown">
++                        <a class="dropdown-item" href="trip-planner.php">Trip planner</a>
++                        <a class="dropdown-item" href="travel-tips.php">Travel tips and advice</a>
++
++                        <a class="dropdown-item" href="visa-passport.php">Visa and passport information</a>
++                        <a class="dropdown-item" href="travel-insurance.php">Travel insurance</a>
++                        <a class="dropdown-item" href="packing-checklist.php">Packing checklist</a>
++                        <a class="dropdown-item" href="currency-converter.php">Currency converter</a>
++                        <a class="dropdown-item" href="weather-forecasts.php">Weather forecasts</a>
++                        <div class="dropdown-submenu">
++                            <a class="dropdown-item dropdown-toggle" href="#">Transportation options</a>
++                            <div class="dropdown-menu">
++                                <a class="dropdown-item" href="flights.php">Flights</a>
++                                <a class="dropdown-item" href="trains.php">Trains</a>
++                                <a class="dropdown-item" href="buses.php">Buses</a>
++                                <a class="dropdown-item" href="rental-cars.php">Rental cars</a>
++                            </div>
++                        </div>
++                    </div>
+                 </li>
+-                <li class="nav-item">
+-                    <a class="nav-link" href="rentals.php" style="color: white"><i class="fas fa-car"></i> Car Rentals</a>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="accommodationDropdown" role="button"
++                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-hotel"></i> Accommodation
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="accommodationDropdown">
++                        <div class="dropdown-submenu">
++                            <a class="dropdown-item dropdown-toggle" href="#">Hotels</a>
++                            <div class="dropdown-menu">
++                                <a class="dropdown-item" href="search-location.php">Search by location</a>
++                                <a class="dropdown-item" href="search-price.php">Search by price range</a>
++                                <a class="dropdown-item" href="search-amenities.php">Search by amenities</a>
++                            </div>
++                        </div>
++                        <a class="dropdown-item" href="vacation-rentals.php">Vacation rentals</a>
++                        <a class="dropdown-item" href="hostels-guesthouses.php">Hostels and guesthouses</a>
++                        <a class="dropdown-item" href="resorts-spas.php">Resorts and spas</a>
++                        <a class="dropdown-item" href="luxury-accommodations.php">Luxury accommodations</a>
++                    </div>
++                </li>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="thingsToDoDropdown" role="button"
++                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-map-signs"></i> Things to Do
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="thingsToDoDropdown">
++                        <div class="dropdown-submenu">
++                            <a class="dropdown-item dropdown-toggle" href="#">Tours and activities</a>
++                            <div class="dropdown-menu">
++                                <a class="dropdown-item" href="city-tours.php">City tours</a>
++                                <a class="dropdown-item" href="outdoor-activities.php">Outdoor activities</a>
++                                <a class="dropdown-item" href="cultural-experiences.php">Cultural experiences</a>
++                                <a class="dropdown-item" href="food-drink-tours.php">Food and drink tours</a>
++                                <a class="dropdown-item" href="sightseeing-cruises.php">Sightseeing cruises</a>
++                            </div>
++                        </div>
++
++                        <a class="dropdown-item" href="attractions-landmarks.php">Attractions and landmarks</a>
++                        <a class="dropdown-item" href="museums-galleries.php">Museums and art galleries</a>
++                        <a class="dropdown-item" href="shopping-markets.php">Shopping and markets</a>
++                        <a class="dropdown-item" href="nightlife-entertainment.php">Nightlife and entertainment</a>
++                    </div>
+                 </li>
+-                <li class="nav-item">
+-                    <a class="nav-link" href="offer.php" style="color: white"><i class="fas fa-tag"></i> Deals</a>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
++                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-book"></i> Travel Resources
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
++                        <a class="dropdown-item" href="travel-blogs-articles.php">Travel blogs and articles</a>
++                        <a class="dropdown-item" href="travel-forums-communities.php">Travel forums and communities</a>
++                        <a class="dropdown-item" href="travel-apps-tools.php">Travel apps and tools</a>
++                        <a class="dropdown-item" href="travel-photography-inspiration.php">Travel photography and
++                            inspiration</a>
++                        <a class="dropdown-item" href="travel-safety-tips.php">Travel safety tips</a>
++                        <a class="dropdown-item" href="travel-health-wellness.php">Travel health and wellness</a>
++                        <a class="dropdown-item" href="traveling-with-pets.php">Traveling with pets</a>
++                        <a class="dropdown-item" href="sustainable-travel.php">Sustainable travel</a>
++                    </div>
++                </li>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button"
++                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-info-circle"></i> About Us
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="aboutUsDropdown">
++                        <a class="dropdown-item" href="company-info.php">Company information</a>
++                        <a class="dropdown-item" href="mission-values.php">Mission and values</a>
++                        <a class="dropdown-item" href="meet-the-team.php">Meet the team</a>
++                        <a class="dropdown-item" href="contact-us.php">Contact us</a>
++                        <a class="dropdown-item" href="faqs.php">FAQs</a>
++                        <a class="dropdown-item" href="terms-conditions.php">Terms and conditions</a>
++                        <a class="dropdown-item" href="privacy-policy.php">Privacy policy</a>
++                    </div>
+                 </li>
+             </ul>
+         </div>
+Index: gypsy/city.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/city.php b/gypsy/city.php
+new file mode 100644
+--- /dev/null	(date 1688683861407)
++++ b/gypsy/city.php	(date 1688683861407)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/faqs.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/faqs.php b/gypsy/faqs.php
+new file mode 100644
+--- /dev/null	(date 1688683861484)
++++ b/gypsy/faqs.php	(date 1688683861484)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/buses.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/buses.php b/gypsy/buses.php
+new file mode 100644
+--- /dev/null	(date 1688683861434)
++++ b/gypsy/buses.php	(date 1688683861434)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/navall.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/navall.php b/gypsy/navall.php
+new file mode 100644
+--- /dev/null	(date 1688683861486)
++++ b/gypsy/navall.php	(date 1688683861486)
+@@ -0,0 +1,163 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/1/23
++ * Time: 5:12 AM
++ */
++?>
++<!-- nav.php -->
++
++<body>
++
++<nav class="navbar navbar-expand-lg navbar-dark">
++    <div class="container">
++        <a class="navbar-brand" href="index.php">
++            <img src="assets/img/logo/gypsy-white.svg" alt="Travel Explorer Logo" class="logo-img"
++                 style="width: 125px;">
++        </a>
++        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
++                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
++            <span class="navbar-toggler-icon"></span>
++        </button>
++        <div class="collapse navbar-collapse" id="navbarNav">
++            <ul class="navbar-nav ml-auto">
++                <li class="nav-item">
++                    <a class="nav-link" href="index.php" style="color: white"><i class="fas fa-search"></i> Home</a>
++                </li>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="exploreDropdown" role="button"
++                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-globe"></i> Explore
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="exploreDropdown">
++                        <a class="dropdown-item" href="destinations.php">Destinations</a>
++                        <div class="dropdown-submenu">
++                            <a class="dropdown-item dropdown-toggle" href="#">Continent</a>
++                            <div class="dropdown-menu">
++                                <a class="dropdown-item" href="country.php">Country</a>
++                                <div class="dropdown-submenu">
++                                    <a class="dropdown-item dropdown-toggle" href="#">City</a>
++                                    <div class="dropdown-menu">
++                                        <a class="dropdown-item" href="city.php">City</a>
++                                    </div>
++                                </div>
++                            </div>
++                        </div>
++                        <a class="dropdown-item" href="top-attractions.php">Top attractions</a>
++                        <a class="dropdown-item" href="beach-destinations.php">Beach destinations</a>
++                        <a class="dropdown-item" href="mountain-destinations.php">Mountain destinations</a>
++                        <a class="dropdown-item" href="cultural-experiences.php">Cultural experiences</a>
++                        <a class="dropdown-item" href="adventure-travel.php">Adventure travel</a>
++                        <a class="dropdown-item" href="food-and-drink.php">Food and drink</a>
++                        <a class="dropdown-item" href="events-and-festivals.php">Events and festivals</a>
++                    </div>
++                </li>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="planDropdown" role="button" data-toggle="dropdown"
++                       aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-map"></i> Plan
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="planDropdown">
++                        <a class="dropdown-item" href="trip-planner.php">Trip planner</a>
++                        <a class="dropdown-item" href="travel-tips.php">Travel tips and advice</a>
++
++                        <a class="dropdown-item" href="visa-passport.php">Visa and passport information</a>
++                        <a class="dropdown-item" href="travel-insurance.php">Travel insurance</a>
++                        <a class="dropdown-item" href="packing-checklist.php">Packing checklist</a>
++                        <a class="dropdown-item" href="currency-converter.php">Currency converter</a>
++                        <a class="dropdown-item" href="weather-forecasts.php">Weather forecasts</a>
++                        <div class="dropdown-submenu">
++                            <a class="dropdown-item dropdown-toggle" href="#">Transportation options</a>
++                            <div class="dropdown-menu">
++                                <a class="dropdown-item" href="flights.php">Flights</a>
++                                <a class="dropdown-item" href="trains.php">Trains</a>
++                                <a class="dropdown-item" href="buses.php">Buses</a>
++                                <a class="dropdown-item" href="rental-cars.php">Rental cars</a>
++                            </div>
++                        </div>
++                    </div>
++                </li>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="accommodationDropdown" role="button"
++                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-hotel"></i> Accommodation
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="accommodationDropdown">
++                        <div class="dropdown-submenu">
++                            <a class="dropdown-item dropdown-toggle" href="#">Hotels</a>
++                            <div class="dropdown-menu">
++                                <a class="dropdown-item" href="search-location.php">Search by location</a>
++                                <a class="dropdown-item" href="search-price.php">Search by price range</a>
++                                <a class="dropdown-item" href="search-amenities.php">Search by amenities</a>
++                            </div>
++                        </div>
++                        <a class="dropdown-item" href="vacation-rentals.php">Vacation rentals</a>
++                        <a class="dropdown-item" href="hostels-guesthouses.php">Hostels and guesthouses</a>
++                        <a class="dropdown-item" href="resorts-spas.php">Resorts and spas</a>
++                        <a class="dropdown-item" href="luxury-accommodations.php">Luxury accommodations</a>
++                    </div>
++                </li>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="thingsToDoDropdown" role="button"
++                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-map-signs"></i> Things to Do
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="thingsToDoDropdown">
++                        <div class="dropdown-submenu">
++                            <a class="dropdown-item dropdown-toggle" href="#">Tours and activities</a>
++                            <div class="dropdown-menu">
++                                <a class="dropdown-item" href="city-tours.php">City tours</a>
++                                <a class="dropdown-item" href="outdoor-activities.php">Outdoor activities</a>
++                                <a class="dropdown-item" href="cultural-experiences.php">Cultural experiences</a>
++                                <a class="dropdown-item" href="food-drink-tours.php">Food and drink tours</a>
++                                <a class="dropdown-item" href="sightseeing-cruises.php">Sightseeing cruises</a>
++                            </div>
++                        </div>
++
++                        <a class="dropdown-item" href="attractions-landmarks.php">Attractions and landmarks</a>
++                        <a class="dropdown-item" href="museums-galleries.php">Museums and art galleries</a>
++                        <a class="dropdown-item" href="shopping-markets.php">Shopping and markets</a>
++                        <a class="dropdown-item" href="nightlife-entertainment.php">Nightlife and entertainment</a>
++                    </div>
++                </li>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
++                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-book"></i> Travel Resources
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
++                        <a class="dropdown-item" href="travel-blogs-articles.php">Travel blogs and articles</a>
++                        <a class="dropdown-item" href="travel-forums-communities.php">Travel forums and communities</a>
++                        <a class="dropdown-item" href="travel-apps-tools.php">Travel apps and tools</a>
++                        <a class="dropdown-item" href="travel-photography-inspiration.php">Travel photography and
++                            inspiration</a>
++                        <a class="dropdown-item" href="travel-safety-tips.php">Travel safety tips</a>
++                        <a class="dropdown-item" href="travel-health-wellness.php">Travel health and wellness</a>
++                        <a class="dropdown-item" href="traveling-with-pets.php">Traveling with pets</a>
++                        <a class="dropdown-item" href="sustainable-travel.php">Sustainable travel</a>
++                    </div>
++                </li>
++                <li class="nav-item dropdown">
++                    <a class="nav-link dropdown-toggle" href="#" id="aboutUsDropdown" role="button"
++                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++                        <i class="fas fa-info-circle"></i> About Us
++                    </a>
++                    <div class="dropdown-menu" aria-labelledby="aboutUsDropdown">
++                        <a class="dropdown-item" href="company-info.php">Company information</a>
++                        <a class="dropdown-item" href="mission-values.php">Mission and values</a>
++                        <a class="dropdown-item" href="meet-the-team.php">Meet the team</a>
++                        <a class="dropdown-item" href="contact-us.php">Contact us</a>
++                        <a class="dropdown-item" href="faqs.php">FAQs</a>
++                        <a class="dropdown-item" href="terms-conditions.php">Terms and conditions</a>
++                        <a class="dropdown-item" href="privacy-policy.php">Privacy policy</a>
++                    </div>
++                </li>
++            </ul>
++        </div>
++    </div>
++</nav>
++
++
++
+Index: gypsy/navold.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/navold.php b/gypsy/navold.php
+new file mode 100644
+--- /dev/null	(date 1688542245276)
++++ b/gypsy/navold.php	(date 1688542245276)
+@@ -0,0 +1,43 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/1/23
++ * Time: 5:12 AM
++ */
++?>
++<!-- nav.php -->
++
++<body>
++<nav class="navbar navbar-expand-lg navbar-dark">
++    <div class="container">
++        <a class="navbar-brand" href="index.php">
++            <img src="assets/img/logo/gypsy-white.svg" alt="Travel Explorer Logo" class="logo-img" style="width: 125px;">
++        </a>
++        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
++                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
++            <span class="navbar-toggler-icon"></span>
++        </button>
++        <div class="collapse navbar-collapse" id="navbarNav">
++            <ul class="navbar-nav ml-auto">
++                <li class="nav-item">
++                    <a class="nav-link" href="index.php" style="color: white"><i class="fas fa-search"></i> Explore</a>
++                </li>
++                <li class="nav-item">
++                    <a class="nav-link" href="flights.php" style="color: white"><i class="fas fa-plane"></i> Flights</a>
++                </li>
++                <li class="nav-item">
++                    <a class="nav-link" href="hotels.php" style="color: white"><i class="fas fa-hotel"></i> Hotels</a>
++                </li>
++                <li class="nav-item">
++                    <a class="nav-link" href="rentals.php" style="color: white"><i class="fas fa-car"></i> Car Rentals</a>
++                </li>
++                <li class="nav-item">
++                    <a class="nav-link" href="offer.php" style="color: white"><i class="fas fa-tag"></i> Deals</a>
++                </li>
++            </ul>
++        </div>
++    </div>
++</nav>
++
+Index: gypsy/rtlist.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/rtlist.php b/gypsy/rtlist.php
+new file mode 100644
+--- /dev/null	(date 1688642962048)
++++ b/gypsy/rtlist.php	(date 1688642962048)
+@@ -0,0 +1,175 @@
++<?php
++//Review List page
++
++session_start();
++include_once '../database.php';
++if (isset($_SESSION['user']) != "") {
++
++}
++$username = $_SESSION['user'];
++include 'header.php';
++?>
++
++<div class="container"><div class="mt-3 pl-3 pr-3 pt-3 pb-3 card"><div class="col-12"><div class="row">
++                <!-- customer reviews -->
++                <div class="col-lg-5">
++                    <div class="mb-6">
++                        <h4 class="mb-3">Customer reviews</h4>
++                        <span class="font-14"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star text-warning"></i></span>
++                        <span class="h5">4.6 out of 5</span>
++                        <p class="font-14">2,693 customer ratings</p>
++                        <div class="row align-items-center mb-1 ">
++                            <div class="col-md-2 col-2 pr-0">
++                                <div class="font-12 text-dark">5 Star</div>
++                            </div>
++                            <div class="col-md-8 col-8 pr-2">
++                                <div class="progress" style="height: 8px;">
++                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
++                                </div>
++                            </div>
++                            <div class="col-md-2 col-2">
++                                <div class="font-12 text-primary">78%</div>
++                            </div>
++                        </div>
++                        <div class="row align-items-center mb-1">
++                            <div class="col-md-2 col-2 pr-0">
++                                <div class="font-12 text-dark">4 Star</div>
++                            </div>
++                            <div class="col-md-8 col-8 pr-2">
++                                <div class="progress" style="height: 8px;">
++                                    <div class="progress-bar bg-warning" role="progressbar" style="width:12%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"></div>
++                                </div>
++                            </div>
++                            <div class="col-md-2 col-2">
++                                <div class="font-12 text-primary">12%</div>
++                            </div>
++                        </div>
++                        <div class="row align-items-center mb-1">
++                            <div class="col-md-2 col-2 pr-0">
++                                <div class="font-12 text-dark">3 Star</div>
++                            </div>
++                            <div class="col-md-8 col-8 pr-2">
++                                <div class="progress" style="height: 8px;">
++                                    <div class="progress-bar bg-warning" role="progressbar" style="width:5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
++                                </div>
++                            </div>
++                            <div class="col-md-2 col-2">
++                                <div class="font-12 text-primary">5%</div>
++                            </div>
++                        </div>
++                        <div class="row align-items-center mb-1">
++                            <div class="col-md-2 col-2 pr-0">
++                                <div class="font-12 text-dark">2 Star</div>
++                            </div>
++                            <div class="col-md-8 col-8 pr-2">
++                                <div class="progress" style="height: 8px;">
++                                    <div class="progress-bar bg-warning" role="progressbar" style="width:2%" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
++                                </div>
++                            </div>
++                            <div class="col-md-2 col-2">
++                                <div class="font-12 text-primary">2%</div>
++                            </div>
++                        </div>
++                        <div class="row align-items-center mb-2">
++                            <div class="col-md-2 col-2 pr-0">
++                                <div class="font-12 text-dark">1 Star</div>
++                            </div>
++                            <div class="col-md-8 col-8 pr-2">
++                                <div class="progress" style="height: 8px;">
++                                    <div class="progress-bar bg-warning" role="progressbar" style="width:1%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
++                                </div>
++                            </div>
++                            <div class="col-md-2 col-2">
++                                <div class="font-12 text-primary">1%</div>
++                            </div>
++                        </div>
++                    </div>
++                    <div>
++                        <h4 class="mb-1">Review this book</h4>
++                        <p class="font-12 ">Share your thoughts with other customers</p>
++                        <a href="#!" class="btn btn-primary btn-block">Write A Review</a>
++                    </div>
++                </div>
++                <!-- customer reviews list -->
++                <div class="pl-4 col-lg-7 col-md-5 col-10">
++                    <div class="d-flex align-items-center justify-content-between mb-4">
++                        <div>
++                            <h4 class="mb-0">Ratings &amp; Reviews</h4>
++                        </div>
++                        <div>
++                            <select class="custom-select">
++                                <option selected="">Sort on</option>
++                                <option value="Most Recent">Most Recent</option>
++                                <option value="Relevant">Relevant</option>
++                                <option value="Newest">Newest</option>
++                            </select>
++                        </div>
++                    </div>
++                    <!-- reviews -->
++                    <div class="mb-4 pb-4 border-bottom">
++                        <div class="d-flex mb-3 align-items-center">
++                            <img src="assets/img/av.jpg" alt="" class="rounded-circle avatar-lg" style="width: 50px;">
++                            <div class="ml-2">
++                                <h5 class="mb-1">
++                                    Sohail Rahman
++                                    <i class="text-primary fas fa-check-circle" style="font-size: 12px; vertical-align: middle;"></i></h5>
++                                <p class="font-12 mb-0">
++                                    <span>Kolkata</span> <span>October 03,2020</span>
++                                </p>
++                            </div>
++                        </div>
++                        <div class="mb-2">
++                            <span class="font-14 mr-2"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star text-warning"></i></span>
++                            <span class="h5">Highly recommended</span>
++                        </div>
++                        <p>
++                            Nice book explained in simplified method surely it will bring meaningful changes in your lifestyle which you always dream off Beat of luck coach you are great continue bringing great stuffs
++                        </p>
++                        <a href="#!" class="btn btn-light btn-sm mr-2">Helpful</a>
++                        <a href="#!" class="text-inherit font-14">Report abuse</a>
++                    </div>
++                    <!-- reviews -->
++                    <div class="mb-4 pb-4 border-bottom">
++                        <div class="d-flex mb-3 align-items-center">
++                            <img src="assets/img/av.jpg" alt="" class="rounded-circle avatar-lg" style="width: 50px;">
++                            <div class="ml-2">
++                                <h5 class="mb-1">
++                                    Riya Poojary
++                                    <i class="text-primary fas fa-check-circle" style="font-size: 12px;vertical-align: middle;">
++                                    </i>
++                                </h5>
++                                <p class="font-12 mb-0">
++                                    <span>Ahmedabad</span> <span>4 Month ago</span>
++                                </p>
++                            </div>
++                        </div>
++                        <div class="mb-2">
++                            <span class="font-14 mr-2">
++                                <i class="fas fa-star text-warning"></i>
++                                <i class="fas fa-star text-warning"></i>
++                                <i class="fas fa-star text-warning"></i>
++                                <i class="fas fa-star text-warning"></i>
++                                <i class="far fa-star text-warning"></i></span>
++                            <span class="h5">Beware!! This Book can change your Life :)</span>
++                        </div>
++                        <p>
++                            And I absolutely mean it what I said in Headline of my comment.
++                            I have been following coach.com from very long. His one article
++                            has absolutely changed my life, imagine what this book can offer
++                            to you. If you are looking to form a new habit you have to read
++                            this Book.
++                        </p>
++                        <a href="#!" class="btn btn-light btn-sm mr-2">Helpful</a>
++                        <a href="#!" class="text-inherit font-14">Report abuse</a>
++                    </div>
++                    <!-- reviews -->
++
++                    <a href="#!" class="btn btn-primary">Read More Reviews</a>
++                </div>
++            </div></div></div>
++</div>
++<?php
++// Include the footer
++include 'footer.php';
++?>
++
+Index: gypsy/trains.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/trains.php b/gypsy/trains.php
+new file mode 100644
+--- /dev/null	(date 1688683861485)
++++ b/gypsy/trains.php	(date 1688683861485)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/country.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/country.php b/gypsy/country.php
+new file mode 100644
+--- /dev/null	(date 1688683861428)
++++ b/gypsy/country.php	(date 1688683861428)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/functest.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/functest.php b/gypsy/functest.php
+new file mode 100644
+--- /dev/null	(date 1688635332597)
++++ b/gypsy/functest.php	(date 1688635332597)
+@@ -0,0 +1,32 @@
++<?php
++include_once 'func.php';
++session_start(); // Start the session
++
++    // Run the SQL query using the destination value
++    $avquery = "SELECT user_rating FROM review WHERE destination = '" . $destination . "'";
++
++    // Execute the query
++    $avresult = $conn->query($avquery);
++
++    // Check if the query was successful
++    if ($avresult && $avresult->num_rows > 0) {
++        $avratings = array();
++        while ($row = $avresult->fetch_assoc()) {
++            $avratings[] = $row['user_rating'];
++        }
++
++        $totalRating = count($avratings);
++        $averageRating = $totalRating > 0 ? array_sum($avratings) / $totalRating : 0;
++        $formattedAverageRating = number_format($averageRating, 1);
++
++        // Store the average rating count in session
++        $_SESSION['averageRating'] = $formattedAverageRating;
++
++        // Display the average rating count
++        /* echo "Average Rating: " . $formattedAverageRating;
++         echo "Average Rating: " . $avresult;*/
++    }
++?>
++
++
++
+Index: gypsy/city-tours.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/city-tours.php b/gypsy/city-tours.php
+new file mode 100644
+--- /dev/null	(date 1688683861418)
++++ b/gypsy/city-tours.php	(date 1688683861418)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/contact-us.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/contact-us.php b/gypsy/contact-us.php
+new file mode 100644
+--- /dev/null	(date 1688683861423)
++++ b/gypsy/contact-us.php	(date 1688683861423)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/rental-cars.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/rental-cars.php b/gypsy/rental-cars.php
+new file mode 100644
+--- /dev/null	(date 1688683861451)
++++ b/gypsy/rental-cars.php	(date 1688683861451)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/travel-tips.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/travel-tips.php b/gypsy/travel-tips.php
+new file mode 100644
+--- /dev/null	(date 1688683861475)
++++ b/gypsy/travel-tips.php	(date 1688683861475)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/company-info.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/company-info.php b/gypsy/company-info.php
+new file mode 100644
+--- /dev/null	(date 1688683861482)
++++ b/gypsy/company-info.php	(date 1688683861482)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/destinations.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/destinations.php b/gypsy/destinations.php
+new file mode 100644
+--- /dev/null	(date 1688683861483)
++++ b/gypsy/destinations.php	(date 1688683861483)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/resorts-spas.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/resorts-spas.php b/gypsy/resorts-spas.php
+new file mode 100644
+--- /dev/null	(date 1688683861453)
++++ b/gypsy/resorts-spas.php	(date 1688683861453)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/search-price.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/search-price.php b/gypsy/search-price.php
+new file mode 100644
+--- /dev/null	(date 1688683861458)
++++ b/gypsy/search-price.php	(date 1688683861458)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/trip-planner.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/trip-planner.php b/gypsy/trip-planner.php
+new file mode 100644
+--- /dev/null	(date 1688683861477)
++++ b/gypsy/trip-planner.php	(date 1688683861477)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/meet-the-team.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/meet-the-team.php b/gypsy/meet-the-team.php
+new file mode 100644
+--- /dev/null	(date 1688683861438)
++++ b/gypsy/meet-the-team.php	(date 1688683861438)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/visa-passport.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/visa-passport.php b/gypsy/visa-passport.php
+new file mode 100644
+--- /dev/null	(date 1688683861480)
++++ b/gypsy/visa-passport.php	(date 1688683861480)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/food-and-drink.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/food-and-drink.php b/gypsy/food-and-drink.php
+new file mode 100644
+--- /dev/null	(date 1688683861431)
++++ b/gypsy/food-and-drink.php	(date 1688683861431)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/mission-values.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/mission-values.php b/gypsy/mission-values.php
+new file mode 100644
+--- /dev/null	(date 1688683861440)
++++ b/gypsy/mission-values.php	(date 1688683861440)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/privacy-policy.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/privacy-policy.php b/gypsy/privacy-policy.php
+new file mode 100644
+--- /dev/null	(date 1688683861450)
++++ b/gypsy/privacy-policy.php	(date 1688683861450)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/search-location.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/search-location.php b/gypsy/search-location.php
+new file mode 100644
+--- /dev/null	(date 1688683861456)
++++ b/gypsy/search-location.php	(date 1688683861456)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/top-attractions.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/top-attractions.php b/gypsy/top-attractions.php
+new file mode 100644
+--- /dev/null	(date 1688683861464)
++++ b/gypsy/top-attractions.php	(date 1688683861464)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/adventure-travel.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/adventure-travel.php b/gypsy/adventure-travel.php
+new file mode 100644
+--- /dev/null	(date 1688683861430)
++++ b/gypsy/adventure-travel.php	(date 1688683861430)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/food-drink-tours.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/food-drink-tours.php b/gypsy/food-drink-tours.php
+new file mode 100644
+--- /dev/null	(date 1688683861414)
++++ b/gypsy/food-drink-tours.php	(date 1688683861414)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/search-amenities.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/search-amenities.php b/gypsy/search-amenities.php
+new file mode 100644
+--- /dev/null	(date 1688683861455)
++++ b/gypsy/search-amenities.php	(date 1688683861455)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/shopping-markets.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/shopping-markets.php b/gypsy/shopping-markets.php
+new file mode 100644
+--- /dev/null	(date 1688683861459)
++++ b/gypsy/shopping-markets.php	(date 1688683861459)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/terms-conditions.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/terms-conditions.php b/gypsy/terms-conditions.php
+new file mode 100644
+--- /dev/null	(date 1688683861463)
++++ b/gypsy/terms-conditions.php	(date 1688683861463)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/travel-insurance.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/travel-insurance.php b/gypsy/travel-insurance.php
+new file mode 100644
+--- /dev/null	(date 1688683861471)
++++ b/gypsy/travel-insurance.php	(date 1688683861471)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/vacation-rentals.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/vacation-rentals.php b/gypsy/vacation-rentals.php
+new file mode 100644
+--- /dev/null	(date 1688683861479)
++++ b/gypsy/vacation-rentals.php	(date 1688683861479)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/museums-galleries.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/museums-galleries.php b/gypsy/museums-galleries.php
+new file mode 100644
+--- /dev/null	(date 1688683861442)
++++ b/gypsy/museums-galleries.php	(date 1688683861442)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/packing-checklist.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/packing-checklist.php b/gypsy/packing-checklist.php
+new file mode 100644
+--- /dev/null	(date 1688683861448)
++++ b/gypsy/packing-checklist.php	(date 1688683861448)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/travel-apps-tools.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/travel-apps-tools.php b/gypsy/travel-apps-tools.php
+new file mode 100644
+--- /dev/null	(date 1688683861466)
++++ b/gypsy/travel-apps-tools.php	(date 1688683861466)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/weather-forecasts.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/weather-forecasts.php b/gypsy/weather-forecasts.php
+new file mode 100644
+--- /dev/null	(date 1688683861481)
++++ b/gypsy/weather-forecasts.php	(date 1688683861481)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/beach-destinations.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/beach-destinations.php b/gypsy/beach-destinations.php
+new file mode 100644
+--- /dev/null	(date 1688683861410)
++++ b/gypsy/beach-destinations.php	(date 1688683861410)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/currency-converter.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/currency-converter.php b/gypsy/currency-converter.php
+new file mode 100644
+--- /dev/null	(date 1688683861426)
++++ b/gypsy/currency-converter.php	(date 1688683861426)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/outdoor-activities.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/outdoor-activities.php b/gypsy/outdoor-activities.php
+new file mode 100644
+--- /dev/null	(date 1688683861447)
++++ b/gypsy/outdoor-activities.php	(date 1688683861447)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/sustainable-travel.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/sustainable-travel.php b/gypsy/sustainable-travel.php
+new file mode 100644
+--- /dev/null	(date 1688683861462)
++++ b/gypsy/sustainable-travel.php	(date 1688683861462)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/travel-safety-tips.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/travel-safety-tips.php b/gypsy/travel-safety-tips.php
+new file mode 100644
+--- /dev/null	(date 1688683861474)
++++ b/gypsy/travel-safety-tips.php	(date 1688683861474)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/hostels-guesthouses.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/hostels-guesthouses.php b/gypsy/hostels-guesthouses.php
+new file mode 100644
+--- /dev/null	(date 1688683861436)
++++ b/gypsy/hostels-guesthouses.php	(date 1688683861436)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/sightseeing-cruises.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/sightseeing-cruises.php b/gypsy/sightseeing-cruises.php
+new file mode 100644
+--- /dev/null	(date 1688683861461)
++++ b/gypsy/sightseeing-cruises.php	(date 1688683861461)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/traveling-with-pets.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/traveling-with-pets.php b/gypsy/traveling-with-pets.php
+new file mode 100644
+--- /dev/null	(date 1688683861476)
++++ b/gypsy/traveling-with-pets.php	(date 1688683861476)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/cultural-experiences.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/cultural-experiences.php b/gypsy/cultural-experiences.php
+new file mode 100644
+--- /dev/null	(date 1688683861433)
++++ b/gypsy/cultural-experiences.php	(date 1688683861433)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/events-and-festivals.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/events-and-festivals.php b/gypsy/events-and-festivals.php
+new file mode 100644
+--- /dev/null	(date 1688683861421)
++++ b/gypsy/events-and-festivals.php	(date 1688683861421)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/attractions-landmarks.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/attractions-landmarks.php b/gypsy/attractions-landmarks.php
+new file mode 100644
+--- /dev/null	(date 1688683861424)
++++ b/gypsy/attractions-landmarks.php	(date 1688683861424)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/luxury-accommodations.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/luxury-accommodations.php b/gypsy/luxury-accommodations.php
+new file mode 100644
+--- /dev/null	(date 1688683861437)
++++ b/gypsy/luxury-accommodations.php	(date 1688683861437)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/mountain-destinations.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/mountain-destinations.php b/gypsy/mountain-destinations.php
+new file mode 100644
+--- /dev/null	(date 1688683861441)
++++ b/gypsy/mountain-destinations.php	(date 1688683861441)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/travel-blogs-articles.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/travel-blogs-articles.php b/gypsy/travel-blogs-articles.php
+new file mode 100644
+--- /dev/null	(date 1688683861467)
++++ b/gypsy/travel-blogs-articles.php	(date 1688683861467)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/travel-health-wellness.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/travel-health-wellness.php b/gypsy/travel-health-wellness.php
+new file mode 100644
+--- /dev/null	(date 1688683861470)
++++ b/gypsy/travel-health-wellness.php	(date 1688683861470)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/nightlife-entertainment.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/nightlife-entertainment.php b/gypsy/nightlife-entertainment.php
+new file mode 100644
+--- /dev/null	(date 1688683861445)
++++ b/gypsy/nightlife-entertainment.php	(date 1688683861445)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/travel-forums-communities.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/travel-forums-communities.php b/gypsy/travel-forums-communities.php
+new file mode 100644
+--- /dev/null	(date 1688683861468)
++++ b/gypsy/travel-forums-communities.php	(date 1688683861468)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/travel-photography-inspiration.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gypsy/travel-photography-inspiration.php b/gypsy/travel-photography-inspiration.php
+new file mode 100644
+--- /dev/null	(date 1688683861472)
++++ b/gypsy/travel-photography-inspiration.php	(date 1688683861472)
+@@ -0,0 +1,8 @@
++<?php
++/**
++ * Created in PhpStorm.
++ * Project Name: alpha
++ * User: woliul
++ * Date: 7/7/23
++ * Time: 12:47 AM
++ */
+Index: gypsy/averaget.php
+===================================================================
+diff --git a/gypsy/averaget.php b/gypsy/averaget.php
+deleted file mode 100644
+--- a/gypsy/averaget.php	
++++ /dev/null	
+@@ -1,32 +0,0 @@
+-<?php
+-include_once 'func.php';
+-session_start(); // Start the session
+-
+-    // Run the SQL query using the destination value
+-    $avquery = "SELECT user_rating FROM review WHERE destination = '" . $destination . "'";
+-
+-    // Execute the query
+-    $avresult = $conn->query($avquery);
+-
+-    // Check if the query was successful
+-    if ($avresult && $avresult->num_rows > 0) {
+-        $avratings = array();
+-        while ($row = $avresult->fetch_assoc()) {
+-            $avratings[] = $row['user_rating'];
+-        }
+-
+-        $totalRating = count($avratings);
+-        $averageRating = $totalRating > 0 ? array_sum($avratings) / $totalRating : 0;
+-        $formattedAverageRating = number_format($averageRating, 1);
+-
+-        // Store the average rating count in session
+-        $_SESSION['averageRating'] = $formattedAverageRating;
+-
+-        // Display the average rating count
+-        /* echo "Average Rating: " . $formattedAverageRating;
+-         echo "Average Rating: " . $avresult;*/
+-    }
+-?>
+-
+-
+-
+Index: review/nav.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/review/nav.php b/review/nav.php
+--- a/review/nav.php	
++++ b/review/nav.php	(date 1688642524471)
+@@ -7,7 +7,7 @@
+  * Time: 5:12 AM
+  */
+ ?>
+-<!-- nav.php -->
++<!-- Navigation Menu Page -->
+ 
+ <body>
+ <nav class="navbar navbar-expand-lg navbar-dark">
+Index: review/head.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/review/head.php b/review/head.php
+--- a/review/head.php	
++++ b/review/head.php	(date 1688642787923)
+@@ -6,6 +6,7 @@
+  * Date: 7/1/23
+  * Time: 5:11 AM
+  */
++//Include
+ ?>
+ <!DOCTYPE html>
+ <html>
+Index: review/index.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/review/index.php b/review/index.php
+--- a/review/index.php	
++++ b/review/index.php	(date 1688642787919)
+@@ -1,4 +1,5 @@
+ <?php
++//index For Review Folder
+ session_start();
+ include_once 'func.php';
+ if (isset($_SESSION['user']) != "") {
+Index: review/header.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/review/header.php b/review/header.php
+--- a/review/header.php	
++++ b/review/header.php	(date 1688642787925)
+@@ -6,5 +6,6 @@
+  * Date: 7/1/23
+  * Time: 5:12 AM
+  */
++//Header Page Including Head Files (CSS, Fontawesome, Bootstrap, Style etc.) and Navigation
+ include 'head.php';
+ include 'nav.php';
+\ No newline at end of file
+Index: review/logout.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/review/logout.php b/review/logout.php
+--- a/review/logout.php	
++++ b/review/logout.php	(date 1688642549181)
+@@ -1,4 +1,5 @@
+ <?php
++//Logout Page
+ session_start();
+ 
+ // Unset all session variables
+Index: review/rtlist.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/review/rtlist.php b/review/rtlist.php
+--- a/review/rtlist.php	
++++ b/review/rtlist.php	(date 1688642414301)
+@@ -1,4 +1,6 @@
+ <?php
++//Review List page
++
+ session_start();
+ include_once '../database.php';
+ if (isset($_SESSION['user']) != "") {
+Index: review/rating_test.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/review/rating_test.php b/review/rating_test.php
+new file mode 100644
+--- /dev/null	(date 1688642442504)
++++ b/review/rating_test.php	(date 1688642442504)
+@@ -0,0 +1,196 @@
++<?php
++//Rating Test Page
++
++session_start();
++include_once '../database.php';
++if (isset($_SESSION['user']) != "") {
++
++}
++$username = $_SESSION['user'];
++include 'header.php';
++?>
++
++<!DOCTYPE HTML>
++<html>
++<head>
++    <meta charset="utf-8"/>
++    <title>Review & Rating</title>
++    <meta name="viewport" content="width=device-width, initial-scale=1"/>
++    <link rel="stylesheet" href="css/assets/css/library/bootstrap.min.css">
++    <link rel="stylesheet" href="css/assets/css/library/fontAwesome/all.css">
++    <link rel="stylesheet" href="css/assets/css/style.css">
++    <link rel="stylesheet" href="css/bootstrap.min.css"/>
++    <link rel="stylesheet" href="css/all.css"/>
++    <script src="js/jquery-3.6.0.min.js"></script>
++    <script src="js/popper.min.js"></script>
++    <script src="js/bootstrap.min.js"></script>
++    <style>
++        body {
++
++            background-color: #f7f6f6;
++        }
++
++        .card {
++
++            width: 350px;
++            border: none;
++            box-shadow: 5px 6px 6px 2px #e9ecef;
++            border-radius: 12px;
++        }
++
++        .circle-image img {
++
++            border: 6px solid #fff;
++            border-radius: 100%;
++            padding: 0px;
++            top: -28px;
++            position: relative;
++            width: 70px;
++            height: 70px;
++            border-radius: 100%;
++            z-index: 1;
++            background: #e7d184;
++            cursor: pointer;
++
++        }
++
++
++        .dot {
++            height: 18px;
++            width: 18px;
++            background-color: blue;
++            border-radius: 50%;
++            display: inline-block;
++            position: relative;
++            border: 3px solid #fff;
++            top: -48px;
++            left: 186px;
++            z-index: 1000;
++        }
++
++        .name {
++            margin-top: -21px;
++            font-size: 18px;
++        }
++
++
++        .fw-500 {
++            font-weight: 500 !important;
++        }
++
++
++        .start {
++
++            color: green;
++        }
++
++        .stop {
++            color: red;
++        }
++
++
++        .rate {
++
++            border-bottom-right-radius: 12px;
++            border-bottom-left-radius: 12px;
++
++        }
++
++
++        .rating {
++            display: flex;
++            flex-direction: row-reverse;
++            justify-content: center
++        }
++
++        .rating > input {
++            display: none
++        }
++
++        .rating > label {
++            position: relative;
++            width: 1em;
++            font-size: 30px;
++            font-weight: 300;
++            color: #FFD600;
++            cursor: pointer
++        }
++
++        .rating > label::before {
++            content: "\2605";
++            position: absolute;
++            opacity: 0
++        }
++
++        .rating > label:hover:before,
++        .rating > label:hover ~ label:before {
++            opacity: 1 !important
++        }
++
++        .rating > input:checked ~ label:before {
++            opacity: 1
++        }
++
++        .rating:hover > input:checked ~ label:before {
++            opacity: 0.4
++        }
++
++
++        .buttons {
++            top: 36px;
++            position: relative;
++        }
++
++
++        .rating-submit {
++            border-radius: 15px;
++            color: #fff;
++            height: 49px;
++        }
++
++
++        .rating-submit:hover {
++
++            color: #fff;
++        }
++    </style>
++</head>
++<body>
++<div class="container d-flex justify-content-center mt-5">
++    <div class="card text-center mb-5">
++        <div class="circle-image">
++            <img src="https://i.imgur.com/hczKIze.jpg" width="50">
++        </div>
++        <span class="dot"></span>
++        <span class="name mb-1 fw-500">Bryan Williams</span>
++        <small class="text-black-50">Tata Ace</small>
++        <small class="text-black-50 font-weight-bold">QP09AA9090</small>
++        <div class="location mt-4">
++            <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Ganesha Road, preet vihar new delhi</small> </span>
++            <span><i class="fa fa-map-marker stop mt-2"></i> <small class="text-truncate ml-2">Mandir Road, Mayur vihar, new delhi</small> </span>
++        </div>
++        <form action="process_rating.php" method="POST">
++            <div class="rate bg-success py-3 text-white mt-3">
++                <h6 class="mb-0">Rate your driver</h6>
++                <div class="rating">
++                    <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
++                    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
++                    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
++                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
++                    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
++                </div>
++                <div class="buttons px-4 mt-0">
++                    <button type="submit" class="btn btn-warning btn-block rating-submit">Submit</button>
++                </div>
++            </div>
++        </form>
++
++    </div>
++</div>
++</body>
++</html>
++<?php
++// Include the footer
++include 'footer.php';
++?>
++
+Index: review/rt.php
+===================================================================
+diff --git a/review/rt.php b/review/rt.php
+deleted file mode 100644
+--- a/review/rt.php	
++++ /dev/null	
+@@ -1,194 +0,0 @@
+-<?php
+-session_start();
+-include_once '../database.php';
+-if (isset($_SESSION['user']) != "") {
+-
+-}
+-$username = $_SESSION['user'];
+-include 'header.php';
+-?>
+-
+-<!DOCTYPE HTML>
+-<html>
+-<head>
+-    <meta charset="utf-8"/>
+-    <title>Review & Rating</title>
+-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+-    <link rel="stylesheet" href="css/assets/css/library/bootstrap.min.css">
+-    <link rel="stylesheet" href="css/assets/css/library/fontAwesome/all.css">
+-    <link rel="stylesheet" href="css/assets/css/style.css">
+-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+-    <link rel="stylesheet" href="css/all.css"/>
+-    <script src="js/jquery-3.6.0.min.js"></script>
+-    <script src="js/popper.min.js"></script>
+-    <script src="js/bootstrap.min.js"></script>
+-    <style>
+-        body {
+-
+-            background-color: #f7f6f6;
+-        }
+-
+-        .card {
+-
+-            width: 350px;
+-            border: none;
+-            box-shadow: 5px 6px 6px 2px #e9ecef;
+-            border-radius: 12px;
+-        }
+-
+-        .circle-image img {
+-
+-            border: 6px solid #fff;
+-            border-radius: 100%;
+-            padding: 0px;
+-            top: -28px;
+-            position: relative;
+-            width: 70px;
+-            height: 70px;
+-            border-radius: 100%;
+-            z-index: 1;
+-            background: #e7d184;
+-            cursor: pointer;
+-
+-        }
+-
+-
+-        .dot {
+-            height: 18px;
+-            width: 18px;
+-            background-color: blue;
+-            border-radius: 50%;
+-            display: inline-block;
+-            position: relative;
+-            border: 3px solid #fff;
+-            top: -48px;
+-            left: 186px;
+-            z-index: 1000;
+-        }
+-
+-        .name {
+-            margin-top: -21px;
+-            font-size: 18px;
+-        }
+-
+-
+-        .fw-500 {
+-            font-weight: 500 !important;
+-        }
+-
+-
+-        .start {
+-
+-            color: green;
+-        }
+-
+-        .stop {
+-            color: red;
+-        }
+-
+-
+-        .rate {
+-
+-            border-bottom-right-radius: 12px;
+-            border-bottom-left-radius: 12px;
+-
+-        }
+-
+-
+-        .rating {
+-            display: flex;
+-            flex-direction: row-reverse;
+-            justify-content: center
+-        }
+-
+-        .rating > input {
+-            display: none
+-        }
+-
+-        .rating > label {
+-            position: relative;
+-            width: 1em;
+-            font-size: 30px;
+-            font-weight: 300;
+-            color: #FFD600;
+-            cursor: pointer
+-        }
+-
+-        .rating > label::before {
+-            content: "\2605";
+-            position: absolute;
+-            opacity: 0
+-        }
+-
+-        .rating > label:hover:before,
+-        .rating > label:hover ~ label:before {
+-            opacity: 1 !important
+-        }
+-
+-        .rating > input:checked ~ label:before {
+-            opacity: 1
+-        }
+-
+-        .rating:hover > input:checked ~ label:before {
+-            opacity: 0.4
+-        }
+-
+-
+-        .buttons {
+-            top: 36px;
+-            position: relative;
+-        }
+-
+-
+-        .rating-submit {
+-            border-radius: 15px;
+-            color: #fff;
+-            height: 49px;
+-        }
+-
+-
+-        .rating-submit:hover {
+-
+-            color: #fff;
+-        }
+-    </style>
+-</head>
+-<body>
+-<div class="container d-flex justify-content-center mt-5">
+-    <div class="card text-center mb-5">
+-        <div class="circle-image">
+-            <img src="https://i.imgur.com/hczKIze.jpg" width="50">
+-        </div>
+-        <span class="dot"></span>
+-        <span class="name mb-1 fw-500">Bryan Williams</span>
+-        <small class="text-black-50">Tata Ace</small>
+-        <small class="text-black-50 font-weight-bold">QP09AA9090</small>
+-        <div class="location mt-4">
+-            <span class="d-block"><i class="fa fa-map-marker start"></i> <small class="text-truncate ml-2">Ganesha Road, preet vihar new delhi</small> </span>
+-            <span><i class="fa fa-map-marker stop mt-2"></i> <small class="text-truncate ml-2">Mandir Road, Mayur vihar, new delhi</small> </span>
+-        </div>
+-        <form action="process_rating.php" method="POST">
+-            <div class="rate bg-success py-3 text-white mt-3">
+-                <h6 class="mb-0">Rate your driver</h6>
+-                <div class="rating">
+-                    <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+-                    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+-                    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+-                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+-                    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+-                </div>
+-                <div class="buttons px-4 mt-0">
+-                    <button type="submit" class="btn btn-warning btn-block rating-submit">Submit</button>
+-                </div>
+-            </div>
+-        </form>
+-
+-    </div>
+-</div>
+-</body>
+-</html>
+-<?php
+-// Include the footer
+-include 'footer.php';
+-?>
+-
+Index: review/process_rating.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/review/process_rating.php b/review/process_rating.php
+--- a/review/process_rating.php	
++++ b/review/process_rating.php	(date 1688642478663)
+@@ -6,7 +6,7 @@
+  * Date: 7/5/23
+  * Time: 11:08 PM
+  */
+-
++// Rating For Review Folder
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+     // Retrieve the value from the form
+     $rating = $_POST["rating"];
+Index: review/prtest.php
+===================================================================
+diff --git a/review/prtest.php b/review/prtest.php
+deleted file mode 100644
+--- a/review/prtest.php	
++++ /dev/null	
+@@ -1,271 +0,0 @@
+-<?php
+-/**
+- * Created in PhpStorm.
+- * Project Name: alpha
+- * User: woliul
+- * Date: 7/5/23
+- * Time: 11:08 PM
+- */
+-
+-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+-    // Retrieve the value from the form
+-    $rating = $_POST["rating"];
+-    echo $rating;
+-}
+-?>
+-<!DOCTYPE HTML>
+-<html>
+-<head>
+-    <meta charset="utf-8"/>
+-    <title>Review & Rating</title>
+-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+-    <link rel="stylesheet" href="css/assets/css/library/bootstrap.min.css">
+-    <link rel="stylesheet" href="css/assets/css/library/fontAwesome/all.css">
+-    <link rel="stylesheet" href="css/assets/css/style.css">
+-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+-    <link rel="stylesheet" href="css/all.css"/>
+-    <script src="js/jquery-3.6.0.min.js"></script>
+-    <script src="js/popper.min.js"></script>
+-    <script src="js/bootstrap.min.js"></script>
+-    <style>
+-        body {
+-
+-            background-color: #f7f6f6;
+-        }
+-
+-        .card {
+-
+-            width: 350px;
+-            border: none;
+-            box-shadow: 5px 6px 6px 2px #e9ecef;
+-            border-radius: 12px;
+-        }
+-
+-        .circle-image img {
+-
+-            border: 6px solid #fff;
+-            border-radius: 100%;
+-            padding: 0px;
+-            top: -28px;
+-            position: relative;
+-            width: 70px;
+-            height: 70px;
+-            border-radius: 100%;
+-            z-index: 1;
+-            background: #e7d184;
+-            cursor: pointer;
+-
+-        }
+-
+-
+-        .dot {
+-            height: 18px;
+-            width: 18px;
+-            background-color: blue;
+-            border-radius: 50%;
+-            display: inline-block;
+-            position: relative;
+-            border: 3px solid #fff;
+-            top: -48px;
+-            left: 186px;
+-            z-index: 1000;
+-        }
+-
+-        .name {
+-            margin-top: -21px;
+-            font-size: 18px;
+-        }
+-
+-
+-        .fw-500 {
+-            font-weight: 500 !important;
+-        }
+-
+-
+-        .start {
+-
+-            color: green;
+-        }
+-
+-        .stop {
+-            color: red;
+-        }
+-
+-
+-        .rate {
+-
+-            border-bottom-right-radius: 12px;
+-            border-bottom-left-radius: 12px;
+-
+-        }
+-
+-
+-        .rating {
+-            display: flex;
+-            flex-direction: row-reverse;
+-            justify-content: center
+-        }
+-
+-        .rating > input {
+-            display: none
+-        }
+-
+-        .rating > label {
+-            position: relative;
+-            width: 1em;
+-            font-size: 30px;
+-            font-weight: 300;
+-            color: #FFD600;
+-            cursor: pointer
+-        }
+-
+-        .rating > label::before {
+-            content: "\2605";
+-            position: absolute;
+-            opacity: 0
+-        }
+-
+-        .rating > label:hover:before,
+-        .rating > label:hover ~ label:before {
+-            opacity: 1 !important
+-        }
+-
+-        .rating > input:checked ~ label:before {
+-            opacity: 1
+-        }
+-
+-        .rating:hover > input:checked ~ label:before {
+-            opacity: 0.4
+-        }
+-
+-
+-        .buttons {
+-            top: 36px;
+-            position: relative;
+-        }
+-
+-
+-        .rating-submit {
+-            border-radius: 15px;
+-            color: #fff;
+-            height: 49px;
+-        }
+-
+-
+-        .rating-submit:hover {
+-
+-            color: #fff;
+-        }
+-        .blue-star {
+-            color: blue;
+-        }
+-        .blue-star-40 {
+-            background: linear-gradient(to right, blue 40%, grey 40%);
+-        }
+-        .grey-star {
+-            color: grey;
+-        }
+-        /* New */
+-        [data-star] {
+-            text-align:left;
+-            font-style:normal;
+-            display:inline-block;
+-            position: relative;
+-            unicode-bidi: bidi-override;
+-        }
+-        [data-star]::before {
+-            display:block;
+-            content: '\f005\f005\f005\f005\f005'; /* Font Awesome star icons */
+-            font-family: 'Font Awesome 5 Free';
+-            font-style: normal;
+-            font-weight: 900;
+-            font-display: block;
+-            color: #eee;
+-        }
+-        [data-star]::after {
+-            white-space:nowrap;
+-            position:absolute;
+-            top:0;
+-            left:0;
+-            content: '\f005\f005\f005\f005\f005'; /* Font Awesome star icons */
+-            font-family: 'Font Awesome 5 Free';
+-            font-style: normal;
+-            font-weight: 900;
+-            font-display: block;
+-            width: 0;
+-            color: #ff8c00;
+-            overflow:hidden;
+-            height:100%;
+-        }
+-
+-        [data-star^="0.1"]::after{width:2%}
+-        [data-star^="0.2"]::after{width:4%}
+-        [data-star^="0.3"]::after{width:6%}
+-        [data-star^="0.4"]::after{width:8%}
+-        [data-star^="0.5"]::after{width:10%}
+-        [data-star^="0.6"]::after{width:12%}
+-        [data-star^="0.7"]::after{width:14%}
+-        [data-star^="0.8"]::after{width:16%}
+-        [data-star^="0.9"]::after{width:18%}
+-        [data-star^="1"]::after{width:20%}
+-        [data-star^="1.1"]::after{width:22%}
+-        [data-star^="1.2"]::after{width:24%}
+-        [data-star^="1.3"]::after{width:26%}
+-        [data-star^="1.4"]::after{width:28%}
+-        [data-star^="1.5"]::after{width:30%}
+-        [data-star^="1.6"]::after{width:32%}
+-        [data-star^="1.7"]::after{width:34%}
+-        [data-star^="1.8"]::after{width:36%}
+-        [data-star^="1.9"]::after{width:38%}
+-        [data-star^="2"]::after{width:40%}
+-        [data-star^="2.1"]::after{width:42%}
+-        [data-star^="2.2"]::after{width:44%}
+-        [data-star^="2.3"]::after{width:46%}
+-        [data-star^="2.4"]::after{width:48%}
+-        [data-star^="2.5"]::after{width:50%}
+-        [data-star^="2.6"]::after{width:52%}
+-        [data-star^="2.7"]::after{width:54%}
+-        [data-star^="2.8"]::after{width:56%}
+-        [data-star^="2.9"]::after{width:58%}
+-        [data-star^="3"]::after{width:60%}
+-        [data-star^="3.1"]::after{width:62%}
+-        [data-star^="3.2"]::after{width:64%}
+-        [data-star^="3.3"]::after{width:66%}
+-        [data-star^="3.4"]::after{width:68%}
+-        [data-star^="3.5"]::after{width:70%}
+-        [data-star^="3.6"]::after{width:72%}
+-        [data-star^="3.7"]::after{width:74%}
+-        [data-star^="3.8"]::after{width:76%}
+-        [data-star^="3.9"]::after{width:78%}
+-        [data-star^="4"]::after{width:80%}
+-        [data-star^="4.1"]::after{width:82%}
+-        [data-star^="4.2"]::after{width:84%}
+-        [data-star^="4.3"]::after{width:86%}
+-        [data-star^="4.4"]::after{width:88%}
+-        [data-star^="4.5"]::after{width:90%}
+-        [data-star^="4.6"]::after{width:92%}
+-        [data-star^="4.7"]::after{width:94%}
+-        [data-star^="4.8"]::after{width:96%}
+-        [data-star^="4.9"]::after{width:98%}
+-        [data-star^="5"]::after{width:100%}
+-    </style>
+-</head>
+-<body>
+-<div class="rate bg-success py-3 text-white mt-3">
+-    <h6 class="mb-0">Rate your driver</h6>
+-    <div class="rating">
+-        <?php
+-        // Assuming $rating is the variable containing the rating value
+-        $rating = 4; // Example rating value
+-        $ratingb= 3.4;
+-        echo '<i data-star="' . $ratingb . '"></i>';
+-
+-        ?>
+-
+-
+-    </div>
+-    <div class="buttons px-4 mt-0">
+-        <button type="submit" class="btn btn-warning btn-block rating-submit">Submit</button>
+-    </div>
+-</div>
+-
+Index: review/prtest2.php
+===================================================================
+diff --git a/review/prtest2.php b/review/prtest2.php
+deleted file mode 100644
+--- a/review/prtest2.php	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-<?php
+-// Assuming $rating is the variable containing the rating value
+-$rating = 4; // Example rating value
+-$ratingb= 3.4;
+-echo '<i data-star="' . $ratingb . '"></i>';
+-
+-?>
+\ No newline at end of file
+Index: local_history.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/local_history.patch b/local_history.patch
+new file mode 100644
+--- /dev/null	(date 1688684667034)
++++ b/local_history.patch	(date 1688684667034)
+@@ -0,0 +1,109 @@
++Index: gypsy/functions.php
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/gypsy/functions.php b/gypsy/functions.php
++--- a/gypsy/functions.php	
+++++ b/gypsy/functions.php	(date 1688639284282)
++@@ -1,41 +1,41 @@
++ <?php
++ 
++ include_once 'func.php';
++-?>
++-<?php
++ 
++ session_start(); // Start the session
++-    if (isset($_GET['destination'])) {
++-        $destination = $_GET['destination'];
+++if (isset($_GET['destination'])) {
+++    $destination = $_GET['destination'];
++ 
++-        // Run the SQL query using the destination value
++-        $avquery = "SELECT user_rating FROM review WHERE destination = '" . $destination . "'";
+++    // Run the SQL query using the destination value
+++    $avquery = "SELECT user_rating FROM review WHERE destination = '" . $destination . "'";
++ 
++-        // Execute the query
++-        $avresult = $conn->query($avquery);
+++    // Execute the query
+++    $avresult = $conn->query($avquery);
++ 
++-        // Check if the query was successful
++-        if ($avresult && $avresult->num_rows > 0) {
++-            $avratings = array();
++-            while ($row = $avresult->fetch_assoc()) {
++-                $avratings[] = $row['user_rating'];
++-            }
+++    // Check if the query was successful
+++    if ($avresult && $avresult->num_rows > 0) {
+++        $avratings = array();
+++        while ($row = $avresult->fetch_assoc()) {
+++            $avratings[] = $row['user_rating'];
+++        }
++ 
++-            $totalrating = count($avratings);
++-            $averageRating = $totalrating > 0 ? array_sum($avratings) / $totalrating : 0;
++-            $avgrating = number_format($averageRating, 1);
+++        $totalrating = count($avratings);
+++        $averageRating = $totalrating > 0 ? array_sum($avratings) / $totalrating : 0;
+++        $avgrating = number_format($averageRating, 1);
++ 
++-            // Store the average rating count in session
++-            $_SESSION['averageRating'] = $avgrating;
+++        // Store the average rating count in session
+++        $_SESSION['averageRating'] = $avgrating;
++ 
++-            // Display the average rating count
++-//            echo "Average Rating: " . $formattedAverageRating;
++-//            echo "Average Rating: " . $avresult;
++-        } else {
++-            echo "No details found for the destination.";
++-        }
+++        // Debug Display the average rating count
+++        //echo "Average Rating: " . $formattedAverageRating;
+++        //echo "Average Rating: " . $totalrating;
+++
+++
+++    } else {
+++        echo "No details found for the destination.";
+++    }
++ 
++-    }
+++}
++ 
++ // Display the Total rating with percentage count
++ $totratingCounts = array(1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0);
++@@ -70,7 +70,7 @@
++     echo "Error executing query: " . $conn->error;
++ }
++ 
++-// Output the counts and percentages
+++// Debug Output the counts and percentages
++ /*
++     for ($i = 1; $i <= 5; $i++) {
++         echo "Count of " . $i . "-star: " . $totratingCounts[$i] . "<br>";
++@@ -80,23 +80,5 @@
++ // Close the connection
++ mysqli_close($conn);
++ 
++-// debug test data
++-/*
++-// Fetch all the ratings
++-$avquery = "SELECT user_rating FROM review";
++-$avresult = mysqli_query($conn, $avquery);
++-$ratings = array();
++-if (mysqli_num_rows($avresult) > 0) {
++-    while ($row = mysqli_fetch_assoc($avresult)) {
++-        $ratings[] = $row['user_rating'];
++-    }
++-}
++-$totalrating = count($ratings);
++-// Calculate the average rating count
++-$countRating = count($ratings) > 0 ? array_sum($ratings) / count($ratings) : 0;
++-$avgrating = number_format($countRating, 1);
++-
++-// Display the average rating count
++-//echo "Average Rating: " . $avgrating;*/
++ ?>
++ 
