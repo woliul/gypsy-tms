@@ -1,7 +1,7 @@
 <?php
 /**
  * Created in PhpStorm.
- * Project Name: alpha
+ * Project Name: gypsy
  * User: woliul
  * Date: 7/1/23
  * Time: 4:41 AM
@@ -601,25 +601,26 @@ include 'header.php';
             <div class="card-deck">
                 <div class="card">
                     <h5 class="card-title position-absolute bottom-0 end-0 p-3">
-                        <a href="details-page.html" style="color: #fff; text-decoration: none;">Louvre Museum</a>
+                        <?php $destination= "Louvre Museum"; ?>
+                        <a href="details.php?destination=<?php echo urlencode($destination); ?>" style="color: #fff; text-decoration: none;">Louvre Museum</a>
                     </h5>
                     <img src="assets/img/louvre_museum.jpg" class="card-img-top" alt="Louvre Museum">
                 </div>
                 <div class="card">
                     <h5 class="card-title position-absolute bottom-0 end-0 p-3">
-                        <a href="details-page.html" style="color: #fff; text-decoration: none;">Louvre Museum</a>
+                        <a href="details.php" style="color: #fff; text-decoration: none;">Louvre Museum</a>
                     </h5>
                     <img src="assets/img/paris.jpg" class="card-img-top" alt="Louvre Museum">
                 </div>
                 <div class="card">
                     <h5 class="card-title position-absolute bottom-0 end-0 p-3">
-                        <a href="details-page.html" style="color: #fff; text-decoration: none;">Louvre Museum</a>
+                        <a href="details.php" style="color: #fff; text-decoration: none;">Louvre Museum</a>
                     </h5>
                     <img src="assets/img/europe.jpg" class="card-img-top" alt="Louvre Museum">
                 </div>
                 <div class="card">
                     <h5 class="card-title position-absolute bottom-0 end-0 p-3">
-                        <a href="details-page.html" style="color: #fff; text-decoration: none;">Notre-Dame Cathedral</a>
+                        <a href="details.php" style="color: #fff; text-decoration: none;">Notre-Dame Cathedral</a>
                     </h5>
                     <img src="assets/img/cancun.jpg" class="card-img-top" alt="Louvre Museum">
                 </div>
