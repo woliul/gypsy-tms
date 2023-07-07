@@ -21,7 +21,7 @@
                     <p class="card-text">Experience the beauty of pristine beaches.</p>
                     <p class="card-text"><strong>Location:</strong> Beach Town, ABC Island</p>
                     <p class="card-text"><strong>Activities:</strong> Sunbathing, Snorkeling, Water Sports</p>
-                    <a href="destination.php?id=1" class="btn btn-primary">Learn More</a>
+                    <a href="../destination.php?id=1" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                     <p class="card-text">Embark on a thrilling mountain adventure.</p>
                     <p class="card-text"><strong>Location:</strong> Mountain Range, XYZ Country</p>
                     <p class="card-text"><strong>Activities:</strong> Hiking, Climbing, Wildlife Spotting</p>
-                    <a href="destination.php?id=2" class="btn btn-primary">Learn More</a>
+                    <a href="../destination.php?id=2" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                     <p class="card-text">Discover vibrant cities and their rich cultures.</p>
                     <p class="card-text"><strong>Location:</strong> City Center, PQR City</p>
                     <p class="card-text"><strong>Highlights:</strong> Historical Sites, Museums, Local Cuisine</p>
-                    <a href="destination.php?id=3" class="btn btn-primary">Learn More</a>
+                    <a href="../destination.php?id=3" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>

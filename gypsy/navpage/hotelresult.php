@@ -13,7 +13,7 @@ include 'header.php';
     <div class="pt-3 pb-3 pl-3 pr-3 card">
         <div class="row no-gutters">
             <div class="pl-3 pt-3 col-md-4">
-                <img src="assets/img/montmartre.jpg" class="card card-img" alt="Hotel Image">
+                <img src="../assets/img/montmartre.jpg" class="card card-img" alt="Hotel Image">
             </div>
             <div class="col-md-8">
                 <div class="row card-body">
