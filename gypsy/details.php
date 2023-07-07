@@ -7,6 +7,10 @@
  * Time: 4:41 AM
  */
 
+session_start(); // Start the session
+if (isset($_GET['destination'])) {
+    $destination = $_GET['destination'];
+}
 include_once 'func.php';
 include_once 'functions.php';
 include 'header.php';
@@ -422,7 +426,7 @@ include 'header.php';
                                 <?php
                             }
                             ?>
-
+                            <a href="../review/rating.php?destination=<?php echo urlencode($destination); ?>" class="mt-4 btn btn-primary btn-block">Write A Review</a>
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,7 @@
 <html>
 <head>
   <title>Travel Explorer</title>
-  <link rel="stylesheet" href="assets/css/library/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/library/fontAwesome/all.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="../gypsy/assets/css/library/bootstrap.min.css">
+  <link rel="stylesheet" href="../gypsy/assets/css/library/fontAwesome/all.css">
+  <link rel="stylesheet" href="../gypsy/assets/css/style.css">
 </head>

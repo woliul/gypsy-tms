@@ -1,0 +1,288 @@
+<!-- 
+  * Created in PhpStorm.
+  * Project Name: alpha
+  * User: woliul
+  * Date: 7/7/23
+  * Time: 8:05 AM
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Explorer</title>
+  <link href="assets/css/library/fontAwesome/all.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    .circle-image img {
+
+      border: 6px solid #fff;
+      border-radius: 100%;
+      padding: 0px;
+      top: -28px;
+      position: relative;
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      z-index: 1;
+      background: #e7d184;
+      cursor: pointer;
+
+    }
+
+
+    .dot {
+      height: 18px;
+      width: 18px;
+      background-color: blue;
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+      border: 3px solid #fff;
+      top: -48px;
+      left: 186px;
+      z-index: 1000;
+    }
+
+    .name {
+      margin-top: -21px;
+      font-size: 18px;
+    }
+
+
+    .fw-500 {
+      font-weight: 500 !important;
+    }
+
+
+    .start {
+
+      color: green;
+    }
+
+    .stop {
+      color: red;
+    }
+
+
+    .rate {
+
+      border-bottom-right-radius: 12px;
+      border-bottom-left-radius: 12px;
+
+    }
+
+
+    .rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center
+    }
+
+    .rating > input {
+      display: none
+    }
+
+    .rating > label {
+      position: relative;
+      width: 1em;
+      font-size: 30px;
+      font-weight: 300;
+      color: #FFD600;
+      cursor: pointer
+    }
+
+    .rating > label::before {
+      content: "\2605";
+      position: absolute;
+      opacity: 0
+    }
+
+    .rating > label:hover:before,
+    .rating > label:hover ~ label:before {
+      opacity: 1 !important
+    }
+
+    .rating > input:checked ~ label:before {
+      opacity: 1
+    }
+
+    .rating:hover > input:checked ~ label:before {
+      opacity: 0.4
+    }
+
+
+    .buttons {
+      top: 36px;
+      position: relative;
+    }
+
+
+    .rating-submit {
+      border-radius: 15px;
+      color: #fff;
+      height: 49px;
+    }
+
+
+    .rating-submit:hover {
+
+      color: #fff;
+    }
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="assets/css/library/bootstrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/library/bootstrap/floating-labels/floating-labels.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container">
+  <div class="py-5 text-center">
+    <img alt="" class="d-block mx-auto mb-4" height="72" src="assets/img/logo/gypsy-b.svg" width="72">
+    <h2>Checkout form</h2>
+    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group
+      has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+  </div>
+
+  <div class="row">
+    <div class="card col-md-4">
+      <div class="mt-3">
+        <img alt="Eiffel Tower" class="card card-img-top mb-0" src="assets/img/eiffel_tower.jpg">
+        <div class="card-body pl-2">
+
+          <p class="mb-4 card-text">The Eiffel Tower is a wrought-iron lattice tower located in Paris, France.
+            It
+            is one of the most recognizable landmarks in the world and offers stunning views of the city.
+            Visitors can ascend to the top of the tower, dine at the restaurants, and enjoy panoramic
+            views.</p>
+          <p class="mb-2 card-text"><i class="fas fa-star"></i> Rating: 4.9</p>
+          <p class="mb-2 card-text"><i class="fas fa-clock"></i> Opening Hours: 9:00 AM - 12:00 AM</p>
+          <p class="mb-2 card-text"><i class="fas fa-dollar-sign"></i> Ticket Price: $25.00</p>
+          <p class="card-text"><i class="fas fa-map-marker-alt"></i> Attraction Type: Landmark</p>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 order-md-1">
+      <div class="card">
+        <h1 class="font-weight-bold card-header">Review Submission</h1>
+
+        <form class=" pl-4 pr-4 pt-4 pb-4 needs-validation" novalidate="">
+          <div class="mb-3">
+
+            <div class="rate">
+              <label class="" for="email">Rate Your Experience <small class="text-muted">(required)</small></label>
+              <div class="rating">
+                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+              </div>
+
+            </div>
+
+          </div><hr class="mt-3"><div class="mb-3">
+          <div class="form-group">
+            <label for="review">Leave a review <small class="text-muted">(required)</small></label>
+            <textarea class="form-control" id="review" required="" placeholder="Highlight your experience" rows="3"></textarea>
+          </div>
+        </div><label for="title">Give your review a title <small class="text-muted">(required)</small></label><div class="mb-3">
+          <div class="form-label-group">
+
+            <input class="form-control" id="title" placeholder="Summarize your experience" required=""><label for="title" class="text-muted">Summarize your experience</label>
+          </div>
+        </div><div class="row mb-0">
+          <div class="col-md-6 mb-0">
+            <label for="firstName">First name</label>
+            <div class="form-label-group">
+              <input autofocus="" class="form-control" id="firstName" placeholder="First name" required="" type="text">
+              <label for="firstName">Type your First name</label>
+            </div>
+
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-0">
+            <label for="lastName">Last name</label>
+            <div class="form-label-group">
+              <input autofocus="" class="form-control" id="lastName" placeholder="Last name" required="" type="text">
+              <label for="lastName">Type your Last name</label>
+            </div>
+
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+
+          <div class="mb-3">
+            <label for="username">Username</label>
+            <div class="form-label-group">
+              <input autofocus="" class="form-control" id="username" placeholder="Username" required="" type="text">
+              <label class="" for="username">Type your Username</label>
+              <div class="invalid-feedback" style="width: 100%;">
+                Your username is required.
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div class="mb-3">
+
+            <label for="email">Email <small class="text-muted">(optional)</small></label><div class="form-label-group">
+            <input autofocus="" class="form-control" id="email" placeholder="Email address" type="email">
+            <label for="email">Type E-mail address</label>
+          </div>
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+          </div>
+
+          <div class="mt-4 custom-control custom-checkbox">
+            <input class="custom-control-input" id="same-address" required="" type="checkbox">
+            <label class="custom-control-label" for="same-address">I agree to Terms and Conditions.</label>
+          </div>
+
+
+          <hr class="mt-4"><button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
