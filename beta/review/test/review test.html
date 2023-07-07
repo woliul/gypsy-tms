@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Travel Website - Review Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .star-rating {
+            display: flex;
+            align-items: center;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+            color: #ccc;
+            transition: color 0.2s;
+        }
+
+        .star-rating input:checked + label {
+            color: gold;
+            transition: color 0.2s;
+        }
+
+        .star-rating input:checked + label.warning,
+        .star-rating input:checked + label.warning ~ label {
+            color: orange;
+            transition: color 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1 class="text-center">Leave a Review</h1>
+    <form id="reviewForm" action="/submit_review" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" value="" required readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" name="email" value="" required readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="destination">Destination:</label>
+            <input type="text" class="form-control" id="destination" name="destination" value="" required readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <div class="star-rating">
+                <input type="radio" id="rating1" name="rating" value="1" required>
+                <label for="rating1">&#9733;</label>
+                <input type="radio" id="rating2" name="rating" value="2" required>
+                <label for="rating2">&#9733;</label>
+                <input type="radio" id="rating3" name="rating" value="3" required>
+                <label for="rating3">&#9733;</label>
+                <input type="radio" id="rating4" name="rating" value="4" required>
+                <label for="rating4">&#9733;</label>
+                <input type="radio" id="rating5" name="rating" value="5" required>
+                <label for="rating5">&#9733;</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="review">Review:</label>
+            <textarea class="form-control" id="review" name="review" rows="6" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Function to retrieve logged-in user's username
+    function getLoggedInUsername() {
+        // Replace this with your authentication code to
+        // retrieve the username
+        // For demonstration purposes, we'll assume you have
+        // a function named `getLoggedInUser` that returns the username
+        return getLoggedInUser(); // Call your authentication function to retrieve the username
+    }
+
+    // Function to retrieve destination from the hotel page
+    function getDestinationFromHotelPage() {
+        // Replace this with your code to retrieve the destination from the hotel page
+        // For demonstration purposes, we'll assume you have a function named `getDestinationFromPage` that returns the destination
+        return getDestinationFromPage(); // Call your function to retrieve the destination
+    }
+
+    // Update the form fields with the dynamic values
+    function updateFormFields() {
+        // Get the form and fields
+        var form = document.getElementById('reviewForm');
+        var nameField = document.getElementById('name');
+        var emailField = document.getElementById('email');
+        var destinationField = document.getElementById('destination');
+
+        // Get the logged-in user's username
+        var loggedInUsername = getLoggedInUsername();
+
+        // Get the destination from the hotel page
+        var destination = getDestinationFromHotelPage();
+
+        // Set the values of the fields
+        nameField.value = loggedInUsername;
+        emailField.value = ''; // Replace with the email value if available
+        destinationField.value = destination;
+    }
+
+    // Call the function to update form fields when the page is loaded
+    window.onload = function() {
+        updateFormFields();
+    };
+
+    // Handle star selection and class change
+    var starLabels = document.querySelectorAll('.star-rating label');
+
+    for (var i = 0; i < starLabels.length; i++) {
+        starLabels[i].addEventListener('click', function () {
+            // Get the index of the clicked star
+            var clickedIndex = parseInt(this.getAttribute('for').replace('rating', ''));
+
+            // Remove 'warning' class from all stars
+            for (var j = 0; j < starLabels.length; j++) {
+                starLabels[j].classList.remove('warning');
+            }
+
+            // Add 'warning' class to selected star and previous stars
+            for (var k = 0; k <= clickedIndex; k++) {
+                starLabels[k].classList.add('warning');
+            }
+        });
+    }
+
+
+
+</script>
+</body>
+
+</html>
