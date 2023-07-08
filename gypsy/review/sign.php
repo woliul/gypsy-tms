@@ -95,7 +95,7 @@
 <body>
 <div class="container">
     <div class="logo">
-        <img src="path/to/logo.png" alt="Logo">
+        <img src="../g" alt="Logo">
     </div>
     <h2>Sign Up</h2>
     <form action="signin.php" method="POST">
