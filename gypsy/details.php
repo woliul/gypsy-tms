@@ -296,7 +296,7 @@ include 'header.php';
 <div class="jumbotron"
      style="background-image: url(assets/img/eiffel_tower.jpg);background-size: cover; background-blend-mode: multiply;">
     <div class="container">
-        <h1>Eiffel Tower</h1>
+        <h1><?php echo $destination; ?></h1>
         <p>The Eiffel Tower is a wrought-iron lattice tower located in Paris, France. It is one of the most recognizable
             landmarks in the world and offers stunning views of the city. Visitors can ascend to the top of the tower,
             dine at the restaurants, and enjoy panoramic views.</p>

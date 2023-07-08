@@ -5,6 +5,11 @@ include_once 'func.php';
 session_start(); // Start the session
 if (isset($_GET['destination'])) {
     $destination = $_GET['destination'];
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $destination = $_POST['destination'];
+}
 
     // Run the SQL query using the destination value
     $avquery = "SELECT user_rating FROM review WHERE destination = '" . $destination . "'";
@@ -31,11 +36,9 @@ if (isset($_GET['destination'])) {
         //echo "Average Rating: " . $totalrating;
 
 
-    } else {
-        echo "No details found for the destination.";
-    }
+    } 
 
-}
+
 
 // Display the Total rating with percentage count
 $totratingCounts = array(1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0);
@@ -77,8 +80,48 @@ if ($totresult) {
         echo "Percentage of " . $i . "-star: " . round($ratingPercentages[$i]) . "%<br>";
     }
 */
+
+// Retrieve suggestions from the database based on user input
+
+    $query1= "SELECT id FROM `Locations` WHERE name='" . $destination . "'";
+    $result1 = $conn->query($query1);
+
+    if ($result1->num_rows > 0) {
+        while ($row = $result1->fetch_assoc()) {
+            $locationid = $row['id'];
+        }
+    }
+    $query2 = "SELECT * FROM Attractions WHERE destination_id  = '" . $locationid . "'";
+    $result2 = $conn->query($query2);
+
+    $location = array();
+    $img = array();
+    $count=0;
+    if ($result2->num_rows > 0) {
+        while ($row = $result2->fetch_assoc()) {
+            $location[] = $row['name'];
+            $des[] = $row['description'];
+            $img[] = $row['image'];
+            $hour[] = $row['opening_hours'];
+            $ticket[] = $row['ticket_price'];
+            $type[] = $row['attraction_type'];
+        
+        $count++;
+    }
+    }
+
+
+/*for ($i =0 ; $i <= $count; $i++) {
+
+    echo $location[$i] ." <br> ";
+    echo $des[$i] ." <br> ";
+    echo $img[$i] ." <br> ";
+    echo $locationid ." <br> ";
+    echo $hour[$i] ." <br> ";
+    echo $ticket[$i] ." <br> ";
+    echo $type[$i] ." <br> ";
+}*/
 // Close the connection
 mysqli_close($conn);
-
 ?>
 

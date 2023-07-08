@@ -9,8 +9,8 @@
 
 include 'header.php';
 
-// Placeholder data for destinations (replace with actual data retrieval logic)
-$destinations = array(
+
+$city = array(
   array(
     'id' => 1,
     'name' => 'Paris',
@@ -23,7 +23,7 @@ $destinations = array(
     'image' => 'rome.jpg',
     'description' => 'Rome is famous for its ancient ruins, historic sites, and delicious Italian food.',
   ),
-  // Add more destinations...
+
 );
 ?>
 
@@ -36,7 +36,7 @@ $destinations = array(
 
 <section class="container">
   <div class="row">
-    <?php foreach ($destinations as $destination): ?>
+    <?php foreach ($city as $destination): ?>
       <div class="col-md-4 mb-4">
         <div class="card">
           <img src="assets/images/<?php echo $destination['image']; ?>" class="card-img-top" alt="<?php echo $destination['name']; ?>">
