@@ -6,6 +6,7 @@
  * Date: 7/1/23
  * Time: 5:12 AM
  */
+/* echo "Debug";*/
 ?>
 <footer class="footer">
     <div class="container">
@@ -14,8 +15,13 @@
 </footer>
 
 <script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.slim.min.js"></script>
+<script src="assets/js/jquery.min.map"></script>
+<script src="assets/js/jquery.slim.min.map"></script>
+<script src="assets/js/jquery-3.5.1.slim.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/city.js"></script>
+<script src="assets/js/form-validation.js"></script>
+
 </body>
 </html>

@@ -83,15 +83,8 @@ if ($totresult) {
 
 // Retrieve suggestions from the database based on user input
 
-    $query1= "SELECT id FROM `Locations` WHERE name='" . $destination . "'";
-    $result1 = $conn->query($query1);
-
-    if ($result1->num_rows > 0) {
-        while ($row = $result1->fetch_assoc()) {
-            $locationid = $row['id'];
-        }
-    }
-    $query2 = "SELECT * FROM Attractions WHERE destination_id  = '" . $locationid . "'";
+    
+    $query2 = "SELECT * FROM Attractions WHERE location  = '" . $destination . "'";
     $result2 = $conn->query($query2);
 
     $location = array();

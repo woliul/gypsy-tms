@@ -6,6 +6,47 @@
  * Date: 7/5/23
  * Time: 1:30 PM
  */
+
+
+include 'database.php';
+
+
+// Execute the SQL query
+$sql = "SELECT `location` FROM `hotel` ORDER BY `location`";
+$result = $conn->query($sql);
+
+$dest = $_POST['dest'];
+// Simulated flight data array
+$sql3 = "SELECT * FROM hotel WHERE location = '$dest'";
+$result3 = $conn->query($sql3);
+$count = 0;
+$name = array();
+$desc = array();
+$rating = array();
+$location = array();
+$img = array();
+$price = array();
+// Check if the query was successful
+if ($result3) {
+    // Fetch the rows from the result set
+    while ($row3 = mysqli_fetch_assoc($result3)) {
+        // Access the flight data using column names
+        $name[$count] = $row3['name'];
+        $desc[$count] = $row3['description'];
+        $rating[$count] = $row3['rating'];
+        $location[$count] = $row3['location'];
+        $img[$count] = $row3['image'];
+        $price[$count] = $row3['price'];
+        $count++;
+
+    }
+
+
+} else {
+    // Handle the case when the query fails
+    echo "Error executing query: " . mysqli_error($conn);
+}
+
 include 'header.php';
 ?>
 
@@ -121,10 +162,27 @@ include 'header.php';
         <div class="container">
             <h1>Search for Hotels</h1>
             <p>Start planning your stay by searching for the best Hotels.</p>
-            <form class="search-bar" action="flightresult.php" method="GET">
+            <form class="search-bar" action="" method="POST">
                 <div class="form-group">
-                    <label for="destination">Destination: Country, City, Airport, Area, Landmark</label>
-                    <input type="text" class="form-control" id="destination" required="">
+
+                        <input class="form-control" name="dest" list="datalistOptions" id="exampleDataList"
+                               placeholder="Departure City">
+                        <datalist id="datalistOptions">
+                            <?php // Check if any results were found
+                            if ($result->num_rows > 0) {
+                            // Output the results
+                            while ($row = $result->fetch_assoc()) {
+                            ?>
+
+                            <option value="<?php echo $row['location']; ?>">
+
+                                <?php
+                                }
+                                } else {
+                                    echo "No results found.";
+                                } ?>
+                        </datalist>
+
                     <div class="invalid-feedback">
                         Please enter a destination.
                     </div>
@@ -157,6 +215,44 @@ include 'header.php';
     </div>
 
     <section class="container mt-5">
+        <h2 class="text-center mb-4">Best Hotels in <?php echo $dest; ?> </h2>
+        <div class="row">
+            <?php
+            //Loop for destination data
+            for ($i = 0;
+                 $i < $count;
+                 $i++) {
+                ?>
+            <div class="col-md-4">
+                <div class="card hotel-card">
+                    <img src="assets/img/<?php echo $img[$i]; ?> " alt="Hotel Image" class="card img-fluid mb-3">
+                    <h3 class="hotel-name"><?php echo $name[$i]; ?> </h3>
+                    <p class="hotel-description"><?php echo $desc[$i]; ?> </p>
+                    <div class="hotel-rating">
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star-half-alt"></span>
+                        <span class="ml-2"><?php echo $rating[$i]; ?></span>
+                    </div>
+                    <ul class="hotel-amenities">
+                        <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                        <li><i class="fas fa-utensils"></i> Restaurant</li>
+                        <li><i class="fas fa-car"></i> Parking</li>
+                        <!-- Add more amenities as needed -->
+                    </ul>
+                    <a href="hdetails.php" class="mt-3 btn btn-primary">See More</a>
+                </div>
+            </div>
+                <?php
+//Loop for destination data
+            }
+            ?>
+        </div>
+    </section>
+
+    <section class="container mt-5">
         <h2 class="text-center mb-4">Featured Hotels</h2>
         <div class="row">
             <div class="col-md-4">
@@ -177,7 +273,9 @@ include 'header.php';
                         <li><i class="fas fa-utensils"></i> Restaurant</li>
                         <li><i class="fas fa-car"></i> Parking</li>
                         <!-- Add more amenities as needed -->
+
                     </ul>
+                    <a href="#" class="mt-3 btn btn-primary">See More</a>
                 </div>
             </div>
             <div class="col-md-4">

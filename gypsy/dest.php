@@ -16,14 +16,7 @@ include 'header.php';
   <div class="container">
     <h1>Destination Unlimited</h1>
     <p>Discover new destinations, plan your trips, and explore the world with us.</p>
-    <form class="search-bar">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search for flights, hotels, or destinations">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button"><i class="fa fa-search"></i> Search</button>
-        </div>
-      </div>
-    </form>
+    
   </div>
 </div>
 
