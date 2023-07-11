@@ -154,15 +154,15 @@ for ($i = 0;
                 <div class="row collapsed" aria-controls="flightDetails<?php echo $i; ?>" aria-expanded="false"  data-target="#flightDetails<?php echo $i; ?>" data-toggle="collapse">
                     <div class="col-md-4">
                         <h5><i class="fas fa-plane-departure"></i> Departure</h5>
-                        <p><i class="far fa-calendar-alt"></i> <?php echo $departureDate[$i]; ?></p>
-                        <p><i class="far fa-clock"></i> <?php echo $departureTime[$i]; ?></p>
-                        <p><i class="fas fa-plane"></i> <?php echo $airline[$i]; ?></p>
+                        <p class="mb-0"><i class="fas fa-calendar-alt"></i> <?php echo $departureDate[$i]; ?></p>
+                        <p><i class="fas fa-clock"></i> <?php echo $departureTime[$i]; ?></p>
+                        <p><i class="fas fa-plane" style="display: inline-block;transform: rotate(-90deg);  margin-right: 5px; font-size: 20px;"></i> <?php echo $airline[$i]; ?></p>
                     </div>
                     <div class="col-md-4">
                         <h5><i class="fas fa-plane-arrival"></i> Arrival</h5>
-                        <p><i class="far fa-calendar-alt"></i> <?php echo $arrivalDate[$i]; ?></p>
-                        <p><i class="far fa-clock"></i> <?php echo $arrivalTime[$i]; ?></p>
-                        <p><i class="fas fa-plane"></i> <?php echo $airline[$i]; ?></p>
+                        <p class="mb-0"><i class="fas fa-calendar-alt"></i> <?php echo $arrivalDate[$i]; ?></p>
+                        <p><i class="fas fa-clock"></i> <?php echo $arrivalTime[$i]; ?></p>
+                        <p><i class="fas fa-plane" style="display: inline-block;transform: rotate(90deg);  margin-right: 5px; font-size: 20px;"></i> <?php echo $airline[$i]; ?></p>
                     </div>
                     <div class="col-md-2">
                         <h5><i class="fas fa-clock"></i> Duration</h5>
@@ -175,7 +175,7 @@ for ($i = 0;
                         <p aria-controls="flightDetails<?php echo $i; ?>" aria-expanded="false"  data-target="#flightDetails<?php echo $i; ?>" data-toggle="collapse" class="collapsed text-right h4"><i class="fa fa-angle-down"></i></p>
                     </div>
                 </div>
-                <a class="btn btn-primary"  href="#"><i class="fas fa-info-circle"></i> Book Now</a>
+                <a class="btn btn-primary"  href="#"><i class="fas fa-check mr-2"></i>Book Now</a>
             </div>
 
             <div class="collapse" id="flightDetails<?php echo $i; ?>" style="">
