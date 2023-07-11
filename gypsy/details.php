@@ -9,6 +9,7 @@
 
 session_start(); // Start the session
 if (isset($_GET['destination'])) {
+    $atname = $_GET['destination'];
     $destination = $_GET['destination'];
 }
 include_once 'func.php';
@@ -294,65 +295,16 @@ include 'header.php';
 
 <!-- Landing page -->
 <div class="jumbotron"
-     style="background-image: url(assets/img/eiffel_tower.jpg);background-size: cover; background-blend-mode: multiply;">
+     style="background-image: <?php echo "url(assets/img/" . $atimg . ")"; ?>;background-size: cover; background-blend-mode: multiply;">
     <div class="container">
-        <h1><?php echo $destination; ?></h1>
-        <p>The Eiffel Tower is a wrought-iron lattice tower located in Paris, France. It is one of the most recognizable
-            landmarks in the world and offers stunning views of the city. Visitors can ascend to the top of the tower,
-            dine at the restaurants, and enjoy panoramic views.</p>
+        <h1><?php echo $atname; ?></h1>
+        <p><?php echo $atdes; ?></p>
 
     </div>
 </div>
 <!-- Landing page End-->
 
 <div class="container">
-    <!-- About Card -->
-    <div class="row justify-content-center mt-4">
-        <div class="card"><h4 class="card-header">Highlights</h4>
-            <div class="pl-4 pr-4 pt-4">
-                <ul>
-                    <li>Enjoy breathtaking views of Paris from the top observation decks</li>
-                    <li>Experience fine dining at the Eiffel Tower's renowned restaurants</li>
-                    <li>Learn about the tower's history and architecture through guided tours</li>
-                    <li>Capture memorable photos against the iconic backdrop of the Eiffel Tower</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-5">
-            <div class="card"><h4 class="card-header">Data</h4>
-                <div class="pl-4 pr-4 pt-4">
-                    <ul class="pl-4 no-bullets">
-                        <li><p class="row align-items-center mb-0 ">
-                                <i class="col-1 mb-0 fas fa-map-marker-alt"></i>
-                                <span class="col-9 pl-1 mb-0">Location: Paris, France</span>
-                            </p>
-                        </li>
-                        <li><p class="row align-items-center mb-0 ">
-                                <i class="col-1 mb-0 fas fa-ruler-vertical"></i>
-                                <span class="col-9 pl-1 mb-0">Height: 330 meters</span>
-                            </p>
-                        </li>
-                        <li><p class="row align-items-center mb-0 ">
-                                <i class="col-1 mb-0 fas fa-pencil-alt"></i>
-                                <span class="col-9 pl-1 mb-0">Architect: Gustave Eiffel</span>
-                            </p>
-                        </li>
-                        <li><p class="row align-items-center mb-0 ">
-                                <i class="col-1 mb-0 fas fa-calendar-alt"></i>
-                                <span class="col-9 pl-1 mb-0">Year Built: 1889</span>
-                            </p>
-                        </li>
-                        <li><p class="row align-items-center mb-0 ">
-                                <i class="col-1 mb-0 fas fa-landmark"></i>
-                                <span class="col-9 pl-1 mb-0">Attraction Type: Landmark</span>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About Card End-->
 
     <!-- Slider-->
     <div id="carouselExampleIndicators" class="card carousel slide" data-ride="carousel">
@@ -363,13 +315,13 @@ include 'header.php';
         </ol>
         <!-- Slides -->
         <div class="carousel-inner">
-            <div class="carousel-item">
-                <img src="assets/img/eiffel_tower.jpg" class="d-block w-100" alt="Eiffel Tower 1">
+            <div class="carousel-item active">
+                <img src="assets/img/<?php echo $atimg; ?>" class="d-block w-100" alt="Eiffel Tower 1">
             </div>
             <div class="carousel-item">
                 <img src="assets/img/paris.jpg" class="d-block w-100" alt="Eiffel Tower 2">
             </div>
-            <div class="carousel-item active">
+            <div class="carousel-item">
                 <img src="assets/img/europe.jpg" class="d-block w-100" alt="Eiffel Tower 3">
             </div>
         </div>
@@ -385,218 +337,264 @@ include 'header.php';
     </div>
     <!-- Slider End-->
 
-    <!-- Rating Show-->
-    <div class="row mt-4">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="card col-5" style="">
-                    <div class="card-body">
-                        <h4 class="card-title">Rating Overview</h4>
-                        <!--Display Average Rating-->
-                        <h1 class="display-4"><?php echo $avgrating; ?><small class="h1">/5</small></h1>
 
-                        <!--Display Average Rating Stars-->
-                        <?php echo '<i data-star="' . $avgrating . '"></i>'; ?>
-                        <!--Display Total Review-->
-                        <p class="ratings-count"><?php echo $totalrating; ?> ratings</p>
+    <div class="mt-4 container">
+        <div class="row">
+            <div class="card col-md-4">
+                <div class="mt-3">
+                    <p class="p-2 "><?php echo $atdes; ?></p>
+                    <hr class="mt-3">
+                    <div class="card-text pt-0 pr-3 pl-3">
 
-                        <!--Progressbar-->
+                        <!-- About Card -->
                         <div>
-                            <?php
-                            //Loop for Total Ratings and Total count of every Star
-                            for ($i = 5; $i >= 1; $i--) {
-                                ?>
-                                <div class="row d-flex align-items-center mt-4" style="">
-                                    <p class="col-sm-2 mb-0">
-                                        <span><?php echo $i; ?></span><!--Star Count For Card-->
-                                        <i class="fas fa-star"></i>
+                            <ul class="no-bullets">
+                                <li><p class="row align-items-center mb-1">
+                                        <i class="col-1 mb-0 fas fa-map-marker-alt"></i>
+                                        <span class="col-9 pl-2">Location: <?php echo $atlocation; ?></span>
                                     </p>
-                                    <div class="col-md-8 pr-0 pl-0">
-                                        <div class="progress">
-                                            <!--Progress Bar size (width)-->
-                                            <div class="progress-bar" role="progressbar"
-                                                 style="width: <?php echo $ratingPercentages[$i]; ?>%;"
-                                                 aria-valuenow="<?php echo $ratingPercentages[$i]; ?>" aria-valuemin="0"
-                                                 aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <!--Total Rating Counts-->
-                                    <p class="text-left col-sm-2 mb-0 pr-0"><?php echo $totratingCounts[$i]; ?></p>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                            <a href="../review/rating.php?destination=<?php echo urlencode($destination); ?>" class="mt-4 btn btn-primary btn-block">Write A Review</a>
+                                </li>
+                                <li><p class="row align-items-center mb-1">
+                                        <i class="col-1 mb-0 fas fa-clock"></i>
+                                        <span class="col-9 pl-2">Hours: <?php echo $athour; ?></span>
+                                    </p>
+                                </li>
+                                <li><p class="row align-items-center mb-1">
+                                        <i class="col-1 mb-0 fas fa-dollar-sign"></i>
+                                        <span class="col-9 pl-2">Ticket Price: <?php echo $atticket; ?></span>
+                                    </p>
+                                </li>
+                                <li><p class="row align-items-center mb-1">
+                                        <i class="col-1 mb-0 fas fa-landmark"></i>
+                                        <span class="col-9 pl-2">Type: <?php echo $attype; ?></span>
+                                    </p>
+                                </li>
+                            </ul>
                         </div>
+                        <!-- About Card End-->
                     </div>
                 </div>
-                <!-- Rating End-->
-                <!-- Review Slider-->
-                <div class="card ml-3 col-6" style=" background-color: #007bff47;">
-                    <div id="carouselExampleIndicators2" class="justify-content-right carousel slide"
-                         data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
-                        </ol>
-                        <!-- Testimonials-->
-                        <div class="carousel-inner">
-                            <div class="mt-4 justify-content-center text-center">
-                                <h3 class="fw-bold mb-4">Testimonials</h3>
-                                <p class="mb-4 pb-2 pb-md-0">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
-                                    numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
-                                    quisquam eum porro a pariatur veniam.
-                                </p>
-                            </div>
-                            <!-- Review Slide-->
-                            <!-- Slide1-->
-                            <div class="carousel-item">
-                                <section>
-                                    <div class="container pb-4">
-                                        <div class="row justify-content-center text-center">
-                                            <div class="col-8 mb-5 mb-md-0">
-                                                <div class="card">
-                                                    <div class="card-body py-4 mt-2">
-                                                        <h5 class="font-weight-bold">Teresa May</h5>
-                                                        <h6 class="font-weight-bold my-3">Founder at ET Company</h6>
-                                                        <ul class="list-unstyled d-flex justify-content-center">
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star-half-alt fa-sm text-info"></i>
-                                                            </li>
-                                                        </ul>
-                                                        <p class="mb-2">
-                                                            <i class="fas fa-quote-left pe-2"></i>Lorem ipsum dolor sit
-                                                            amet,
-                                                            consectetur adipisicing elit. Quod eos id officiis hic
-                                                            tenetur quae quaerat
-                                                            ad velit ab hic tenetur.
-                                                        </p>
+            </div>
+            <div class="col-md-8 order-md-1">
+                <div>
+                    <!-- Review Slider-->
+                    <div class="card" style=" background-color: #007bff47;">
+                        <div id="carouselExampleIndicators2" class="justify-content-right carousel slide"
+                             data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
+                            </ol>
+                            <!-- Testimonials-->
+                            <div class="carousel-inner">
+                                <div class="pl-3 pr-3 mt-4 justify-content-center text-center">
+                                    <h3 class="fw-bold mb-4">Testimonials</h3>
+                                    <p class="mb-4 pb-2 pb-md-0">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
+                                        numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
+                                        quisquam eum porro a pariatur veniam.
+                                    </p>
+                                </div>
+                                <!-- Review Slide-->
+                                <!-- Slide1-->
+                                <div class="carousel-item">
+                                    <section>
+                                        <div class="container pb-4">
+                                            <div class="row justify-content-center text-center">
+                                                <div class="col-8 mb-5 mb-md-0">
+                                                    <div class="card">
+                                                        <div class="card-body py-4 mt-2">
+                                                            <h5 class="font-weight-bold">Teresa May</h5>
+                                                            <h6 class="font-weight-bold my-3">Founder at ET Company</h6>
+                                                            <ul class="list-unstyled d-flex justify-content-center">
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star-half-alt fa-sm text-info"></i>
+                                                                </li>
+                                                            </ul>
+                                                            <p class="mb-2">
+                                                                <i class="fas fa-quote-left pe-2"></i>Lorem ipsum dolor
+                                                                sit
+                                                                amet,
+                                                                consectetur adipisicing elit. Quod eos id officiis hic
+                                                                tenetur quae quaerat
+                                                                ad velit ab hic tenetur.
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </section>
-                            </div>
-                            <!-- Slide 2-->
-                            <div class="carousel-item active">
-                                <section>
-                                    <div class="container pb-4">
-                                        <div class="row justify-content-center text-center">
-                                            <div class="col-8 mb-5 mb-md-0">
-                                                <div class="card">
-                                                    <div class="card-body py-4 mt-2">
-                                                        <h5 class="font-weight-bold">Maggie McLoan</h5>
-                                                        <h6 class="font-weight-bold my-3">Photographer at Studio LA</h6>
-                                                        <ul class="list-unstyled d-flex justify-content-center">
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star-half-alt fa-sm text-info"></i>
-                                                            </li>
-                                                        </ul>
-                                                        <p class="mb-2">
-                                                            <i class="fas fa-quote-left pe-2"></i>utem, totam debitis
-                                                            suscipit saepe
-                                                            sapiente magnam officiis quaerat necessitatibus odio
-                                                            assumenda perferendis
-                                                            labore laboriosam.
-                                                        </p>
+                                    </section>
+                                </div>
+                                <!-- Slide 2-->
+                                <div class="carousel-item active">
+                                    <section>
+                                        <div class="container pb-4">
+                                            <div class="row justify-content-center text-center">
+                                                <div class="col-8 mb-5 mb-md-0">
+                                                    <div class="card">
+                                                        <div class="card-body py-4 mt-2">
+                                                            <h5 class="font-weight-bold">Maggie McLoan</h5>
+                                                            <h6 class="font-weight-bold my-3">Photographer at Studio
+                                                                LA</h6>
+                                                            <ul class="list-unstyled d-flex justify-content-center">
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star-half-alt fa-sm text-info"></i>
+                                                                </li>
+                                                            </ul>
+                                                            <p class="mb-2">
+                                                                <i class="fas fa-quote-left pe-2"></i>utem, totam
+                                                                debitis
+                                                                suscipit saepe
+                                                                sapiente magnam officiis quaerat necessitatibus odio
+                                                                assumenda perferendis
+                                                                labore laboriosam.
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </section>
-                            </div>
-                            <!-- Slide 3-->
-                            <div class="carousel-item">
-                                <section>
-                                    <div class="container pb-4">
-                                        <div class="row justify-content-center text-center">
-                                            <div class="col-8 mb-5 mb-md-0">
-                                                <div class="card">
-                                                    <div class="card-body py-4 mt-2">
-                                                        <h5 class="font-weight-bold">Alexa Horwitz</h5>
-                                                        <h6 class="font-weight-bold my-3">Front-end Developer in NY</h6>
-                                                        <ul class="list-unstyled d-flex justify-content-center">
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star fa-sm text-info"></i>
-                                                            </li>
-                                                            <li>
-                                                                <i class="fas fa-star-half-alt fa-sm text-info"></i>
-                                                            </li>
-                                                        </ul>
-                                                        <p class="mb-2">
-                                                            <i class="fas fa-quote-left pe-2"></i>Cras sit amet nibh
-                                                            libero, in gravida
-                                                            nulla metus scelerisque ante sollicitudin commodo cras purus
-                                                            odio,
-                                                            vestibulum in tempus viverra turpis.
-                                                        </p>
+                                    </section>
+                                </div>
+                                <!-- Slide 3-->
+                                <div class="carousel-item">
+                                    <section>
+                                        <div class="container pb-4">
+                                            <div class="row justify-content-center text-center">
+                                                <div class="col-8 mb-5 mb-md-0">
+                                                    <div class="card">
+                                                        <div class="card-body py-4 mt-2">
+                                                            <h5 class="font-weight-bold">Alexa Horwitz</h5>
+                                                            <h6 class="font-weight-bold my-3">Front-end Developer in
+                                                                NY</h6>
+                                                            <ul class="list-unstyled d-flex justify-content-center">
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star fa-sm text-info"></i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fas fa-star-half-alt fa-sm text-info"></i>
+                                                                </li>
+                                                            </ul>
+                                                            <p class="mb-2">
+                                                                <i class="fas fa-quote-left pe-2"></i>Cras sit amet nibh
+                                                                libero, in gravida
+                                                                nulla metus scelerisque ante sollicitudin commodo cras
+                                                                purus
+                                                                odio,
+                                                                vestibulum in tempus viverra turpis.
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <!-- Slide End-->
+
+                            <!-- Slide Buttons-->
+                            <!-- Previous-->
+                            <a class="mt-5 pt-5 carousel-control-prev" href="#carouselExampleIndicators2" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <!-- Next-->
+                            <a class="mt-5 pt-5 carousel-control-next" href="#carouselExampleIndicators2" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+
+                        </div>
+                    </div>
+                    <!-- Review Slider End-->
+                    <!-- Rating Show-->
+                    <div class="card" style="">
+                        <div class="card-body">
+                            <h4 class="card-title">Rating Overview</h4>
+                            <!--Display Average Rating-->
+                            <h1 class="display-4"><?php echo $avgrating; ?><small class="h1">/5</small></h1>
+
+                            <!--Display Average Rating Stars-->
+                            <?php echo '<i data-star="' . $avgrating . '"></i>'; ?>
+                            <!--Display Total Review-->
+                            <p class="ratings-count"><?php echo $totalrating; ?> ratings</p>
+
+                            <!--Progressbar-->
+                            <div>
+                                <?php
+                                //Loop for Total Ratings and Total count of every Star
+                                for ($i = 5; $i >= 1; $i--) {
+                                    ?>
+                                    <div class="row d-flex align-items-center mt-4" style="">
+                                        <p class="col-sm-2 mb-0">
+                                            <span><?php echo $i; ?></span><!--Star Count For Card-->
+                                            <i class="fas fa-star"></i>
+                                        </p>
+                                        <div class="col-md-8 pr-0 pl-0">
+                                            <div class="progress">
+                                                <!--Progress Bar size (width)-->
+                                                <div class="progress-bar" role="progressbar"
+                                                     style="width: <?php echo $ratingPercentages[$i]; ?>%;"
+                                                     aria-valuenow="<?php echo $ratingPercentages[$i]; ?>"
+                                                     aria-valuemin="0"
+                                                     aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <!--Total Rating Counts-->
+                                        <p class="text-left col-sm-2 mb-0 pr-0"><?php echo $totratingCounts[$i]; ?></p>
                                     </div>
-                                </section>
+                                    <?php
+                                }
+                                ?>
+                                <a href="../review/rating.php?destination=<?php echo urlencode($atname); ?>"
+                                   class="mt-4 btn btn-primary btn-block">Write A Review</a>
                             </div>
                         </div>
-                        <!-- Slide End-->
-
-                        <!-- Slide Buttons-->
-                        <!-- Previous-->
-                        <a class="mt-5 pt-5 carousel-control-prev" href="#carouselExampleIndicators2" role="button"
-                           data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <!-- Next-->
-                        <a class="mt-5 pt-5 carousel-control-next" href="#carouselExampleIndicators2" role="button"
-                           data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-
                     </div>
+                    <!-- Rating Show End-->
                 </div>
             </div>
         </div>
     </div>
-    <!-- Rating Show End-->
+
 
     <!-- Recommendations-->
     <div class="row justify-content-center mt-4">
@@ -605,28 +603,32 @@ include 'header.php';
             <div class="card-deck">
                 <div class="card">
                     <h5 class="card-title position-absolute bottom-0 end-0 p-3">
-                        <?php $destination= "Louvre Museum"; ?>
-                        <a href="details.php?destination=<?php echo urlencode($destination); ?>" style="color: #fff; text-decoration: none;">Louvre Museum</a>
+                        <?php $destination = "Louvre Museum"; ?>
+                        <a href="details.php?destination=<?php echo urlencode($destination); ?>"
+                           style="color: #fff; text-decoration: none;">Louvre Museum</a>
                     </h5>
                     <img src="assets/img/louvre_museum.jpg" class="card-img-top" alt="Louvre Museum">
                 </div>
                 <div class="card">
                     <h5 class="card-title position-absolute bottom-0 end-0 p-3">
-                        <a href="details.php" style="color: #fff; text-decoration: none;">Louvre Museum</a>
+                        <?php $destination = "Champs-Élysées"; ?>
+                        <a href="details.php?destination=<?php echo urlencode($destination); ?>" style="color: #fff; text-decoration: none;">Champs-Élysées</a>
                     </h5>
-                    <img src="assets/img/paris.jpg" class="card-img-top" alt="Louvre Museum">
+                    <img src="assets/img/champs_elysees.jpg" class="card-img-top" alt="Champs-Élysées">
                 </div>
                 <div class="card">
                     <h5 class="card-title position-absolute bottom-0 end-0 p-3">
-                        <a href="details.php" style="color: #fff; text-decoration: none;">Louvre Museum</a>
+                        <?php $destination = "Montmartre"; ?>
+                        <a href="details.php?destination=<?php echo urlencode($destination); ?>" style="color: #fff; text-decoration: none;">Montmartre</a>
                     </h5>
-                    <img src="assets/img/europe.jpg" class="card-img-top" alt="Louvre Museum">
+                    <img src="assets/img/montmartre.jpg" class="card-img-top" alt="Louvre Museum">
                 </div>
                 <div class="card">
                     <h5 class="card-title position-absolute bottom-0 end-0 p-3">
-                        <a href="details.php" style="color: #fff; text-decoration: none;">Notre-Dame Cathedral</a>
+                        <?php $destination = "Notre-Dame Cathedral"; ?>
+                        <a href="details.php?destination=<?php echo urlencode($destination); ?>" style="color: #fff; text-decoration: none;">Notre-Dame Cathedral</a>
                     </h5>
-                    <img src="assets/img/cancun.jpg" class="card-img-top" alt="Louvre Museum">
+                    <img src="assets/img/notre_dame_cathedral.jpg" class="card-img-top" alt="Louvre Museum">
                 </div>
             </div>
         </div>

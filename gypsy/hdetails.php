@@ -12,7 +12,6 @@ if (isset($_GET['destination'])) {
     $destination = $_GET['destination'];
 }
 include_once 'func.php';
-include_once 'functions.php';
 include 'header.php';
 
 $dest = $_POST['dest'];
@@ -41,6 +40,7 @@ if ($result3) {
     // Handle the case when the query fails
     echo "Error executing query: " . mysqli_error($conn);
 }
+include_once 'functions.php';
 ?>
 <style>
     .colp {
@@ -354,7 +354,7 @@ if ($result3) {
                         </li>
                         <li><p class="row align-items-center mb-0 ">
                                 <i class="col-1 mb-0 fas fa-ruler-vertical"></i>
-                                <span class="col-9 pl-1 mb-0">Height: 330 meters</span>
+                                <span class="col-9 pl-1 mb-0">Price: <?php echo $price; ?></span>
                             </p>
                         </li>
                         <li><p class="row align-items-center mb-0 ">
@@ -369,7 +369,7 @@ if ($result3) {
                         </li>
                         <li><p class="row align-items-center mb-0 ">
                                 <i class="col-1 mb-0 fas fa-landmark"></i>
-                                <span class="col-9 pl-1 mb-0">Attraction Type: Landmark</span>
+                                <span class="col-9 pl-1 mb-0">Attraction Type: Hotel</span>
                             </p>
                         </li>
                     </ul>
@@ -418,10 +418,10 @@ if ($result3) {
                     <div class="card-body">
                         <h4 class="card-title">Rating Overview</h4>
                         <!--Display Average Rating-->
-                        <h1 class="display-4"><?php echo $avgrating; ?><small class="h1">/5</small></h1>
+                        <h1 class="display-4"><?php echo $rating; ?><small class="h1">/5</small></h1>
 
                         <!--Display Average Rating Stars-->
-                        <?php echo '<i data-star="' . $avgrating . '"></i>'; ?>
+                        <?php echo '<i data-star="' . $rating . '"></i>'; ?>
                         <!--Display Total Review-->
                         <p class="ratings-count"><?php echo $totalrating; ?> ratings</p>
 

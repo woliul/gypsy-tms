@@ -1,0 +1,138 @@
+/** 
+  * Created in PhpStorm.
+  * Project Name: gypsy
+  * User: woliul
+  * Date: 7/1/23
+  * Time: 4:50 AM
+*/
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #4285f4;
+    color: #fff;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.jumbotron {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    background-color: #b4b9bd;
+    border-radius: 0px;
+}
+
+.flight-land {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    background-color: #b4b9bd;
+    border-radius: 0px;
+}
+
+.jumbotron h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.jumbotron p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.headbg1 {
+    background-image: url(../img/bghead.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+.flbg {
+    background-image: url(../img/flbg.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+.hlbg {
+    background-image: url(../img/bghead3.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+.headbg2 {
+    background-image: url(../img/bghead2.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+.headbg3 {
+    background-image: url(../img/bghead3.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+.headbg4 {
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+/*Update*/
+.colp {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.colm {
+    margin-bottom: 0px;
+}

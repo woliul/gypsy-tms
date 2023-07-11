@@ -33,7 +33,7 @@ include 'header.php';
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="assets/img/eiffel_tower.jpg" class="card-img-top" alt="Eiffel Tower">
+                        <img src="../assets/img/eiffel_tower.jpg" class="card-img-top" alt="Eiffel Tower">
                         <div class="card-body">
                             <h5 class="card-title">Eiffel Tower</h5>
                             <p class="card-text">The Eiffel Tower is a wrought-iron lattice tower located in Paris, France. It is one of the most recognizable landmarks in the world and offers stunning views of the city. Visitors can ascend to the top of the tower, dine at the restaurants, and enjoy panoramic views.</p>
@@ -47,7 +47,7 @@ include 'header.php';
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="assets/img/louvre_museum.jpg" class="card-img-top" alt="Louvre Museum">
+                        <img src="../assets/img/louvre_museum.jpg" class="card-img-top" alt="Louvre Museum">
                         <div class="card-body">
                             <h5 class="card-title">Louvre Museum</h5>
                             <p class="card-text">The Louvre Museum is the world's largest art museum and a historic monument in Paris, France. It is home to thousands of works of art, including the famous painting, Mona Lisa. Visitors can explore the museum's vast collection and admire masterpieces from various periods.</p>
@@ -61,7 +61,7 @@ include 'header.php';
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="assets/img/notre_dame_cathedral.jpg" class="card-img-top" alt="Notre-Dame Cathedral">
+                        <img src="../assets/img/notre_dame_cathedral.jpg" class="card-img-top" alt="Notre-Dame Cathedral">
                         <div class="card-body">
                             <h5 class="card-title">Notre-Dame Cathedral</h5>
                             <p class="card-text">Notre-Dame Cathedral is a medieval Catholic cathedral located in Paris, France. It is a masterpiece of Gothic architecture and one of the most famous cathedrals in the world. Visitors can admire the intricate details of the cathedral and climb to the top for a panoramic view.</p>
@@ -82,7 +82,7 @@ include 'header.php';
   <div class="row">
     <div class="col-md-4">
       <div class="card">
-        <img src="assets/img/bali.jpg" class="card-img-top" alt="Deal 1">
+        <img src="../assets/img/bali.jpg" class="card-img-top" alt="Deal 1">
         <div class="card-body">
           <h5 class="card-title">Flight + Hotel to Bali</h5>
           <p class="card-text">Experience the beauty and tranquility of Bali with our special package.</p>
@@ -92,7 +92,7 @@ include 'header.php';
     </div>
     <div class="col-md-4">
       <div class="card">
-        <img src="assets/img/cancun.jpg" class="card-img-top" alt="Deal 2">
+        <img src="../assets/img/cancun.jpg" class="card-img-top" alt="Deal 2">
         <div class="card-body">
           <h5 class="card-title">All-Inclusive Resort in Cancun</h5>
           <p class="card-text">Enjoy a luxurious and worry-free vacation in Cancun.</p>
@@ -102,7 +102,7 @@ include 'header.php';
     </div>
     <div class="col-md-4">
       <div class="card">
-        <img src="assets/img/europe.jpg" class="card-img-top" alt="Deal 3">
+        <img src="../assets/img/europe.jpg" class="card-img-top" alt="Deal 3">
         <div class="card-body">
           <h5 class="card-title">European Cruise Package</h5>
           <p class="card-text">Embark on a breathtaking journey through Europe's iconic cities.</p>

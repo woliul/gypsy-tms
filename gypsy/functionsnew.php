@@ -7,12 +7,6 @@ if (isset($_GET['destination'])) {// Destination or City Places
     $destination = $_GET['destination'];
 }
 
-
-if (isset($_GET['atname'])) {// Destination or City Places
-    $atname = $_GET['atname'];
-}
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $destination = $_POST['destination'];
 }
@@ -42,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //echo "Average Rating: " . $totalrating;
 
 
-    } 
+    }
 
 
 
@@ -89,8 +83,15 @@ if ($totresult) {
 
 // Retrieve suggestions from the database based on user input
 
+    $query1= "SELECT id FROM `Locations` WHERE name='" . $destination . "'";
+    $result1 = $conn->query($query1);
 
-    $query2 = "SELECT * FROM Attractions WHERE location  = '" . $destination . "'";
+    if ($result1->num_rows > 0) {
+        while ($row = $result1->fetch_assoc()) {
+            $locationid = $row['id'];
+        }
+    }
+    $query2 = "SELECT * FROM Attractions WHERE destination_id  = '" . $locationid . "'";
     $result2 = $conn->query($query2);
 
     $location = array();
@@ -104,10 +105,31 @@ if ($totresult) {
             $hour[] = $row['opening_hours'];
             $ticket[] = $row['ticket_price'];
             $type[] = $row['attraction_type'];
-        
+
         $count=$count+1;
     }
     }
+
+
+//all places from single locations
+$atLocquery = "SELECT * FROM Attractions WHERE location  = '" . $atLoclocation . "'";
+$atLocresult = $conn->query($atLocquery);
+
+$atLocname = array();
+$atLocimg = array();
+$atLoccount=0;
+if ($atLocresult->num_rows > 0) {
+    while ($atLocrow = $atLocresult->fetch_assoc()) {
+        $atLocname[] = $atLocrow['name'];
+        $atLocdes[] = $atLocrow['description'];
+        $atLocimg[] = $atLocrow['image'];
+        $atLochour[] = $atLocrow['opening_hours'];
+        $atLocticket[] = $atLocrow['ticket_price'];
+        $atLoctype[] = $atLocrow['attraction_type'];
+
+        $atLoccount++;
+    }
+}
 
 //Single place details
 $atquery = "SELECT * FROM Attractions WHERE name  = '" . $atname . "'";
@@ -127,6 +149,39 @@ if ($atresult->num_rows > 0) {
 }
 
 
+//all hotel from city
+$htLocquery = "SELECT * FROM hotel WHERE location  = '" . $htLoclocation . "'";
+$htLocresult = $conn->query($htLocquery);
+
+$htLoclocation = array();
+$htLocimg = array();
+$htLoccount=0;
+if ($htLocresult->num_rows > 0) {
+    while ($htLocrow = $htLocresult->fetch_assoc()) {
+        $htLoclocation[] = $htLocrow['name'];
+        $htLocdes[] = $htLocrow['description'];
+        $htLocrating[] = $htLocrow['rating'];
+        $htLocaddress[] = $htLocrow['location'];
+        $htLocimg[] = $htLocrow['image'];
+        $htLoccount++;
+    }
+}
+
+//Single hotel info
+$htquery = "SELECT * FROM Attractions WHERE name  = '" . $htname . "'";
+$htresult = $conn->query($htquery);
+
+if ($htresult->num_rows > 0) {
+    while ($htrow = $atresult->fetch_assoc()) {
+        $htlocation = $atrow['name'];
+        $htdes = $htrow['description'];
+        $htrating = $htrow['rating'];
+        $htprice = $htLocrow['price'];
+        $htaddress = $htLocrow['location'];
+        $htcity = $htLocrow['city'];
+        $htimg = $htrow['image'];
+    }
+}
 
 /*for ($i =0 ; $i <= $count; $i++) {
 

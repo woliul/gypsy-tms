@@ -372,8 +372,8 @@ include 'functions.php';
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.php">
-            <img src="assets/img/logo/gypsy-white.svg" alt="Travel Explorer Logo" class="logo-img" style="width: 125px;">
+        <a class="navbar-brand" href="../index.php">
+            <img src="../assets/img/logo/gypsy-white.svg" alt="Travel Explorer Logo" class="logo-img" style="width: 125px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -381,19 +381,19 @@ include 'functions.php';
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php" style="color: white"><i class="fas fa-search"></i> Explore</a>
+                    <a class="nav-link" href="../index.php" style="color: white"><i class="fas fa-search"></i> Explore</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="flights.php" style="color: white"><i class="fas fa-plane"></i> Flights</a>
+                    <a class="nav-link" href="../flights.php" style="color: white"><i class="fas fa-plane"></i> Flights</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="hotels.php" style="color: white"><i class="fas fa-hotel"></i> Hotels</a>
+                    <a class="nav-link" href="../hotels.php" style="color: white"><i class="fas fa-hotel"></i> Hotels</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="rentals.php" style="color: white"><i class="fas fa-car"></i> Car Rentals</a>
+                    <a class="nav-link" href="../rentals.php" style="color: white"><i class="fas fa-car"></i> Car Rentals</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="offer.php" style="color: white"><i class="fas fa-tag"></i> Deals</a>
+                    <a class="nav-link" href="../offer.php" style="color: white"><i class="fas fa-tag"></i> Deals</a>
                 </li>
             </ul>
         </div>
@@ -851,7 +851,7 @@ include 'functions.php';
     font-size: 80%;
 ">
             <div class="mt-3">
-                <img alt="Eiffel Tower" class="card card-img-top mb-0" src="assets/img/eiffel_tower.jpg">
+                <img alt="Eiffel Tower" class="card card-img-top mb-0" src="../assets/img/eiffel_tower.jpg">
                 <div class="ml-0 pl-0 pr-0 mr-0 mb-2 card-text">
 
 
@@ -936,7 +936,7 @@ include 'functions.php';
             <div class="card">
 
 
-                <form class=" pl-4 pr-4 pt-4 pb-4 needs-validation" action="../review/process_rating.php?destination=" method="POST">
+                <form class=" pl-4 pr-4 pt-4 pb-4 needs-validation" action="../../review/process_rating.php?destination=" method="POST">
 
 
 
@@ -1164,14 +1164,14 @@ include 'functions.php';
     </div>
 </footer>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.slim.min.js"></script>
-<script src="assets/js/jquery.min.map"></script>
-<script src="assets/js/jquery.slim.min.map"></script>
-<script src="assets/js/jquery-3.5.1.slim.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/form-validation.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.slim.min.js"></script>
+<script src="../assets/js/jquery.min.map"></script>
+<script src="../assets/js/jquery.slim.min.map"></script>
+<script src="../assets/js/jquery-3.5.1.slim.min.js"></script>
+<script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/form-validation.js"></script>
 
 
 

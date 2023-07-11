@@ -1,4 +1,4 @@
-<?php
+z<?php
 /**
  * Created in PhpStorm.
  * Project Name: alpha

@@ -10,10 +10,11 @@
 <!-- nav.php -->
 
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.php">
-            <img src="assets/img/logo/gypsy-white.svg" alt="Travel Explorer Logo" class="logo-img"
+        <a class="navbar-brand" href="../index.php">
+            <img src="../assets/img/logo/gypsy-white.svg" alt="Travel Explorer Logo" class="logo-img"
                  style="width: 125px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -23,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php" style="color: white"><i class="fas fa-search"></i> Home</a>
+                    <a class="nav-link" href="../index.php" style="color: white"><i class="fas fa-search"></i> Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="exploreDropdown" role="button"
@@ -31,7 +32,7 @@
                         <i class="fas fa-globe"></i> Explore
                     </a>
                     <div class="dropdown-menu" aria-labelledby="exploreDropdown">
-                        <a class="dropdown-item" href="destinations.php">Destinations</a>
+                        <a class="dropdown-item" href="../destinations.php">Destinations</a>
                         <div class="dropdown-submenu">
                             <a class="dropdown-item dropdown-toggle" href="#">Continent</a>
                             <div class="dropdown-menu">
@@ -70,7 +71,7 @@
                         <div class="dropdown-submenu">
                             <a class="dropdown-item dropdown-toggle" href="#">Transportation options</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="flights.php">Flights</a>
+                                <a class="dropdown-item" href="../flights.php">Flights</a>
                                 <a class="dropdown-item" href="trains.php">Trains</a>
                                 <a class="dropdown-item" href="buses.php">Buses</a>
                                 <a class="dropdown-item" href="rental-cars.php">Rental cars</a>
@@ -157,4 +158,6 @@
         </div>
     </div>
 </nav>
+
+
 

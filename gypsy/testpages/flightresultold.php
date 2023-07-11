@@ -11,9 +11,9 @@ include 'header.php';
 ?>
 
 <!-- Landing page -->
-<div class="jumbotron flight-land" style="background-image: url(assets/img/flbg.jpg);background-size: cover; background-blend-mode: multiply;">
+<div class="jumbotron flight-land" style="background-image: url(../assets/img/flbg.jpg);background-size: cover; background-blend-mode: multiply;">
     <div class="container">
-        <form class="search-bar" action="flightresult.php" method="GET">
+        <form class="search-bar" action="../flightresult.php" method="GET">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <input type="text" class="form-control" id="inputFrom" placeholder="Departure City">

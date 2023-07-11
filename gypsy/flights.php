@@ -148,7 +148,7 @@ for ($i = 0;
     <div class="container">
         <div class="card mb-3">
             <div class="card-header">
-                <h5 class="mb-0">Flight from <?php echo $from[$i]; ?> to <?php echo $to[$i]; ?></h5>
+                <h5 class="mb-0">Flight from <strong> <?php echo $from[$i]; ?> </strong> to <strong><?php echo $to[$i]; ?></strong></h5>
             </div>
             <div class="card-body">
                 <div class="row collapsed" aria-controls="flightDetails<?php echo $i; ?>" aria-expanded="false"  data-target="#flightDetails<?php echo $i; ?>" data-toggle="collapse">
@@ -165,8 +165,9 @@ for ($i = 0;
                         <p><i class="fas fa-plane"></i> <?php echo $airline[$i]; ?></p>
                     </div>
                     <div class="col-md-2">
-                        <h5><i class="far fa-clock"></i> Duration</h5>
+                        <h5><i class="fas fa-clock"></i> Duration</h5>
                         <p><?php echo $duration[$i]; ?></p>
+                        <p class="card-text"><i class="fas fa-exchange-alt"></i> Stops: Non-stop</p>
                     </div>
                     <div class="col-md-2">
                         <h5><i class="fas fa-coins"></i> Price</h5>
@@ -190,13 +191,13 @@ for ($i = 0;
                                 </div>
                                 <div class="ml-3 pt-3 card mb-3 col-md-5">
                                     <p><strong><i class="fas fa-star"></i> Class:</strong> Economy</p>
-                                    <p><strong><i class="far fa-clock"></i> Duration:</strong> <?php echo $duration[$i]; ?>
+                                    <p><strong><i class="fas fa-clock"></i> Duration:</strong> <?php echo $duration[$i]; ?>
                                     </p>
                                 </div>
                                 <div class="pt-3 pl-3 pr-3 card col-md-6">
                                     <div>
                                         <div class="">
-                                            <p class=""><i class="mb-0 far fa-clock fa-fw align-middle"
+                                            <p class=""><i class="mb-0 fas fa-clock fa-fw align-middle"
                                                            style="display: inline-block; margin-right: 5px; font-size: 20px;"></i><strong>Arrival
                                                     Time:</strong> <?php echo $arrivalTime[$i]; ?></p>
                                             <p class=""><i class="mb-0 fas fa-plane-arrival fa-fw align-middle"
@@ -220,7 +221,7 @@ for ($i = 0;
                                             <p><i class="mb-0 fas fa-circle fa-fw align-middle"
                                                   style="display: inline-block; margin-right: 5px; font-size: 20px;"></i>
                                             </p>
-                                            <p><i class="mb-0 far fa-clock fa-fw align-middle"
+                                            <p><i class="mb-0 fas fa-clock fa-fw align-middle"
                                                   style="display: inline-block; margin-right: 5px; font-size: 20px;"></i><strong>Departure
                                                     Time:</strong> <?php echo $departureTime[$i]; ?></p>
                                             <p><i class="mb-0 fas fa-plane-departure fa-fw align-middle"

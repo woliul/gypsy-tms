@@ -63,13 +63,13 @@ include 'header.php';
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="assets/img/eiffel_tower.jpg" class="d-block w-100" alt="Eiffel Tower 1">
+                <img src="../assets/img/eiffel_tower.jpg" class="d-block w-100" alt="Eiffel Tower 1">
             </div>
             <div class="carousel-item">
-                <img src="assets/img/paris.jpg" class="d-block w-100" alt="Eiffel Tower 2">
+                <img src="../assets/img/paris.jpg" class="d-block w-100" alt="Eiffel Tower 2">
             </div>
             <div class="carousel-item">
-                <img src="assets/img/europe.jpg" class="d-block w-100" alt="Eiffel Tower 3">
+                <img src="../assets/img/europe.jpg" class="d-block w-100" alt="Eiffel Tower 3">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -559,19 +559,19 @@ include 'header.php';
                     <h5 class="card-title position-absolute bottom-0 end-0 p-3">
                         <a href="details-page.html" style="color: #fff; text-decoration: none;">Louvre Museum</a>
                     </h5>
-                    <img src="assets/img/louvre_museum.jpg" class="card-img-top" alt="Louvre Museum">
+                    <img src="../assets/img/louvre_museum.jpg" class="card-img-top" alt="Louvre Museum">
                 </div>
                 <div class="card">
                     <h5 class="card-title position-absolute bottom-0 end-0 p-3">
                         <a href="details-page.html" style="color: #fff; text-decoration: none;">Notre-Dame Cathedral</a>
                     </h5>
-                    <img src="assets/img/notre_dame_cathedral.jpg" class="card-img-top" alt="Louvre Museum">
+                    <img src="../assets/img/notre_dame_cathedral.jpg" class="card-img-top" alt="Louvre Museum">
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <h3>Location and Map</h3>
-            <div><img src="assets/img/map.jpg" class="d-block w-100" alt="Eiffel Tower 1"></div>
+            <div><img src="../assets/img/map.jpg" class="d-block w-100" alt="Eiffel Tower 1"></div>
         </div>
     </div>
 </div>
