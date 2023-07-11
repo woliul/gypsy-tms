@@ -6,6 +6,18 @@ include_once 'database.php';
 if (isset($_SESSION['user']) != "") {
 
 }
+if (isset($_POST['submit']))  {
+    $from = $_POST['dep'];
+    $to = $_POST['dest'];
+    $departureDate = $_POST['departure_date'];
+    $departureTime = $_POST['departure_time'];
+    $arrivalDate = $_POST['arrival_date'];
+    $arrivalTime = $_POST['arrival_time'];
+    $airline = $_POST['airline'];
+    $duration = $_POST['duration'];
+    $price = $_POST['price'];
+}
+
 /*$username = $_SESSION['user'];*/
 include 'header.php';
 include 'func.php';
@@ -372,32 +384,37 @@ include 'functions.php';
 
 <div class="mt-4 container">
     <div class="row">
+        <?php
+        //Loop for destination data
+
+
+        ?>
         <div class="container">
             <div class="card mb-3">
                 <div class="card-header">
-                    <h5 class="mb-0">Flight from <?php echo $from[$i]; ?> to <?php echo $to[$i]; ?></h5>
+                    <h5 class="mb-0">Flight from <?php echo $from; ?> to <?php echo $to; ?></h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
                             <h5><i class="fas fa-plane-departure"></i> Departure</h5>
-                            <p><i class="far fa-calendar-alt"></i> <?php echo $departureDate[$i]; ?></p>
-                            <p><i class="far fa-clock"></i> <?php echo $departureTime[$i]; ?></p>
-                            <p><i class="fas fa-plane"></i> <?php echo $airline[$i]; ?></p>
+                            <p><i class="far fa-calendar-alt"></i> <?php echo $departureDate; ?></p>
+                            <p><i class="far fa-clock"></i> <?php echo $departureTime; ?></p>
+                            <p><i class="fas fa-plane"></i> <?php echo $airline; ?></p>
                         </div>
                         <div class="col-md-4">
                             <h5><i class="fas fa-plane-arrival"></i> Arrival</h5>
-                            <p><i class="far fa-calendar-alt"></i> <?php echo $arrivalDate[$i]; ?></p>
-                            <p><i class="far fa-clock"></i> <?php echo $arrivalTime[$i]; ?></p>
-                            <p><i class="fas fa-plane"></i> <?php echo $airline[$i]; ?></p>
+                            <p><i class="far fa-calendar-alt"></i> <?php echo $arrivalDate; ?></p>
+                            <p><i class="far fa-clock"></i> <?php echo $arrivalTime; ?></p>
+                            <p><i class="fas fa-plane"></i> <?php echo $airline; ?></p>
                         </div>
                         <div class="col-md-2">
                             <h5><i class="far fa-clock"></i> Duration</h5>
-                            <p><?php echo $duration[$i]; ?></p>
+                            <p><?php echo $duration; ?></p>
                         </div>
                         <div class="col-md-2">
                             <h5><i class="fas fa-coins"></i> Price</h5>
-                            <p><?php echo $price[$i]; ?></p>
+                            <p><?php echo $price; ?></p>
                             <p class="text-right h4"><i class="fa fa-angle-down"></i></p>
                         </div>
                     </div>
@@ -405,6 +422,7 @@ include 'functions.php';
                 </div>
             </div>
         </div>
+
         <div class="card col-md-4">
             <div class="mt-3">
                 <img alt="Eiffel Tower" class="card card-img-top mb-0" src="assets/img/eiffel_tower.jpg">
@@ -413,14 +431,14 @@ include 'functions.php';
 
                     <!--Progressbar-->
                     <div class="pt-3 pl-3 pr-3 mt-3 mb-3 card">
-                        <p><strong><i class="fas fa-plane"></i> Airline:</strong> <?php echo $airline[$i]; ?>
+                        <p><strong><i class="fas fa-plane"></i> Airline:</strong> <?php echo $airline; ?>
                         </p>
-                        <p><strong><i class="fas fa-plane"></i> Flight:</strong> <?php echo $from[$i]; ?>
-                            | <?php echo $to[$i]; ?></p>
+                        <p><strong><i class="fas fa-plane"></i> Flight:</strong> <?php echo $from; ?>
+                            | <?php echo $to; ?></p>
                     </div>
                     <div class="pl-3 pr-3 pt-3 card mt-3 mb-3">
                         <p><strong><i class="fas fa-star"></i> Class:</strong> Economy</p>
-                        <p><strong><i class="far fa-clock"></i> Duration:</strong> <?php echo $duration[$i]; ?>
+                        <p><strong><i class="far fa-clock"></i> Duration:</strong> <?php echo $duration; ?>
                         </p>
                     </div>
                     <div class="pl-3 pr-3 pt-3 card mt-3 mb-3">

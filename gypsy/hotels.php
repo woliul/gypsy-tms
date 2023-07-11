@@ -629,7 +629,7 @@ for ($i = 0;
                             <!-- end table responsive -->
                             <div class="d-print-none">
                                 <div class="float-right">
-                                    <a href="#" class="btn btn-primary w-md">See availability<i class="ml-1 fas fa-chevron-right" style="font-size: 71%;"></i></a>
+                                    <a href="hoteldetails.php" class="btn btn-primary w-md">See availability<i class="ml-1 fas fa-chevron-right" style="font-size: 71%;"></i></a>
                                 </div>
                             </div>
                         </div>

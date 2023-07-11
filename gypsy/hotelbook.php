@@ -542,42 +542,7 @@ include 'functions.php';
                                         Zip code required.
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                    <label for="rooms">Rooms</label>
-                                    <select class="custom-select d-block w-100" id="rooms" required="">
-                                        <option value="">Choose...</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Please select a valid country.
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label for="adults">Adults</label>
-                                    <select class="custom-select d-block w-100" id="adults" required="">
-                                        <option value="">Choose...</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Please select a valid country.
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label for="country">Children</label>
-                                    <select class="custom-select d-block w-100" id="country" required="">
-                                        <option value="">Choose...</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Please select a valid country.
-                                    </div>
-                                </div>
+
                             </div>
                             <hr class="mb-4">
                             <div class="custom-control custom-checkbox">

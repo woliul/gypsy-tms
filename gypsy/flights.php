@@ -28,7 +28,7 @@ $arrivalDate = array();
 $arrivalTime = array();
 $airline = array();
 $duration = array();
-$price= array();
+$price = array();
 // Check if the query was successful
 if ($result3) {
     // Fetch the rows from the result set
@@ -134,7 +134,7 @@ include 'header.php';
                     <input type="date" class="form-control" id="inputReturn">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Search Flights</button>
+            <button type="submit" name="submit" class="btn btn-primary">Search Flights</button>
         </form>
 
     </div>
@@ -145,37 +145,50 @@ for ($i = 0;
      $i < $count;
      $i++) {
     ?>
+
     <div class="container">
         <div class="card mb-3">
             <div class="card-header">
-                <h5 class="mb-0">Flight from <strong> <?php echo $from[$i]; ?> </strong> to <strong><?php echo $to[$i]; ?></strong></h5>
+                <h5 class="mb-0">Flight from <span name="dep"> <strong> <?php echo $from[$i]; ?> </strong></span> to
+                    <span name="dest"><strong><?php echo $to[$i]; ?></strong></span></h5>
             </div>
             <div class="card-body">
-                <div class="row collapsed" aria-controls="flightDetails<?php echo $i; ?>" aria-expanded="false"  data-target="#flightDetails<?php echo $i; ?>" data-toggle="collapse">
-                    <div class="col-md-4">
-                        <h5><i class="fas fa-plane-departure"></i> Departure</h5>
-                        <p class="mb-0"><i class="fas fa-calendar-alt"></i> <?php echo $departureDate[$i]; ?></p>
-                        <p><i class="fas fa-clock"></i> <?php echo $departureTime[$i]; ?></p>
-                        <p><i class="fas fa-plane" style="display: inline-block;transform: rotate(-90deg);  margin-right: 5px; font-size: 20px;"></i> <?php echo $airline[$i]; ?></p>
+                <form action="flightbooking.php" method="post">
+                    <div class="row collapsed" aria-controls="flightDetails<?php echo $i; ?>" aria-expanded="false"
+                         data-target="#flightDetails<?php echo $i; ?>" data-toggle="collapse">
+                        <div class="col-md-4">
+                            <h5><i class="fas fa-plane-departure"></i> Departure</h5>
+                            <p name="departure_date" class="mb-0"><i
+                                        class="fas fa-calendar-alt"></i> <?php echo $departureDate[$i]; ?></p>
+                            <p name="departure_time"><i class="fas fa-clock"></i> <?php echo $departureTime[$i]; ?></p>
+                            <p name="airline"><i class="fas fa-plane"
+                                                 style="display: inline-block;transform: rotate(-90deg);  margin-right: 5px; font-size: 20px;"></i> <?php echo $airline[$i]; ?>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5><i class="fas fa-plane-arrival"></i> Arrival</h5>
+                            <p name="arrival_date" class="mb-0"><i
+                                        class="fas fa-calendar-alt"></i> <?php echo $arrivalDate[$i]; ?></p>
+                            <p name="arrival_time"><i class="fas fa-clock"></i> <?php echo $arrivalTime[$i]; ?></p>
+                            <p name="airline"><i class="fas fa-plane"
+                                                 style="display: inline-block;transform: rotate(90deg);  margin-right: 5px; font-size: 20px;"></i> <?php echo $airline[$i]; ?>
+                            </p>
+                        </div>
+                        <div class="col-md-2">
+                            <h5><i class="fas fa-clock"></i> Duration</h5>
+                            <p name="duration"><?php echo $duration[$i]; ?></p>
+                            <p class="card-text"><i class="fas fa-exchange-alt"></i> Stops: Non-stop</p>
+                        </div>
+                        <div class="col-md-2">
+                            <h5><i class="fas fa-coins"></i> Price</h5>
+                            <p name="duration"><?php echo $price[$i]; ?></p>
+                            <p aria-controls="flightDetails<?php echo $i; ?>" aria-expanded="false"
+                               data-target="#flightDetails<?php echo $i; ?>" data-toggle="collapse"
+                               class="collapsed text-right h4"><i class="fa fa-angle-down"></i></p>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <h5><i class="fas fa-plane-arrival"></i> Arrival</h5>
-                        <p class="mb-0"><i class="fas fa-calendar-alt"></i> <?php echo $arrivalDate[$i]; ?></p>
-                        <p><i class="fas fa-clock"></i> <?php echo $arrivalTime[$i]; ?></p>
-                        <p><i class="fas fa-plane" style="display: inline-block;transform: rotate(90deg);  margin-right: 5px; font-size: 20px;"></i> <?php echo $airline[$i]; ?></p>
-                    </div>
-                    <div class="col-md-2">
-                        <h5><i class="fas fa-clock"></i> Duration</h5>
-                        <p><?php echo $duration[$i]; ?></p>
-                        <p class="card-text"><i class="fas fa-exchange-alt"></i> Stops: Non-stop</p>
-                    </div>
-                    <div class="col-md-2">
-                        <h5><i class="fas fa-coins"></i> Price</h5>
-                        <p><?php echo $price[$i]; ?></p>
-                        <p aria-controls="flightDetails<?php echo $i; ?>" aria-expanded="false"  data-target="#flightDetails<?php echo $i; ?>" data-toggle="collapse" class="collapsed text-right h4"><i class="fa fa-angle-down"></i></p>
-                    </div>
-                </div>
-                <a class="btn btn-primary"  href="#"><i class="fas fa-check mr-2"></i>Book Now</a>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-check mr-2"></i>Book Now</button>
+                </form>
             </div>
 
             <div class="collapse" id="flightDetails<?php echo $i; ?>" style="">
@@ -184,14 +197,16 @@ for ($i = 0;
                         <div class="col-md-12">
                             <div class="row justify-content-center">
                                 <div class="pt-3 pl-3 pr-3 mb-3 card col-md-6">
-                                    <p><strong><i class="fas fa-plane"></i> Airline:</strong> <?php echo $airline[$i]; ?>
+                                    <p><strong><i class="fas fa-plane"></i>
+                                            Airline:</strong> <?php echo $airline[$i]; ?>
                                     </p>
                                     <p><strong><i class="fas fa-plane"></i> Flight:</strong> <?php echo $from[$i]; ?>
                                         | <?php echo $to[$i]; ?></p>
                                 </div>
                                 <div class="ml-3 pt-3 card mb-3 col-md-5">
                                     <p><strong><i class="fas fa-star"></i> Class:</strong> Economy</p>
-                                    <p><strong><i class="fas fa-clock"></i> Duration:</strong> <?php echo $duration[$i]; ?>
+                                    <p><strong><i class="fas fa-clock"></i>
+                                            Duration:</strong> <?php echo $duration[$i]; ?>
                                     </p>
                                 </div>
                                 <div class="pt-3 pl-3 pr-3 card col-md-6">
@@ -249,11 +264,81 @@ for ($i = 0;
         </div>
     </div>
 
+
     <?php
     //Loop for destination data
 }
 ?>
+<div class="container">
+    <span style="
+    font-family: Pangea Text,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+" class="text-muted">PLAN YOUR TRIP</span>
+    <h1 style="
+    font-family: Pangea Text,Helvetica,Arial,sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+">Where to next?</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="assets/img/flightbody1.jpg" class="card-img-top" alt="Destination 1">
 
+            </div>
+            <h3 class="card-title font-weight-bold">Indonesia</h3>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="assets/img/flightbody2.jpg" class="card-img-top" alt="Destination 1">
+
+            </div>
+            <h3 class="card-title font-weight-bold">Amazon</h3>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="assets/img/flightbody3.jpg" class="card-img-top" alt="Destination 1">
+
+            </div>
+            <h3 class="card-title font-weight-bold">Dominica</h3>
+        </div>
+
+    </div>
+
+    <h2>Top Deals</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="assets/img/bali.jpg" class="card-img-top" alt="Deal 1">
+                <div class="card-body">
+                    <h5 class="card-title">Flight + Hotel to Bali</h5>
+                    <p class="card-text">Experience the beauty and tranquility of Bali with our special package.</p>
+                    <a href="#" class="btn btn-primary">View Deal</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="assets/img/cancun.jpg" class="card-img-top" alt="Deal 2">
+                <div class="card-body">
+                    <h5 class="card-title">All-Inclusive Resort in Cancun</h5>
+                    <p class="card-text">Enjoy a luxurious and worry-free vacation in Cancun.</p>
+                    <a href="#" class="btn btn-primary">View Deal</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="assets/img/europe.jpg" class="card-img-top" alt="Deal 3">
+                <div class="card-body">
+                    <h5 class="card-title">European Cruise Package</h5>
+                    <p class="card-text">Embark on a breathtaking journey through Europe's iconic cities.</p>
+                    <a href="#" class="btn btn-primary">View Deal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <?php
 // Include the footer
 include 'footer.php';

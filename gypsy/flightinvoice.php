@@ -421,7 +421,7 @@ include 'functions.php';
                         <div class="col-sm-6">
                             <div class="text-muted">
                                 <h5 class="font-size-16 mb-3">Billed To:</h5>
-                                <h5 class="font-size-15 mb-2">Preston Miller</h5>
+                                <h5 class="font-size-15 mb-2">James William</h5>
                                 <p class="mb-1">4068 Post Avenue Newfolden, MN 56738</p>
                                 <p class="mb-1">PrestonMiller@armyspy.com</p>
                                 <p>001-234-5678</p>
