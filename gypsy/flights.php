@@ -153,7 +153,7 @@ for ($i = 0;
                     <span name="dest"><strong><?php echo $to[$i]; ?></strong></span></h5>
             </div>
             <div class="card-body">
-                <form action="flightbooking.php" method="post">
+                <form action="flightbooking.php" method="POST">
                     <div class="row collapsed" aria-controls="flightDetails<?php echo $i; ?>" aria-expanded="false"
                          data-target="#flightDetails<?php echo $i; ?>" data-toggle="collapse">
                         <div class="col-md-4">
