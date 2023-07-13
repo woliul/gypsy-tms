@@ -126,14 +126,6 @@ include 'header.php';
                     </datalist>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="date" class="form-control" id="inputDeparture">
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="date" class="form-control" id="inputReturn">
-                </div>
-            </div>
             <button type="submit" name="submit" class="btn btn-primary">Search Flights</button>
         </form>
 
