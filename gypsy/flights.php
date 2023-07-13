@@ -87,8 +87,16 @@ include 'header.php';
         <form class="search-bar" action="" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input class="form-control" name="departure" list="datalistOptions" id="exampleDataList"
-                           placeholder="Departure City">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text icon-padding">
+                            <i class="fas fa-plane-departure"></i>
+                        </span>
+                        </div>
+                        <input class="form-control" name="departure" list="datalistOptions" id="exampleDataList"
+                               placeholder="Departure City">
+                    </div>
                     <datalist id="datalistOptions">
                         <?php // Check if any results were found
                         if ($result->num_rows > 0) {
@@ -106,8 +114,16 @@ include 'header.php';
                     </datalist>
                 </div>
                 <div class="form-group col-md-6">
-                    <input class="form-control" name="destination" list="datalistOptions2" id="exampleDataList2"
-                           placeholder="Destination City">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text icon-padding">
+                            <i class="fas fa-plane-arrival"></i>
+                        </span>
+                        </div>
+                        <input class="form-control" name="destination" list="datalistOptions2" id="exampleDataList2"
+                               placeholder="Destination City">
+                    </div>
                     <datalist id="datalistOptions2">
                         <?php
                         // Check if any results were found
