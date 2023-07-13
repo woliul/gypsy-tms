@@ -663,7 +663,6 @@ for ($i = 0;
                     <ul class="hotel-amenities">
                         <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
                         <li><i class="fas fa-utensils"></i> Restaurant</li>
-                        <li><i class="fas fa-car"></i> Parking</li>
                         <!-- Add more amenities as needed -->
 
                     </ul>
