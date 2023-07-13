@@ -95,7 +95,7 @@
 <body>
 <div class="container">
     <div class="logo">
-        <img src="path/to/logo.png" alt="Logo">
+        <img src="../assets/img/logo/gypsy-blue-tr.svg" alt="Logo">
     </div>
     <h2>Sign Up</h2>
     <form action="signup.php" method="POST">

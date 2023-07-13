@@ -195,7 +195,7 @@ for ($i = 0;
                                class="collapsed text-right h4"><i class="fa fa-angle-down"></i></p>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-check mr-2"></i>Book Now</button>
+                    <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check mr-2"></i>Book Now</button>
                 </form>
             </div>
 

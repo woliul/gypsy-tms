@@ -525,7 +525,7 @@ include 'header.php';
                 <div class="form-group">
 
                         <input class="form-control" name="dest" list="datalistOptions" id="exampleDataList"
-                               placeholder="Departure City">
+                               placeholder="Type your city name">
                         <datalist id="datalistOptions">
                             <?php // Check if any results were found
                             if ($result->num_rows > 0) {
@@ -551,7 +551,10 @@ include 'header.php';
 
         </div>
     </div>
+    <section class="container mt-5">
+        <h2 class="text-center mb-4">Best Hotels in <?php echo $dest; ?> </h2>
 
+    </section>
 
 <?php
 //Loop for destination data
@@ -559,10 +562,6 @@ for ($i = 0;
      $i < $count;
      $i++) {
     ?>
-    <section class="container mt-5">
-        <h2 class="text-center mb-4">Best Hotels in <?php echo $dest; ?> </h2>
-
-    </section>
 
     <div class="container">
         <div class="row mb-4 mt-4">

@@ -12,8 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $_POST['username'];
     $pass = md5($_POST['password']);
 
-    // Validate the form data (you can add more validation if needed)
-    // Establish a database connection (replace the placeholders with your actual database credentials)
+
     include '../database.php';
 
 

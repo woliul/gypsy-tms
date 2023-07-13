@@ -95,7 +95,7 @@
 <body>
 <div class="container">
     <div class="logo">
-        <img src="css/assets/img/logo/gypsy-b.svg" alt="Logo">
+        <img src="../gypsy/assets/img/logo/gypsy-blue-tr.svg" alt="Logo">
     </div>
     <h2>Sign Up</h2>
     <form action="signup.php" method="POST">
@@ -106,7 +106,7 @@
         <button type="submit" name="submit">Sign Up</button>
     </form>
     <div class="signin">
-        <p>Already have an account? <a href="#">Sign In</a></p>
+        <p>Already have an account? <a href="sign.php">Sign In</a></p>
     </div>
 </div>
 </body>

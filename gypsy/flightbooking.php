@@ -7,15 +7,15 @@ if (isset($_SESSION['user']) != "") {
 
 }
 if (isset($_POST['submit']))  {
-    $from = $_POST['dep'];
-    $to = $_POST['dest'];
-    $departureDate = $_POST['departure_date'];
-    $departureTime = $_POST['departure_time'];
-    $arrivalDate = $_POST['arrival_date'];
-    $arrivalTime = $_POST['arrival_time'];
-    $airline = $_POST['airline'];
-    $duration = $_POST['duration'];
-    $price = $_POST['price'];
+    $from = mysqli_real_escape_string($conn,$_POST['dep']);
+    $to = mysqli_real_escape_string($conn,$_POST['dest']);
+    $departureDate = mysqli_real_escape_string($conn,$_POST['departure_date']);
+    $departureTime = mysqli_real_escape_string($conn,$_POST['departure_time']);
+    $arrivalDate = mysqli_real_escape_string($conn,$_POST['arrival_date']);
+    $arrivalTime = mysqli_real_escape_string($conn,$_POST['arrival_time']);
+    $airline = mysqli_real_escape_string($conn,$_POST['airline']);
+    $duration = mysqli_real_escape_string($conn,$_POST['duration']);
+    $price = mysqli_real_escape_string($conn,$_POST['price']);
 }
 
 /*$username = $_SESSION['user'];*/
