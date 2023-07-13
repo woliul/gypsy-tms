@@ -6,17 +6,27 @@ include_once 'database.php';
 if (isset($_SESSION['user']) != "") {
 
 }
-if (isset($_POST['submit']))  {
-    $from = mysqli_real_escape_string($conn,$_POST['dep']);
-    $to = mysqli_real_escape_string($conn,$_POST['dest']);
-    $departureDate = mysqli_real_escape_string($conn,$_POST['departure_date']);
-    $departureTime = mysqli_real_escape_string($conn,$_POST['departure_time']);
-    $arrivalDate = mysqli_real_escape_string($conn,$_POST['arrival_date']);
-    $arrivalTime = mysqli_real_escape_string($conn,$_POST['arrival_time']);
-    $airline = mysqli_real_escape_string($conn,$_POST['airline']);
-    $duration = mysqli_real_escape_string($conn,$_POST['duration']);
-    $price = mysqli_real_escape_string($conn,$_POST['price']);
+
+if (isset($_GET['destination'])) {
+    $id = $_GET['destination'];
 }
+$queryfl = "SELECT * FROM flights WHERE id  = '" . $id . "'";
+$resultfl = $conn->query($queryfl);
+if ($resultfl->num_rows > 0) {
+while ($rowfl = $resultfl->fetch_assoc()) {
+    $from = $rowfl['dep'];
+    $to = $rowfl['dest'];
+    $departureDate = $rowfl['departure_date'];
+    $departureTime = $rowfl['departure_time'];
+    $arrivalDate = $rowfl['arrival_date'];
+    $arrivalTime = $rowfl['arrival_time'];
+    $airline = $rowfl['airline'];
+    $duration = $rowfl['duration'];
+    $price = $rowfl['price'];
+
+}
+}
+
 
 /*$username = $_SESSION['user'];*/
 include 'header.php';

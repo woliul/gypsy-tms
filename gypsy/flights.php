@@ -35,6 +35,7 @@ if ($result3) {
     while ($row3 = mysqli_fetch_assoc($result3)) {
         // Access the flight data using column names
         $from[$count] = $row3['dep'];
+        $id[$count] = $row3['id'];
         $to[$count] = $row3['dest'];
         $departureDate[$count] = $row3['departure_date'];
         $departureTime[$count] = $row3['departure_time'];
@@ -161,7 +162,7 @@ for ($i = 0;
                     <span name="dest"><strong><?php echo $to[$i]; ?></strong></span></h5>
             </div>
             <div class="card-body">
-                <form action="flightbooking.php" method="POST">
+
                     <div class="row collapsed" aria-controls="flightDetails<?php echo $i; ?>" aria-expanded="false"
                          data-target="#flightDetails<?php echo $i; ?>" data-toggle="collapse">
                         <div class="col-md-4">
@@ -195,8 +196,8 @@ for ($i = 0;
                                class="collapsed text-right h4"><i class="fa fa-angle-down"></i></p>
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check mr-2"></i>Book Now</button>
-                </form>
+                    <a href="flightbooking.php?destination=<?php echo urlencode($id[$i]); ?>" type="submit" class="btn btn-primary"><i class="fas fa-check mr-2"></i>Book Now</a>
+
             </div>
 
             <div class="collapse" id="flightDetails<?php echo $i; ?>" style="">
