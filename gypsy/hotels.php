@@ -546,27 +546,6 @@ include 'header.php';
                         Please enter a destination.
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="checkin">Check-in</label><input type="date" class="form-control" id="inputDeparture">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="checkout">Check-out</label><input type="date" class="form-control" id="inputReturn">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="guests">Guests</label>
-                    <select class="form-control" id="guests" required="">
-                        <option value="">Choose...</option>
-                        <option>1 guest</option>
-                        <option>2 guests</option>
-                        <option>3 guests</option>
-                        <!-- Add more options as needed -->
-                    </select>
-                    <div class="invalid-feedback">
-                        Please select the number of guests.
-                    </div>
-                </div>
                 <button type="submit" class="btn btn-primary">Search Hotels</button>
             </form>
 
