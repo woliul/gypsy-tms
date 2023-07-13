@@ -114,15 +114,14 @@ include 'header.php';
                     </datalist>
                 </div>
                 <div class="form-group col-md-6">
-
+                    <input class="form-control border-white" name="destination" list="datalistOptions2" id="exampleDataList2"
+                           placeholder="Destination City">
                     <div class="input-group">
                         <div class="input-group-prepend">
                         <span class="pl-2 input-group-text pr-2 bg-white border-white">
                             <i class="fas fa-plane-arrival"></i>
                         </span>
                         </div>
-                        <input class="form-control border-white" name="destination" list="datalistOptions2" id="exampleDataList2"
-                               placeholder="Destination City">
                     </div>
                     <datalist id="datalistOptions2">
                         <?php
