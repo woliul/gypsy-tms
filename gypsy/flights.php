@@ -94,7 +94,7 @@ include 'header.php';
                             <i class="fas fa-plane-departure"></i>
                         </span>
                         </div>
-                        <input class="form-control" name="departure" list="datalistOptions" id="exampleDataList"
+                        <input class="form-control border-white" name="departure" list="datalistOptions" id="exampleDataList"
                                placeholder="Departure City">
                     </div>
                     <datalist id="datalistOptions">
@@ -116,13 +116,13 @@ include 'header.php';
                 <div class="form-group col-md-6">
 
                     <div class="input-group">
-                        <input class="form-control" name="destination" list="datalistOptions2" id="exampleDataList2"
-                               placeholder="Destination City">
                         <div class="input-group-prepend">
                         <span class="pl-2 input-group-text pr-2 bg-white border-white">
                             <i class="fas fa-plane-arrival"></i>
                         </span>
                         </div>
+                        <input class="form-control border-white" name="destination" list="datalistOptions2" id="exampleDataList2"
+                               placeholder="Destination City">
                     </div>
                     <datalist id="datalistOptions2">
                         <?php
