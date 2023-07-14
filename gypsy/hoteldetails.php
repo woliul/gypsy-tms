@@ -539,7 +539,9 @@ include 'functions.php';
     <div class="row">
         <?php
         //Loop for destination data
-        for ($i = 0; $i < $roomtype; $i++) {
+        $id=0;
+        for ($i = 0; $i <= $roomtype; $i++) {
+            $id=$id+1;
         ?>
 
         <div class="col-md-4">
@@ -596,9 +598,9 @@ include 'functions.php';
                     </p>
 
                     <p class="card-text text-primary"><i class="fas fa-info-circle mr-1"></i>Price details
-                        <span class="card-text btn btn-primary float-right">Reserve<i
-                                    class="ml-1 fas fa-chevron-right"></i>
-                        </span>
+
+                        <a href="hotelbook.php?hname=<?php echo urlencode($hname);?>&rid=<?php echo urlencode($id);?>" class="card-text btn btn-primary float-right">Reserve<i class="ml-1 fas fa-chevron-right"></i>
+                        </a>
                     </p>
                 </div>
             </div>

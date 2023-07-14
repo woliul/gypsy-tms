@@ -41,13 +41,7 @@
                         <i class="fas fa-info-circle"></i> About Us
                     </a>
                     <div class="dropdown-menu" aria-labelledby="aboutUsDropdown">
-                        <a class="dropdown-item" href="company-info.php">Company information</a>
-                        <a class="dropdown-item" href="mission-values.php">Mission and values</a>
                         <a class="dropdown-item" href="meet-the-team.php">Meet the team</a>
-                        <a class="dropdown-item" href="contact-us.php">Contact us</a>
-                        <a class="dropdown-item" href="faqs.php">FAQs</a>
-                        <a class="dropdown-item" href="terms-conditions.php">Terms and conditions</a>
-                        <a class="dropdown-item" href="privacy-policy.php">Privacy policy</a>
                     </div>
                 </li>
             </ul>
