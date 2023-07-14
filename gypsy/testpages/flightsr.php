@@ -59,7 +59,7 @@ include 'header.php';
   <div class="container">
     <h1>Search for Flights</h1>
     <p>Start planning your trip by searching for the best flight options.</p>
-      <form class="search-bar" action="flight_results.php" method="POST">
+      <form class="search-bar" action="../flight_results.php" method="POST">
           <div class="form-row">
               <div class="form-group col-md-6">
                   <input class="form-control" name="departure" list="datalistOptions" id="exampleDataList" placeholder="Departure City">
@@ -118,17 +118,17 @@ include 'header.php';
   <div class="row">
     <div class="col-md-4">
       <div class="card">
-        <img src="assets/img/paris.jpg" class="card-img-top" alt="Destination 1">
+        <img src="../assets/img/paris.jpg" class="card-img-top" alt="Destination 1">
         <div class="card-body">
           <h5 class="card-title">Paris, France</h5>
           <p class="card-text">Experience the romance and charm of the City of Light.</p>
-          <a href="dest.php" class="btn btn-primary">Explore</a>
+          <a href="../dest.php" class="btn btn-primary">Explore</a>
         </div>
       </div>
     </div>
     <div class="col-md-4">
       <div class="card">
-        <img src="assets/img/tokyo.jpg" class="card-img-top" alt="Destination 2">
+        <img src="../assets/img/tokyo.jpg" class="card-img-top" alt="Destination 2">
         <div class="card-body">
           <h5 class="card-title">Tokyo, Japan</h5>
           <p class="card-text">Discover the bustling streets and ancient traditions of Tokyo.</p>
@@ -138,7 +138,7 @@ include 'header.php';
     </div>
     <div class="col-md-4">
       <div class="card">
-        <img src="assets/img/newyork.jpg" class="card-img-top" alt="Destination 3">
+        <img src="../assets/img/newyork.jpg" class="card-img-top" alt="Destination 3">
         <div class="card-body">
           <h5 class="card-title">New York City, USA</h5>
           <p class="card-text">Immerse yourself in the vibrant energy of the Big Apple.</p>
@@ -152,7 +152,7 @@ include 'header.php';
   <div class="row">
     <div class="col-md-4">
       <div class="card">
-        <img src="assets/img/bali.jpg" class="card-img-top" alt="Deal 1">
+        <img src="../assets/img/bali.jpg" class="card-img-top" alt="Deal 1">
         <div class="card-body">
           <h5 class="card-title">Flight + Hotel to Bali</h5>
           <p class="card-text">Experience the beauty and tranquility of Bali with our special package.</p>
@@ -162,7 +162,7 @@ include 'header.php';
     </div>
     <div class="col-md-4">
       <div class="card">
-        <img src="assets/img/cancun.jpg" class="card-img-top" alt="Deal 2">
+        <img src="../assets/img/cancun.jpg" class="card-img-top" alt="Deal 2">
         <div class="card-body">
           <h5 class="card-title">All-Inclusive Resort in Cancun</h5>
           <p class="card-text">Enjoy a luxurious and worry-free vacation in Cancun.</p>
@@ -172,7 +172,7 @@ include 'header.php';
     </div>
     <div class="col-md-4">
       <div class="card">
-        <img src="assets/img/europe.jpg" class="card-img-top" alt="Deal 3">
+        <img src="../assets/img/europe.jpg" class="card-img-top" alt="Deal 3">
         <div class="card-body">
           <h5 class="card-title">European Cruise Package</h5>
           <p class="card-text">Embark on a breathtaking journey through Europe's iconic cities.</p>

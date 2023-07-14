@@ -7,6 +7,62 @@ if (isset($_SESSION['user']) != "") {
 
 }
 /*$username = $_SESSION['user'];*/
+if (isset($_GET['destination'])) {
+    $hname = $_GET['destination'];
+    $destination = $_GET['destination'];
+    
+}
+
+
+// Simulated flight data array
+$sqlht = "SELECT * FROM hotel WHERE name = '$hname'";
+$resultht = $conn->query($sqlht);
+
+// Check if the query was successful
+if ($resultht) {
+    // Fetch the rows from the result set
+    while ($rowht = mysqli_fetch_assoc($resultht)) {
+        // Access the flight data using column names
+        $nameht = $rowht['name'];
+        $ratinght = $rowht['rating'];
+        $locationht = $rowht['location'];
+        $priceht = $rowht['price'];
+        $roomtype = $rowht['roomtype'];
+        $resroom = $rowht['reserve'];
+        $free = $rowht['free'];
+    }
+
+
+} else {
+    // Handle the case when the query fails
+    echo "Error executing query: " . mysqli_error($conn);
+}
+
+
+// Simulated flight data array
+$sqlhr = "SELECT * FROM hotelroom";
+$resulthr = $conn->query($sqlhr);
+$count=0;
+$namer = array();
+$size = array();
+$sleep = array();
+$bed = array();
+// Check if the query was successful
+if ($resulthr) {
+    // Fetch the rows from the result set
+    while ($rowhr = mysqli_fetch_assoc($resulthr)) {
+        // Access the flight data using column names
+        $namer[$count] = $rowhr['name'];
+        $size[$count] = $rowhr['size'];
+        $sleep[$count] = $rowhr['sleep'];
+        $bed[$count] = $rowhr['bed'];
+        $count++;
+    }
+    
+} else {
+    // Handle the case when the query fails
+    echo "Error executing query: " . mysqli_error($conn);
+}
 include 'header.php';
 include 'func.php';
 include 'functions.php';
@@ -395,9 +451,9 @@ include 'functions.php';
 
                         <div class="bdfont80 col-7">
                             <div class="mb-2">
-                                <h2 class="mb-1">Long Beach Hotel</h2><!-- Hotel Name -->
-                                <p class="mb-0"><i data-star="4.0" style="font-size: 100%;"></i></p><!-- Hotel Star -->
-                                <p class="mb-0"><strong> Cox's Bazar</strong> 21.3 km from center</p>
+                                <h2 class="mb-1"><?php echo $hname; ?></h2><!-- Hotel Name -->
+                                <p class="mb-0"><i data-star="<?php echo $ratinght; ?>" style="font-size: 100%;"></i></p><!-- Hotel Star -->
+                                <p class="mb-0"><strong><?php echo $locationht; ?></strong> 21.3 km from center</p>
                                 <!-- Location Distance -->
                             </div>
                             <div class="">
@@ -422,8 +478,6 @@ include 'functions.php';
                                         </ul>
                                     </div>
                                 </div>
-
-
                             </div>
                             <!-- Main Features -->
                             <!-- Special Features -->
@@ -438,13 +492,11 @@ include 'functions.php';
                                 <div>
                                     <h5 class=" mb-1">
                                         <span class="badge bg-success text-white"
-                                              style="margin-top: 0.35rem;">4.5</span><!-- User Ratings -->
+                                              style="margin-top: 0.35rem;"><?php echo $avgrating; ?></span><!-- User Ratings -->
                                     </h5>
-                                    <p class="bdfont80 text-muted mb-1">118 reviews</p><!--Ratings Counts-->
+                                    <p class="bdfont80 text-muted mb-1"><?php echo $totalrating; ?> reviews</p><!--Ratings Counts-->
                                 </div>
                                 <div class="col-md-12 mt-4 pt-3 pl-0 pr-0">
-
-
                                     <div class="row">
                                         <div class="col-sm-6 text-left">
                                             <h5>Room Types</h5>
@@ -460,7 +512,6 @@ include 'functions.php';
                                             <h5 class="text-sm-end">Room Features</h5>
                                             <ul class="list-unstyled text-muted">
                                                 <li>Allergy-free room <i class="fas fa-seedling"></i></li>
-
                                                 <li>Air conditioning <i class="fas fa-wind"></i></li>
                                                 <li>Flatscreen TV <i class="fas fa-tv"></i></li>
                                                 <li>Minibar <i class="fas fa-glass-cheers"></i></li>
@@ -470,421 +521,38 @@ include 'functions.php';
                                             </ul>
                                         </div>
                                     </div>
-
                                     <div class="row">
-
                                         <div class="col-sm-6 pt-3 mt-3">
-
                                         </div>
                                     </div>
                                 </div>
-
                                 <!-- Tax and charges -->
                             </div>
                         </div>
                     </div><!-- end row -->
-
-
                 </div>
-
-
             </div>
         </div>
     </div>
 
 
     <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active carousel-item-left">
-                            <img class="d-block w-100" src="assets/img/newyork.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item carousel-item-next carousel-item-left">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                <div class="card-body" style="
-    font-size: 80%;
-">
-                    <h5 class="card-title">Superior Twin Room</h5>
-
-                    <p class="card-text mb-0"><i class="fas fa-ruler-combined"></i> 24 sq m</p>
-                    <p class="card-text mb-0"><i class="fas fa-user-friends"></i> Sleeps 2</p>
-                    <p class="card-text mb-0"><i class="fas fa-wifi"></i> Free WiFi</p>
-                    <p class="card-text mb-1"><i class="fas fa-bed"></i> 2 Twin Beds</p>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <span class="form-check-label col-6" for="inlineRadio1">Non-refundable</span>
-                        <span class="form-check-label col-6" for="" style="text-align: end;">+ USD 0</span></div>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <label class="form-check-label col-6" for="inlineRadio1">Fully refundable before Jul 24,
-                            2023</label><span class="form-check-label col-6" for=""
-                                              style="text-align: end;">+ USD 0</span>
-                    </div>
-                    <p class="card-text text-muted" style="
-    font-size: 80%;
-">Reserve now, pay later</p><h5><span class="badge bg-danger text-white" style="margin-top: 0.35rem;">25% off</span>
-                    </h5>
-                    <h5 class="h4 mb-1">BDT 44,912
-                        <del class="ml-2 h6 mb-1">USD 434</del>
-                    </h5>
-                    <p></p>
-                    <p class="card-text">USD 417 total <br>
-                        includes taxes &amp; fees<span class="card-text text-danger float-right">We have 1 left</span>
-                    </p>
-
-                    <p class="card-text text-primary"><i class="fas fa-info-circle mr-1"></i>Price details
-
-                        <span class="card-text btn btn-primary float-right">Reserve
-<i class="ml-1 fas fa-chevron-right"></i></span></p>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/newyork.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                <div class="card-body" style="
-    font-size: 80%;
-">
-                    <h5 class="card-title">Junior Suite, 1 Bedroom
-                    </h5>
-
-                    <p class="card-text mb-0"><i class="fas fa-ruler-combined"></i> 32 sq m</p>
-                    <p class="card-text mb-0"><i class="fas fa-user-friends"></i> Sleeps 2</p>
-                    <p class="card-text mb-0"><i class="fas fa-wifi"></i> Free WiFi</p>
-                    <p class="card-text mb-1"><i class="fas fa-bed"></i> 2 Twin Beds</p>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <span class="form-check-label col-6" for="inlineRadio1">Non-refundable</span>
-                        <span class="form-check-label col-6" for="" style="text-align: end;">+ USD 0</span></div>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <label class="form-check-label col-6" for="inlineRadio1">Fully refundable before Jul 24,
-                            2023</label><span class="form-check-label col-6" for=""
-                                              style="text-align: end;">+ USD 0</span>
-                    </div>
-                    <p class="card-text text-muted" style="
-    font-size: 80%;
-">Reserve now, pay later</p><h5><span class="badge bg-danger text-white" style="margin-top: 0.35rem;">25% off</span>
-                    </h5>
-                    <h5 class="h4 mb-1">BDT 44,912
-                        <del class="ml-2 h6 mb-1">USD 434</del>
-                    </h5>
-                    <p></p>
-                    <p class="card-text">USD 417 total <br>
-                        includes taxes &amp; fees<span class="card-text text-danger float-right">We have 1 left</span>
-                    </p>
-
-                    <p class="card-text text-primary"><i class="fas fa-info-circle mr-1"></i>Price details
-
-                        <span class="card-text btn btn-primary float-right">Reserve
-<i class="ml-1 fas fa-chevron-right"></i></span></p>
-                </div>
-            </div>
-            <div class="card">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/newyork.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                <div class="card-body" style="
-    font-size: 80%;
-">
-                    <h5 class="card-title">Luxury Suite, 1 Bedroom, Balcony, City View
-                    </h5>
-
-                    <p class="card-text mb-0"><i class="fas fa-ruler-combined"></i> 65 sq m</p>
-                    <p class="card-text mb-0"><i class="fas fa-user-friends"></i> Sleeps 4</p>
-                    <p class="card-text mb-0"><i class="fas fa-wifi"></i> Free WiFi</p>
-                    <p class="card-text mb-1"><i class="fas fa-bed"></i> 2 Twin Beds</p>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <span class="form-check-label col-6" for="inlineRadio1">Non-refundable</span>
-                        <span class="form-check-label col-6" for="" style="text-align: end;">+ USD 0</span></div>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <label class="form-check-label col-6" for="inlineRadio1">Fully refundable before Jul 24,
-                            2023</label><span class="form-check-label col-6" for=""
-                                              style="text-align: end;">+ USD 0</span>
-                    </div>
-                    <p class="card-text text-muted" style="
-    font-size: 80%;
-">Reserve now, pay later</p><h5><span class="badge bg-danger text-white" style="margin-top: 0.35rem;">25% off</span>
-                    </h5>
-                    <h5 class="h4 mb-1">BDT 44,912
-                        <del class="ml-2 h6 mb-1">USD 434</del>
-                    </h5>
-                    <p></p>
-                    <p class="card-text">USD 417 total <br>
-                        includes taxes &amp; fees<span class="card-text text-danger float-right">We have 1 left</span>
-                    </p>
-
-                    <p class="card-text text-primary"><i class="fas fa-info-circle mr-1"></i>Price details
-
-                        <span class="card-text btn btn-primary float-right">Reserve
-<i class="ml-1 fas fa-chevron-right"></i></span></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/newyork.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                <div class="card-body" style="
-    font-size: 80%;
-">
-                    <h5 class="card-title" style="
-">Deluxe Twin Room, 2 Twin Beds</h5>
-
-                    <p class="card-text mb-0"><i class="fas fa-ruler-combined"></i> 27 sq m</p>
-                    <p class="card-text mb-0"><i class="fas fa-user-friends"></i> Sleeps 2</p>
-                    <p class="card-text mb-0"><i class="fas fa-wifi"></i> Free WiFi</p>
-                    <p class="card-text mb-1"><i class="fas fa-bed"></i> 2 Twin Beds</p>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <span class="form-check-label col-6" for="inlineRadio1">Non-refundable</span>
-                        <span class="form-check-label col-6" for="" style="text-align: end;">+ USD 0</span></div>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <label class="form-check-label col-6" for="inlineRadio1">Fully refundable before Jul 24,
-                            2023</label><span class="form-check-label col-6" for=""
-                                              style="text-align: end;">+ USD 0</span>
-                    </div>
-                    <p class="card-text text-muted" style="
-    font-size: 80%;
-">Reserve now, pay later</p><h5><span class="badge bg-danger text-white" style="margin-top: 0.35rem;">25% off</span>
-                    </h5>
-                    <h5 class="h4 mb-1">BDT 44,912
-                        <del class="ml-2 h6 mb-1">USD 434</del>
-                    </h5>
-                    <p></p>
-                    <p class="card-text">USD 417 total <br>
-                        includes taxes &amp; fees<span class="card-text text-danger float-right">We have 2 left</span>
-                    </p>
-
-                    <p class="card-text text-primary"><i class="fas fa-info-circle mr-1"></i>Price details
-
-                        <span class="card-text btn btn-primary float-right">Reserve
-<i class="ml-1 fas fa-chevron-right"></i></span></p>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/newyork.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                <div class="card-body" style="
-    font-size: 80%;
-">
-                    <h5 class="card-title" style="
-">Junior Studio, 1 Bedroom</h5>
-
-                    <p class="card-text mb-0"><i class="fas fa-ruler-combined"></i> 34 sq m</p>
-                    <p class="card-text mb-0"><i class="fas fa-user-friends"></i> Sleeps 2</p>
-                    <p class="card-text mb-0"><i class="fas fa-wifi"></i> Free WiFi</p>
-                    <p class="card-text mb-1"><i class="fas fa-bed"></i> 2 Twin Beds</p>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <span class="form-check-label col-6" for="inlineRadio1">Non-refundable</span>
-                        <span class="form-check-label col-6" for="" style="text-align: end;">+ USD 0</span></div>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <label class="form-check-label col-6" for="inlineRadio1">Fully refundable before Jul 24,
-                            2023</label><span class="form-check-label col-6" for=""
-                                              style="text-align: end;">+ USD 0</span>
-                    </div>
-                    <p class="card-text text-muted" style="
-    font-size: 80%;
-">Reserve now, pay later</p><h5><span class="badge bg-danger text-white" style="margin-top: 0.35rem;">25% off</span>
-                    </h5>
-                    <h5 class="h4 mb-1">BDT 44,912
-                        <del class="ml-2 h6 mb-1">USD 434</del>
-                    </h5>
-                    <p></p>
-                    <p class="card-text">USD 417 total <br>
-                        includes taxes &amp; fees<span class="card-text text-danger float-right">We have 2 left</span>
-                    </p>
-
-                    <p class="card-text text-primary"><i class="fas fa-info-circle mr-1"></i>Price details
-
-                        <span class="card-text btn btn-primary float-right">Reserve
-<i class="ml-1 fas fa-chevron-right"></i></span></p>
-                </div>
-            </div>
-            <div class="card">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/newyork.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                <div class="card-body" style="
-    font-size: 80%;
-">
-                    <h5 class="card-title" style="
-">Deluxe Double Room, 1 King Bed</h5>
-
-                    <p class="card-text mb-0"><i class="fas fa-ruler-combined"></i> 34 sq m</p>
-                    <p class="card-text mb-0"><i class="fas fa-user-friends"></i> Sleeps 2</p>
-                    <p class="card-text mb-0"><i class="fas fa-wifi"></i> Free WiFi</p>
-                    <p class="card-text mb-1"><i class="fas fa-bed"></i> 2 Twin Beds</p>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <span class="form-check-label col-6" for="inlineRadio1">Non-refundable</span>
-                        <span class="form-check-label col-6" for="" style="text-align: end;">+ USD 0</span></div>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <label class="form-check-label col-6" for="inlineRadio1">Fully refundable before Jul 24,
-                            2023</label><span class="form-check-label col-6" for=""
-                                              style="text-align: end;">+ USD 0</span>
-                    </div>
-                    <p class="card-text text-muted" style="
-    font-size: 80%;
-">Reserve now, pay later</p><h5><span class="badge bg-danger text-white" style="margin-top: 0.35rem;">25% off</span>
-                    </h5>
-                    <h5 class="h4 mb-1">BDT 44,912
-                        <del class="ml-2 h6 mb-1">USD 434</del>
-                    </h5>
-                    <p></p>
-                    <p class="card-text">USD 417 total <br>
-                        includes taxes &amp; fees<span class="card-text text-danger float-right">We have 2 left</span>
-                    </p>
-
-                    <p class="card-text text-primary"><i class="fas fa-info-circle mr-1"></i>Price details
-
-                        <span class="card-text btn btn-primary float-right">Reserve
-<i class="ml-1 fas fa-chevron-right"></i></span></p>
-                </div>
-            </div>
-        </div>
+        <?php
+        //Loop for destination data
+        for ($i = 0; $i < $roomtype; $i++) {
+        ?>
 
         <div class="col-md-4">
             <div class="card">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="assets/img/newyork.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Second slide">
+                        </div>
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="assets/img/newyork.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
                             <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Third slide">
                         </div>
                     </div>
@@ -897,15 +565,13 @@ include 'functions.php';
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-                <div class="card-body" style="
-    font-size: 80%;
-">
-                    <h5 class="card-title">Executive Twin Room</h5>
+                <div class="card-body" style="font-size: 80%;">
+                    <h5 class="card-title"><?php echo $namer[$i]; ?></h5>
 
-                    <p class="card-text mb-0"><i class="fas fa-ruler-combined"></i> 29 sq m</p>
-                    <p class="card-text mb-0"><i class="fas fa-user-friends"></i> Sleeps 2</p>
+                    <p class="card-text mb-0"><i class="fas fa-ruler-combined"></i> <?php echo $size[$i]; ?> sq m</p>
+                    <p class="card-text mb-0"><i class="fas fa-user-friends"></i> Sleeps <?php echo $sleep[$i]; ?></p>
                     <p class="card-text mb-0"><i class="fas fa-wifi"></i> Free WiFi</p>
-                    <p class="card-text mb-1"><i class="fas fa-bed"></i> 2 Twin Beds</p>
+                    <p class="card-text mb-1"><i class="fas fa-bed"></i> <?php echo $bed[$i]; ?> Twin Beds</p>
                     <div class="form-check form-check-inline col-12">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
                                value="option1">
@@ -918,150 +584,32 @@ include 'functions.php';
                             2023</label><span class="form-check-label col-6" for=""
                                               style="text-align: end;">+ USD 0</span>
                     </div>
-                    <p class="card-text text-muted" style="
-    font-size: 80%;
-">Reserve now, pay later</p><h5><span class="badge bg-danger text-white" style="margin-top: 0.35rem;">25% off</span>
+                    <p class="card-text text-muted" style="font-size: 80%;">Reserve now, pay later</p><h5><span
+                                class="badge bg-danger text-white" style="margin-top: 0.35rem;">15% off</span>
                     </h5>
-                    <h5 class="h4 mb-1">BDT 44,912
-                        <del class="ml-2 h6 mb-1">USD 434</del>
+                    <h5 class="h4 mb-1"><?php $sizer=$size[$i]/10; $priceroom = $priceht*$sizer; $ofr=$priceroom*15/100; $ofprice=($priceroom+$ofr); echo $priceroom; ?>
+                        <del class="ml-2 h6 mb-1">USD <?php echo $ofprice; ?> </del>
                     </h5>
                     <p></p>
-                    <p class="card-text">USD 417 total <br>
-                        includes taxes &amp; fees<span class="card-text text-danger float-right">We have 3 left</span>
+                    <p class="card-text">USD <?php $taxr=$priceroom*10/100; $totr=$priceroom+$taxr; echo $totr; ?> total <br>includes taxes &amp; fees<span
+                                class="card-text text-danger float-right">We have <?php echo $free; ?> left</span>
                     </p>
 
                     <p class="card-text text-primary"><i class="fas fa-info-circle mr-1"></i>Price details
-
-                        <span class="card-text btn btn-primary float-right">Reserve
-<i class="ml-1 fas fa-chevron-right"></i></span></p>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item carousel-item-next carousel-item-left">
-                            <img class="d-block w-100" src="assets/img/newyork.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item active carousel-item-left">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                <div class="card-body" style="
-    font-size: 80%;
-">
-                    <h5 class="card-title">1 Bedroom Suite</h5>
-
-                    <p class="card-text mb-0"><i class="fas fa-ruler-combined"></i> 45 sq m</p>
-                    <p class="card-text mb-0"><i class="fas fa-user-friends"></i> Sleeps 2</p>
-                    <p class="card-text mb-0"><i class="fas fa-wifi"></i> Free WiFi</p>
-                    <p class="card-text mb-1"><i class="fas fa-bed"></i> 2 Twin Beds</p>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <span class="form-check-label col-6" for="inlineRadio1">Non-refundable</span>
-                        <span class="form-check-label col-6" for="" style="text-align: end;">+ USD 0</span></div>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <label class="form-check-label col-6" for="inlineRadio1">Fully refundable before Jul 24,
-                            2023</label><span class="form-check-label col-6" for=""
-                                              style="text-align: end;">+ USD 0</span>
-                    </div>
-                    <p class="card-text text-muted" style="
-    font-size: 80%;
-">Reserve now, pay later</p><h5><span class="badge bg-danger text-white" style="margin-top: 0.35rem;">25% off</span>
-                    </h5>
-                    <h5 class="h4 mb-1">BDT 44,912
-                        <del class="ml-2 h6 mb-1">USD 434</del>
-                    </h5>
-                    <p></p>
-                    <p class="card-text">USD 417 total <br>
-                        includes taxes &amp; fees<span class="card-text text-danger float-right">We have 3 left</span>
+                        <span class="card-text btn btn-primary float-right">Reserve<i
+                                    class="ml-1 fas fa-chevron-right"></i>
+                        </span>
                     </p>
-
-                    <p class="card-text text-primary"><i class="fas fa-info-circle mr-1"></i>Price details
-
-                        <span class="card-text btn btn-primary float-right">Reserve
-<i class="ml-1 fas fa-chevron-right"></i></span></p>
                 </div>
             </div>
-            <div class="card">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item carousel-item-next carousel-item-left">
-                            <img class="d-block w-100" src="assets/img/newyork.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item active carousel-item-left">
-                            <img class="d-block w-100" src="assets/img/tokyo.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                <div class="card-body" style="
-    font-size: 80%;
-">
-                    <h5 class="card-title">Superior Room</h5>
 
-                    <p class="card-text mb-0"><i class="fas fa-ruler-combined"></i> 24 sq m</p>
-                    <p class="card-text mb-0"><i class="fas fa-user-friends"></i> Sleeps 2</p>
-                    <p class="card-text mb-0"><i class="fas fa-wifi"></i> Free WiFi</p>
-                    <p class="card-text mb-1"><i class="fas fa-bed"></i> 2 Twin Beds</p>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <span class="form-check-label col-6" for="inlineRadio1">Non-refundable</span>
-                        <span class="form-check-label col-6" for="" style="text-align: end;">+ USD 0</span></div>
-                    <div class="form-check form-check-inline col-12">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                               value="option1">
-                        <label class="form-check-label col-6" for="inlineRadio1">Fully refundable before Jul 24,
-                            2023</label><span class="form-check-label col-6" for=""
-                                              style="text-align: end;">+ USD 0</span>
-                    </div>
-                    <p class="card-text text-muted" style="
-    font-size: 80%;
-">Reserve now, pay later</p><h5><span class="badge bg-danger text-white" style="margin-top: 0.35rem;">25% off</span>
-                    </h5>
-                    <h5 class="h4 mb-1">BDT 44,912
-                        <del class="ml-2 h6 mb-1">USD 434</del>
-                    </h5>
-                    <p></p>
-                    <p class="card-text">USD 417 total <br>
-                        includes taxes &amp; fees<span class="card-text text-danger float-right">We have 3 left</span>
-                    </p>
-
-                    <p class="card-text text-primary"><i class="fas fa-info-circle mr-1"></i>Price details
-
-                        <span class="card-text btn btn-primary float-right">Reserve
-<i class="ml-1 fas fa-chevron-right"></i></span></p>
-                </div>
-            </div>
         </div>
+            <?php
+            //Loop for destination data
+        }
+        ?>
     </div>
+    
 </div>
 
 <?php
