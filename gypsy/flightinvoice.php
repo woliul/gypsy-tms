@@ -522,10 +522,17 @@ include 'functions.php';
                                                                 style="display: inline-block; margin-right: 5px;font-size: 95%;"></i><?php echo $first; ?> <?php echo $last; ?>
                                             </h6></div>
                                     </td>
-                                    <td class="align-middle">$ <?php $childfare = $childno * ($price/2); $adultfare = $adultno * $price; $tot=($adultfare+$childfare); echo $tot; ?>
+                                    <td class="align-middle">$ <?php $childfare = $childno * ($price / 2);
+                                        $adultfare = $adultno * $price;
+                                        $tot = ($adultfare + $childfare);
+                                        echo $tot; ?>
                                         <div style="font-size: 70%;">
-                                            <p class="mb-0"><i class="fas fa-user" style="display: inline-block; margin-right: 2px;font-size: 95%;"></i><?php  echo $adultno; ?> x <?php echo $price; ?> = <?php echo $adultfare; ?></p>
-                                            <p><i class="fas fa-child" style="display: inline-block; margin-right: 2px;font-size: 95%;"></i><?php echo $childno; ?> x <?php echo ($price/2); ?> = <?php echo $childfare; ?></p>
+                                            <p class="mb-0"><i class="fas fa-user"
+                                                               style="display: inline-block; margin-right: 2px;font-size: 95%;"></i><?php echo $adultno; ?>
+                                                x <?php echo $price; ?> = <?php echo $adultfare; ?></p>
+                                            <p><i class="fas fa-child"
+                                                  style="display: inline-block; margin-right: 2px;font-size: 95%;"></i><?php echo $childno; ?>
+                                                x <?php echo($price / 2); ?> = <?php echo $childfare; ?></p>
                                         </div>
                                     </td>
                                     <td class="align-middle rightend">$ <?php echo $sertax; ?></td>

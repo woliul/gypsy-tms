@@ -24,7 +24,7 @@ $ccname = $_POST['ccname'];
 $ccnumber = $_POST['ccnumber'];
 $ccexpiration = $_POST['ccexpiration'];
 $ccv = $_POST['ccv'];
-$cell= $_POST['cell'];
+$cell = $_POST['cell'];
 $time = date('Y-m-d');
 //booking info end
 
@@ -45,10 +45,10 @@ if ($resultfl->num_rows > 0) {
     }
 }
 //Total Calculation
-$amount = (($price*$adults)+(($price/2)*$children));//Total amount
-$sertax = $amount*(20/100); //Service Tax Calculation
-$total= ($sertax + $amount); //Total price
-$rand = rand(100,500);
+$amount = (($price * $adults) + (($price / 2) * $children));//Total amount
+$sertax = $amount * (20 / 100); //Service Tax Calculation
+$total = ($sertax + $amount); //Total price
+$rand = rand(100, 500);
 $gor = $rand + $id;
 $orderid = ("ORDTMS" . $gor); //Order ID Generation
 $gin = $gor . $id;
@@ -58,7 +58,7 @@ $invid = ("TMSINV" . $gin); //Invoice ID Generation
 $fbquery = "INSERT INTO `flightbook` (`dep`, `dest`, `departure_date`, `departure_time`, `airline`, `fare`, `sertax`, `total`, `orderid`, `invoiceid`, `invoicedate`, `first`, `last`, `username`, `address`, `email`, `cell`, `adultno`, `childno`, `paytype`, `ccname`, `ccnumber`, `ccexpiration`, `ccv`)
                             VALUES ('$from','$to','$departureDate','$departureTime', '$airline', '$price', '$sertax', '$total', '$orderid', '$invid', '$time', '$first', '$last', '$username', '$address', '$email', '$cell', '$adults', '$children', '$paymentMethod', '$ccname', '$ccnumber', '$ccexpiration', '$ccv')";
 
-$fbresult = mysqli_query($conn, $fbquery );
+$fbresult = mysqli_query($conn, $fbquery);
 
 
 /*$username = $_SESSION['user'];*/
@@ -432,12 +432,13 @@ include 'functions.php';
             <div class="col-md-8">
                 <div class="border border-3 border-primary"></div>
                 <div class="card  bg-white shadow p-5">
-                    <div class="mb-4 text-center"> <i class="text-success display-3 far fa-check-circle"></i>
+                    <div class="mb-4 text-center"><i class="text-success display-3 far fa-check-circle"></i>
                     </div>
                     <div class="text-center">
                         <h1>Thank You !</h1>
                         <p>Thanks for booking with us, Here is your invoice..</p>
-                        <a href="flightinvoice.php?invid=<?php echo urlencode($invid); ?>" class="btn btn-primary">Show Invoice</a>
+                        <a href="flightinvoice.php?invid=<?php echo urlencode($invid); ?>" class="btn btn-primary">Show
+                            Invoice</a>
                     </div>
                 </div>
             </div>
@@ -448,87 +449,88 @@ include 'functions.php';
 // Error occurred during insertion
 
 // Loop through the ratings and generate the HTML code
-?>
-<div class="mt-4 container">
-    <div class="row">
-        <div class="container pl-0">
-            <div class="card mb-3">
-                <div class="card-header">
-                    <h5 class="mb-0">Flight from <?php echo $from; ?> to <?php echo $to; ?></h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h5><i class="fas fa-plane-departure"></i> Departure</h5>
-                            <p><i class="far fa-calendar-alt"></i> <?php echo $departureDate; ?></p>
-                            <p><i class="far fa-clock"></i> <?php echo $departureTime; ?></p>
-                            <p><i class="fas fa-plane"></i> <?php echo $airline; ?></p>
-                        </div>
-                        <div class="col-md-4">
-                            <h5><i class="fas fa-plane-arrival"></i> Arrival</h5>
-                            <p><i class="far fa-calendar-alt"></i> <?php echo $arrivalDate; ?></p>
-                            <p><i class="far fa-clock"></i> <?php echo $arrivalTime; ?></p>
-                            <p><i class="fas fa-plane"></i> <?php echo $airline; ?></p>
-                        </div>
-                        <div class="col-md-2">
-                            <h5><i class="far fa-clock"></i> Duration</h5>
-                            <p><?php echo $duration; ?></p>
-                        </div>
-                        <div class="col-md-2">
-                            <h5><i class="fas fa-coins"></i> Price</h5>
-                            <p><?php echo $price; ?></p>
-                        </div>
+    ?>
+    <div class="mt-4 container">
+        <div class="row">
+            <div class="container pl-0">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5 class="mb-0">Flight from <?php echo $from; ?> to <?php echo $to; ?></h5>
                     </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5><i class="fas fa-plane-departure"></i> Departure</h5>
+                                <p><i class="far fa-calendar-alt"></i> <?php echo $departureDate; ?></p>
+                                <p><i class="far fa-clock"></i> <?php echo $departureTime; ?></p>
+                                <p><i class="fas fa-plane"></i> <?php echo $airline; ?></p>
+                            </div>
+                            <div class="col-md-4">
+                                <h5><i class="fas fa-plane-arrival"></i> Arrival</h5>
+                                <p><i class="far fa-calendar-alt"></i> <?php echo $arrivalDate; ?></p>
+                                <p><i class="far fa-clock"></i> <?php echo $arrivalTime; ?></p>
+                                <p><i class="fas fa-plane"></i> <?php echo $airline; ?></p>
+                            </div>
+                            <div class="col-md-2">
+                                <h5><i class="far fa-clock"></i> Duration</h5>
+                                <p><?php echo $duration; ?></p>
+                            </div>
+                            <div class="col-md-2">
+                                <h5><i class="fas fa-coins"></i> Price</h5>
+                                <p><?php echo $price; ?></p>
+                            </div>
+                        </div>
 
-                </div>
-            </div>
-        </div>
-
-        <div class="card col-md-4">
-            <div class="mt-3">
-                <img alt="Eiffel Tower" class="card card-img-top mb-0" src="assets/img/flightbh.jpg">
-                <div class="ml-0 pl-0 pr-0 mr-0 mb-2 card-text">
-
-
-                    <!--Progressbar-->
-                    <div class="pt-3 pl-3 pr-3 mt-3 mb-3 card">
-                        <p><strong><i class="fas fa-plane"></i> Airline:</strong> <?php echo $airline; ?>
-                        </p>
-                        <p><strong><i class="fas fa-plane"></i> Flight:</strong> <?php echo $from; ?>
-                            | <?php echo $to; ?></p>
-                    </div>
-                    <div class="pl-3 pr-3 pt-3 card mt-3 mb-3">
-                        <p><strong><i class="fas fa-star"></i> Class:</strong> Economy</p>
-                        <p><strong><i class="far fa-clock"></i> Duration:</strong> <?php echo $duration; ?>
-                        </p>
-                    </div>
-                    <div class="pl-3 pr-3 pt-3 card mt-3 mb-3">
-                        <p class="mb-0"><strong><i class="fas fa-suitcase"></i> Baggage Allowance:</strong>
-                        </p>
-                        <ul>
-                            <li><strong><i class="fas fa-plane"></i> Flight:</strong> 7 kg</li>
-                            <li><strong><i class="fas fa-suitcase"></i> Cabin:</strong> 20 kg</li>
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-8 order-md-1">
-            <div class="card">
 
-                <div class=" pl-4 pr-4 pt-4 pb-4">
+            <div class="card col-md-4">
+                <div class="mt-3">
+                    <img alt="Eiffel Tower" class="card card-img-top mb-0" src="assets/img/flightbh.jpg">
+                    <div class="ml-0 pl-0 pr-0 mr-0 mb-2 card-text">
 
 
-                    <div class="row">
-                        <div class="col order-md-1">
-                            <h4 class="mb-3">Billing address</h4>
-                            <hr class="mt-3">
+                        <!--Progressbar-->
+                        <div class="pt-3 pl-3 pr-3 mt-3 mb-3 card">
+                            <p><strong><i class="fas fa-plane"></i> Airline:</strong> <?php echo $airline; ?>
+                            </p>
+                            <p><strong><i class="fas fa-plane"></i> Flight:</strong> <?php echo $from; ?>
+                                | <?php echo $to; ?></p>
+                        </div>
+                        <div class="pl-3 pr-3 pt-3 card mt-3 mb-3">
+                            <p><strong><i class="fas fa-star"></i> Class:</strong> Economy</p>
+                            <p><strong><i class="far fa-clock"></i> Duration:</strong> <?php echo $duration; ?>
+                            </p>
+                        </div>
+                        <div class="pl-3 pr-3 pt-3 card mt-3 mb-3">
+                            <p class="mb-0"><strong><i class="fas fa-suitcase"></i> Baggage Allowance:</strong>
+                            </p>
+                            <ul>
+                                <li><strong><i class="fas fa-plane"></i> Flight:</strong> 7 kg</li>
+                                <li><strong><i class="fas fa-suitcase"></i> Cabin:</strong> 20 kg</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 order-md-1">
+                <div class="card">
+
+                    <div class=" pl-4 pr-4 pt-4 pb-4">
+
+
+                        <div class="row">
+                            <div class="col order-md-1">
+                                <h4 class="mb-3">Billing address</h4>
+                                <hr class="mt-3">
 
                                 <form class="needs-validation" method="POST">
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="firstName">First name</label>
-                                            <input type="text" class="form-control" id="firstName" name="first" placeholder="" value=""
+                                            <input type="text" class="form-control" id="firstName" name="first"
+                                                   placeholder="" value=""
                                                    required>
                                             <div class="invalid-feedback">
                                                 Valid first name is required.
@@ -536,7 +538,8 @@ include 'functions.php';
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="lastName">Last name</label>
-                                            <input type="text" class="form-control" id="lastName" name="last" placeholder="" value=""
+                                            <input type="text" class="form-control" id="lastName" name="last"
+                                                   placeholder="" value=""
                                                    required>
                                             <div class="invalid-feedback">
                                                 Valid last name is required.
@@ -550,7 +553,8 @@ include 'functions.php';
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">@</span>
                                             </div>
-                                            <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                                            <input type="text" class="form-control" id="username" name="username"
+                                                   placeholder="Username"
                                                    required>
                                             <div class="invalid-feedback" style="width: 100%;">
                                                 Your username is required.
@@ -560,7 +564,8 @@ include 'functions.php';
 
                                     <div class="mb-3">
                                         <label for="email">Email</label>
-                                        <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com">
+                                        <input type="email" name="email" class="form-control" id="email"
+                                               placeholder="you@example.com">
                                         <div class="invalid-feedback">
                                             Please enter a valid email.
                                         </div>
@@ -568,7 +573,8 @@ include 'functions.php';
 
                                     <div class="mb-3">
                                         <label for="cell">Phone Number</label>
-                                        <input type="text" name="cell" class="form-control" id="cell" placeholder="Type your phone number">
+                                        <input type="text" name="cell" class="form-control" id="cell"
+                                               placeholder="Type your phone number">
                                         <div class="invalid-feedback">
                                             Please enter a valid Phone number.
                                         </div>
@@ -576,7 +582,8 @@ include 'functions.php';
 
                                     <div class="mb-3">
                                         <label for="address">Address</label>
-                                        <input type="text" name="address" class="form-control" id="address" placeholder="1234 Main St"
+                                        <input type="text" name="address" class="form-control" id="address"
+                                               placeholder="1234 Main St"
                                                required>
                                         <div class="invalid-feedback">
                                             Please enter your address.
@@ -587,7 +594,8 @@ include 'functions.php';
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
                                             <label for="adults">Adults</label>
-                                            <select class="custom-select d-block w-100" name="adults" id="adults" required="">
+                                            <select class="custom-select d-block w-100" name="adults" id="adults"
+                                                    required="">
                                                 <option value="">Choose...</option>
                                                 <option>1</option>
                                                 <option>2</option>
@@ -614,13 +622,14 @@ include 'functions.php';
                                     <h4 class="mb-3">Payment</h4>
 
                                     <div class="d-block my-3">
-                                        <div class="custom-control custom-radio" >
+                                        <div class="custom-control custom-radio">
                                             <input id="credit" name="paymentMethod" type="radio"
                                                    class="custom-control-input" value="Credit card" checked required>
                                             <label class="custom-control-label" for="credit">Credit card</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input id="debit" name="paymentMethod" type="radio" value="Debit card" class="custom-control-input"
+                                            <input id="debit" name="paymentMethod" type="radio" value="Debit card"
+                                                   class="custom-control-input"
                                                    required>
                                             <label class="custom-control-label" for="debit">Debit card</label>
                                         </div>
@@ -630,7 +639,8 @@ include 'functions.php';
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="cc-name">Name on card</label>
-                                            <input type="text" class="form-control" id="cc-name" name="ccname" placeholder=""
+                                            <input type="text" class="form-control" id="cc-name" name="ccname"
+                                                   placeholder=""
                                                    required>
                                             <small class="text-muted">Full name as displayed on card</small>
                                             <div class="invalid-feedback">
@@ -639,7 +649,8 @@ include 'functions.php';
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="cc-number">Credit card number</label>
-                                            <input type="text" class="form-control" id="cc-number" name="ccnumber" placeholder=""
+                                            <input type="text" class="form-control" id="cc-number" name="ccnumber"
+                                                   placeholder=""
                                                    required>
                                             <div class="invalid-feedback">
                                                 Credit card number is required
@@ -649,7 +660,8 @@ include 'functions.php';
                                     <div class="row">
                                         <div class="col-md-3 mb-3">
                                             <label for="cc-expiration">Expiration</label>
-                                            <input type="text" class="form-control" id="cc-expiration" name="ccexpiration" placeholder=""
+                                            <input type="text" class="form-control" id="cc-expiration"
+                                                   name="ccexpiration" placeholder=""
                                                    required>
                                             <div class="invalid-feedback">
                                                 Expiration date required
@@ -657,7 +669,8 @@ include 'functions.php';
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="ccv">CVV</label>
-                                            <input type="text" class="form-control" id="ccv" name="ccv" placeholder="" required>
+                                            <input type="text" class="form-control" id="ccv" name="ccv" placeholder=""
+                                                   required>
                                             <div class="invalid-feedback">
                                                 Security code required
                                             </div>
@@ -674,16 +687,16 @@ include 'functions.php';
                                 </form>
 
 
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
     <?php
-}?>
+} ?>
 
 <?php
 // Include the footer

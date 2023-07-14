@@ -95,7 +95,8 @@ include 'header.php';
                             <i class="fas fa-plane-departure"></i>
                         </span>
                         </div>
-                        <input class="form-control border-white pl-0" name="departure" list="datalistOptions" id="exampleDataList"
+                        <input class="form-control border-white pl-0" name="departure" list="datalistOptions"
+                               id="exampleDataList"
                                placeholder="Departure City">
                     </div>
                     <datalist id="datalistOptions">
@@ -117,10 +118,12 @@ include 'header.php';
                 <div class="form-group col-md-6">
 
                     <div class="input-group">
-                        <input class="form-control border-white" name="destination" list="datalistOptions2" id="exampleDataList2"
+                        <input class="form-control border-white" name="destination" list="datalistOptions2"
+                               id="exampleDataList2"
                                placeholder="Destination City">
                         <div class="input-group-prepend">
-                        <span style=" border-top-right-radius: 2px; border-bottom-right-radius: 2px;" class="pl-2 input-group-text pr-2 bg-white border-white">
+                        <span style=" border-top-right-radius: 2px; border-bottom-right-radius: 2px;"
+                              class="pl-2 input-group-text pr-2 bg-white border-white">
                             <i class="fas fa-plane-arrival"></i>
                         </span>
                         </div>
@@ -150,9 +153,7 @@ include 'header.php';
 </div>
 <?php
 //Loop for destination data
-for ($i = 0;
-     $i < $count;
-     $i++) {
+for ($i = 0; $i < $count; $i++) {
     ?>
 
     <div class="container">
@@ -196,7 +197,8 @@ for ($i = 0;
                                class="collapsed text-right h4"><i class="fa fa-angle-down"></i></p>
                         </div>
                     </div>
-                    <a href="flightbooking.php?destination=<?php echo urlencode($id[$i]); ?>" type="submit" class="btn btn-primary"><i class="fas fa-check mr-2"></i>Book Now</a>
+                    <a href="flightbooking.php?destination=<?php echo urlencode($id[$i]); ?>" type="submit"
+                       class="btn btn-primary"><i class="fas fa-check mr-2"></i>Book Now</a>
 
             </div>
 
