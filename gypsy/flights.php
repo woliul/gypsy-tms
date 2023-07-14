@@ -84,7 +84,7 @@ include 'header.php';
 <div class="jumbotron flbg">
     <div class="container">
         <h1>Search for Flights</h1>
-        <p>Start planning your trip by searching for the best flight options.</p>
+        <p>Start planning your trip by searching for the best flights.</p>
         <form class="search-bar" action="" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -162,7 +162,7 @@ for ($i = 0;
                     <span name="dest"><strong><?php echo $to[$i]; ?></strong></span></h5>
             </div>
             <div class="card-body">
-
+                <form action="" method="post">
                     <div class="row collapsed" aria-controls="flightDetails<?php echo $i; ?>" aria-expanded="false"
                          data-target="#flightDetails<?php echo $i; ?>" data-toggle="collapse">
                         <div class="col-md-4">

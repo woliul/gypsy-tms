@@ -6,6 +6,38 @@ include_once 'database.php';
 if (isset($_SESSION['user']) != "") {
 
 }
+if (isset($_GET['invid'])) {// Destination or City Places
+    $invid = $_GET['invid'];
+}
+
+$queryfl = "SELECT * FROM flightbook WHERE invoiceid  = '" . $invid . "'";
+$resultfl = $conn->query($queryfl);
+if ($resultfl->num_rows > 0) {
+    while ($rowfl = $resultfl->fetch_assoc()) {
+        $from = $rowfl['dep'];
+        $to = $rowfl['dest'];
+        $departureDate = $rowfl['departure_date'];
+        $departureTime = $rowfl['departure_time'];
+        $airline = $rowfl['airline'];
+        $price = $rowfl['fare'];
+        $sertax = $rowfl['sertax'];
+        $total = $rowfl['total'];
+        $orderid = $rowfl['orderid'];
+        $invdate = $rowfl['invoicedate'];
+        $first = $rowfl['first'];
+        $last = $rowfl['last'];
+        $address = $rowfl['address'];
+        $email = $rowfl['email'];
+        $cell = $rowfl['cell'];
+        $adultno = $rowfl['adultno'];
+        $childno = $rowfl['childno'];
+        $paytype = $rowfl['paytype'];
+        $ccname = $rowfl['ccname'];
+        $ccnumber = $rowfl['ccnumber'];
+        $ccexpiration = $rowfl['ccexpiration'];
+        $ccv = $rowfl['ccv'];
+    }
+}
 /*$username = $_SESSION['user'];*/
 include 'header.php';
 include 'func.php';
@@ -404,7 +436,7 @@ include 'functions.php';
                         <div class=""><h4 class="float-right"><span class="badge bg-success text-white"
                                                                     style="margin-top: 0.35rem;">Paid</span></h4><h4
                                     class="float-right text-muted font-size-15 mb-0 pr-2" style="margin-top: 0.3rem;">
-                                Invoice #DS0204 </h4></div>
+                                Invoice #<?php echo $invid; ?> </h4></div>
                         <div class="mb-4">
                             <h2 class="mb-1 text-muted">Travel Management System</h2>
                         </div>
@@ -421,10 +453,10 @@ include 'functions.php';
                         <div class="col-sm-6">
                             <div class="text-muted">
                                 <h5 class="font-size-16 mb-3">Billed To:</h5>
-                                <h5 class="font-size-15 mb-2">James William</h5>
-                                <p class="mb-1">4068 Post Avenue Newfolden, MN 56738</p>
-                                <p class="mb-1">PrestonMiller@armyspy.com</p>
-                                <p>001-234-5678</p>
+                                <h5 class="font-size-15 mb-2"><?php echo $first; ?><?php echo $last; ?></h5>
+                                <p class="mb-1"><?php echo $address; ?></p>
+                                <p class="mb-1"><?php echo $email; ?></p>
+                                <p><?php echo $cell; ?></p>
                             </div>
                         </div>
                         <!-- end col -->
@@ -432,15 +464,15 @@ include 'functions.php';
                             <div class="text-muted text-sm-end">
                                 <div>
                                     <h5 class=" mb-1">Invoice No:</h5>
-                                    <p>#DZ0112</p>
+                                    <p>#<?php echo $invid; ?></p>
                                 </div>
                                 <div class="mt-4">
                                     <h5 class="font-size-15 mb-1">Invoice Date:</h5>
-                                    <p>12 Oct, 2020</p>
+                                    <p><?php echo $invdate; ?></p>
                                 </div>
                                 <div class="mt-4">
                                     <h5 class="font-size-15 mb-1">Order No:</h5>
-                                    <p>#1123456</p>
+                                    <p>#<?php echo $orderid; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -455,7 +487,7 @@ include 'functions.php';
                             <table class="table align-middle table-nowrap table-centered text-muted mb-0">
                                 <thead>
                                 <tr>
-                                    <th style="width: 70px;">No.</th>
+                                    <th style="width: 70px;">Sl.</th>
                                     <th>Item</th>
                                     <th>Base Fare</th>
                                     <th class="align-middle rightend">Service Fee and Taxes</th>
@@ -465,57 +497,60 @@ include 'functions.php';
                                 <tbody>
                                 <tr>
                                     <th scope="row" class="align-middle">01</th>
-                                    <td class="align-middle" style="
-    font-size: 80%;
-">
+                                    <td class="align-middle" style="font-size: 80%;">
                                         <div class="align-middle">
-                                            <h5 class="text-truncate font-size-14 mb-1">KLM Royal Dutch Airlines</h5>
+                                            <h5 class="text-truncate font-size-14 mb-1"><?php echo $airline; ?></h5>
                                             <p class="mb-0"><i class="fas fa-plane"
-                                                               style="display: inline-block;transform: rotate(-90deg);margin-right: 5px;font-size: 95%;"></i>Abu
-                                                Dhabi International (AUH)</p>
-                                            <p><i class="fas fa-plane"
-                                                  style="display: inline-block;transform: rotate(90deg);margin-right: 5px;font-size: 95%;"></i>Amsterdam
-                                                (AMS)</p>
-                                            <p class="mb-0"><i class="far fa-calendar-alt"
-                                                               style="display: inline-block; margin-right: 5px;font-size: 95%;"></i>2023-08-10
+                                                               style="display: inline-block;transform: rotate(-90deg);margin-right: 5px;font-size: 95%;"></i><?php echo $from; ?>
                                             </p>
-                                            <p><i class="far fa-clock"
-                                                  style="display: inline-block; margin-right: 2px;font-size: 95%;"></i>12:15:00
-                                            </p><h6 class="mb-0"><i class="fas fa-user"
-                                                                    style="display: inline-block; margin-right: 5px;font-size: 95%;"></i>James
-                                                William</h6></div>
+                                            <p><i class="fas fa-plane"
+                                                  style="display: inline-block;transform: rotate(90deg);margin-right: 5px;font-size: 95%;"></i><?php echo $to; ?>
+                                            </p>
+                                            <p class="mb-0"><i class="far fa-calendar-alt"
+                                                               style="display: inline-block; margin-right: 5px;font-size: 95%;"></i><?php echo $departureDate; ?>
+                                            </p>
+                                            <p><i class="fas fa-clock"
+                                                  style="display: inline-block; margin-right: 2px;font-size: 95%;"></i><?php echo $departureTime; ?>
+                                            </p>
+                                            <p class="mb-0"><i class="fas fa-user"
+                                                               style="display: inline-block; margin-right: 2px;font-size: 95%;"></i><?php echo $adultno; ?>
+                                            </p>
+                                            <p><i class="fas fa-child"
+                                                  style="display: inline-block; margin-right: 2px;font-size: 95%;"></i><?php echo $childno; ?>
+                                            </p>
+                                            <h6 class="mb-0"><i class="fas fa-user"
+                                                                style="display: inline-block; margin-right: 5px;font-size: 95%;"></i><?php echo $first; ?> <?php echo $last; ?>
+                                            </h6></div>
                                     </td>
-                                    <td class="align-middle">$ 34568.50</td>
-                                    <td class="align-middle rightend">$ 4550.50</td>
-                                    <td class="align-middle rightend">$ 39119</td>
+                                    <td class="align-middle">$ <?php $childfare = $childno * ($price/2); $adultfare = $adultno * $price; $tot=($adultfare+$childfare); echo $tot; ?>
+                                        <div style="font-size: 70%;">
+                                            <p class="mb-0"><i class="fas fa-user" style="display: inline-block; margin-right: 2px;font-size: 95%;"></i><?php  echo $adultno; ?> x <?php echo $price; ?> = <?php echo $adultfare; ?></p>
+                                            <p><i class="fas fa-child" style="display: inline-block; margin-right: 2px;font-size: 95%;"></i><?php echo $childno; ?> x <?php echo ($price/2); ?> = <?php echo $childfare; ?></p>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle rightend">$ <?php echo $sertax; ?></td>
+                                    <td class="align-middle rightend">$ <?php echo $total; ?></td>
                                 </tr>
                                 <!-- end tr -->
 
                                 <!-- end tr -->
                                 <tr>
                                     <th scope="row" colspan="4" class="align-middle rightend">Sub Total :</th>
-                                    <td class="align-middle rightend">$732.50</td>
+                                    <td class="align-middle rightend">$ <?php echo $total; ?></td>
                                 </tr>
                                 <!-- end tr -->
                                 <tr>
                                     <th scope="row" colspan="4" class="align-middle rightend">
                                         Discount :
                                     </th>
-                                    <td class="rightend">- $25.50</td>
+                                    <td class="rightend">- 0%</td>
                                 </tr>
-                                <!-- end tr -->
-                                <tr>
-                                    <th scope="row" colspan="4" class="align-middle rightend border-0 text-end">
-                                        Shipping Charge :
-                                    </th>
-                                    <td class="border-0 rightend">$20.00</td>
-                                </tr>
-                                <!-- end tr -->
 
                                 <!-- end tr -->
                                 <tr>
                                     <th scope="row" colspan="4" class="border-0 rightend align-middle">Total :</th>
-                                    <td class="border-0 align-middle rightend"><h4 class="m-0 fw-semibold">$739.00</h4>
+                                    <td class="border-0 align-middle rightend"><h4 class="m-0 fw-semibold">
+                                            $ <?php echo $total; ?></h4>
                                     </td>
                                 </tr>
                                 <!-- end tr -->
