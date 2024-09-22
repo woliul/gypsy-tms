@@ -2,6 +2,11 @@
 <project version="4">
   <component name="SonarLintProjectSettings">
     <option name="bindingEnabled" value="true" />
+    <option name="moduleMapping">
+      <map>
+        <entry key="gypsy-tms" value="alpha0.2" />
+      </map>
+    </option>
     <option name="projectKey" value="woliul_gypsy-tms" />
     <option name="serverId" value="woliul_gypsy-tms" />
   </component>
