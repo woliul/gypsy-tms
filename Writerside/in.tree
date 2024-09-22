@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="in"
+                 name="Instance Name" start-page="README.md">
+
+    <toc-element topic="SECURITY.md"/>
+    <toc-element topic="README.md"/>
+    <toc-element toc-title=".github">
+        <toc-element toc-title="ISSUE_TEMPLATE">
+            <toc-element topic="bug_report.md"/>
+            <toc-element topic="feature_request.md"/>
+        </toc-element>
+    </toc-element>
+</instance-profile>
