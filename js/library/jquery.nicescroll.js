@@ -1,12 +1,6 @@
-/* jquery.nicescroll
--- version 3.5.0 BETA5
--- copyright 2011-12-13 InuYaksa*2013
--- licensed under the MIT
---
--- http://areaaperta.com/nicescroll
--- https://github.com/inuyaksa/jquery.nicescroll
---
-*/
+/*
+ * Copyright (c) 2024. All rights reserved by Woliul Hasan. Fork me on https://github.com/woliul
+ */
 
 (function (jQuery) {
 

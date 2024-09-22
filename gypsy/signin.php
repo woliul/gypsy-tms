@@ -1,4 +1,8 @@
 <?php
+/*
+ * Copyright (c) 2024. All rights reserved by Woliul Hasan. Fork me on https://github.com/woliul
+ */
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the form data
     $user = $_POST['username'];

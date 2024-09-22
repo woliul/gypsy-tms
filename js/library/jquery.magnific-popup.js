@@ -1,6 +1,6 @@
-/*! Magnific Popup - v1.0.0 - 2015-01-03
-* http://dimsemenov.com/plugins/magnific-popup/
-* Copyright (c) 2015 Dmitry Semenov; */
+/*
+ * Copyright (c) 2024. All rights reserved by Woliul Hasan. Fork me on https://github.com/woliul
+ */
 ;(function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.

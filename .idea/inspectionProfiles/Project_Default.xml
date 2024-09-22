@@ -91,14 +91,17 @@
     <inspection_tool class="CssNonIntegerLengthInPixels" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="CssOverwrittenProperties" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CssRedundantUnit" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="CssReplaceWithShorthandSafely" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="CssReplaceWithShorthandSafely" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="CssReplaceWithShorthandUnsafely" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="myCustomPropertiesEnabled" value="false" />
-      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="true" />
       <option name="myCustomPropertiesList">
         <value>
-          <list size="0" />
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="flex-preferred-size" />
+            <item index="1" class="java.lang.String" itemvalue="font-color" />
+          </list>
         </value>
       </option>
     </inspection_tool>
@@ -976,9 +979,9 @@
     <inspection_tool class="VueUnrecognizedDirective" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="VueUnrecognizedSlot" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="VulnerableLibrariesLocal" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="W3CssValidation" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="W3CssValidation" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="myCssVersion" value="css3svg" />
-      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myIgnoreVendorSpecificProperties" value="true" />
     </inspection_tool>
     <inspection_tool class="WebpackConfigHighlighting" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="WithStatementJS" enabled="true" level="WARNING" enabled_by_default="true" />

@@ -1464,6 +1464,10 @@ ALTER TABLE `hotelroom`
 ALTER TABLE `Locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
+/*
+ * Copyright (c) 2024. All rights reserved by Woliul Hasan. Fork me on https://github.com/woliul
+ */
+
 --
 -- AUTO_INCREMENT for table `review`
 --

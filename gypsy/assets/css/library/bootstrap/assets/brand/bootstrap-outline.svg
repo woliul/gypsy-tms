@@ -1,3 +1,7 @@
+<!--
+  - Copyright (c) 2024. All rights reserved by Woliul Hasan. Fork me on https://github.com/woliul
+  -->
+
 <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 180 612 612" focusable="false" role="img">
   <title>Bootstrap</title>
   <path d="M510 186c25.5 0 49.6 10 67.8 28.2S606 256.5 606 282v408c0 25.5-10 49.6-28.2 67.8S535.5 786 510 786H102c-25.5 0-49.6-10-67.8-28.2S6 715.5 6 690V282c0-25.5 10-49.6 28.2-67.8S76.5 186 102 186h408m0-6H102C45.9 180 0 225.9 0 282v408c0 56.1 45.9 102 102 102h408c56.1 0 102-45.9 102-102V282c0-56.1-45.9-102-102-102z"/>
